@@ -103,16 +103,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 /* WAT KAN IK */
 .kan-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:4rem;align-items:end;}
 .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);margin-bottom:5rem;}
-.sk{background:var(--bg);padding:2.2rem;transition:background .25s;}
-.sk:hover{background:var(--white);}
+.sk-flip{perspective:800px;background:var(--bg);min-height:210px;}
+.sk-flip-inner{position:relative;width:100%;height:100%;min-height:210px;transition:transform .6s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d;}
+.sk-flip:hover .sk-flip-inner{transform:rotateY(180deg);}
+.sk-front,.sk-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:2.2rem;display:flex;flex-direction:column;justify-content:center;}
+.sk-front{background:var(--bg);}
+.sk-back{background:var(--white);transform:rotateY(180deg);border-left:3px solid var(--blue);}
+.sk-back-label{font-family:"DM Mono",monospace;font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:.7rem;}
+.sk-back-text{font-size:.8rem;color:var(--mid);line-height:1.8;}
+.sk-back-text strong{color:var(--ink);font-weight:600;}
 .sk-num{font-family:"Playfair Display",serif;font-size:2rem;color:var(--blue);opacity:.3;line-height:1;margin-bottom:.9rem;}
 .sk-h{font-weight:600;font-size:.88rem;margin-bottom:.4rem;}
 .sk-d{font-size:.8rem;color:var(--mid);line-height:1.7;}
 .sk-tag{display:inline-block;margin-top:.6rem;font-family:"DM Mono",monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);}
 .honours-wrap{margin-bottom:5rem;}
 .honours-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2rem;}
-.honours-card{padding:2rem;background:var(--white);border:1px solid var(--rule);border-top:3px solid var(--gold);transition:transform .25s,box-shadow .25s;}
-.honours-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(26,86,219,.08);}
+.honours-flip{perspective:800px;min-height:220px;}
+.honours-flip-inner{position:relative;width:100%;height:100%;min-height:220px;transition:transform .6s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d;}
+.honours-flip:hover .honours-flip-inner{transform:rotateY(180deg);}
+.honours-front,.honours-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:2rem;background:var(--white);border:1px solid var(--rule);border-top:3px solid var(--gold);}
+.honours-back{transform:rotateY(180deg);border-top-color:var(--blue);}
+.honours-back-label{font-family:"DM Mono",monospace;font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem;}
+.honours-back-text{font-size:.8rem;color:var(--mid);line-height:1.8;}
+.honours-back-text strong{color:var(--ink);font-weight:600;}
 .honours-ects{font-family:"Playfair Display",serif;font-size:2rem;color:var(--gold);opacity:.5;line-height:1;margin-bottom:.6rem;}
 .honours-h{font-weight:600;font-size:.9rem;margin-bottom:.5rem;}
 .honours-d{font-size:.8rem;color:var(--mid);line-height:1.75;}
@@ -163,7 +176,7 @@ footer p{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;co
   nav{padding:1rem 1.4rem;} .wrap{padding:0 1.4rem;}
   .hero{grid-template-columns:1fr;gap:2rem;padding:2rem 1.4rem;} .photo-wrap{max-width:280px;}
   .wie-intro,.kan-intro,.van-inner,.cf-grid,.mbti-header,.mbti-dim-grid,.honours-grid,.ambitie-grid,.kwal-grid{grid-template-columns:1fr;gap:2rem;}
-  .skills-grid{grid-template-columns:1fr 1fr;} .q-item{grid-template-columns:50px 1fr;gap:1rem;}
+  .skills-grid{grid-template-columns:1fr 1fr;} .sk-flip{min-height:180px;} .sk-flip-inner{min-height:180px;} .q-item{grid-template-columns:50px 1fr;gap:1rem;}
   footer{flex-direction:column;gap:.5rem;text-align:center;}
 }
 </style>
@@ -361,20 +374,60 @@ footer p{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;co
       <p class="reveal d1 body-text">Van superjachten tot luxury residences — ik heb geleerd hoe je premium merken neerzet, verhalen vertelt en doelgroepen bereikt in een wereld waar standaard niet bestaat.</p>
     </div>
     <div class="skills-grid">
-      <div class="sk reveal"><div class="sk-num">I</div><div class="sk-h">Sociale media strategie</div><div class="sk-d">Campagnes opzetten, content kalenders bouwen en Instagram &amp; LinkedIn-strategieën ontwikkelen voor premium merken als VBH en Alchimia.</div><span class="sk-tag">VBH · Alchimia · DPG Media</span></div>
-      <div class="sk reveal d1"><div class="sk-num">II</div><div class="sk-h">Contentstrategie &amp; storytelling</div><div class="sk-d">Merkverhalen vertalen naar consistente content — van editoriaal conceptdenken tot publicaties voor superjacht- en luxury residence-merken.</div><span class="sk-tag">DPG Media · VBH</span></div>
-      <div class="sk reveal d2"><div class="sk-num">III</div><div class="sk-h">Brand &amp; positionering</div><div class="sk-d">Meedenken over hoe een premium merk zich onderscheidt — van visuele identiteit tot tone of voice en doelgroepstrategie.</div><span class="sk-tag">Alchimia · VBH</span></div>
-      <div class="sk reveal d1"><div class="sk-num">IV</div><div class="sk-h">Campagne-opzet</div><div class="sk-d">Van concept naar executie. Doelgroepen definiëren, kanalen kiezen en content inzetten op het juiste moment voor het juiste publiek.</div><span class="sk-tag">Instagram · LinkedIn</span></div>
-      <div class="sk reveal d2"><div class="sk-num">V</div><div class="sk-h">Luxury &amp; international context</div><div class="sk-d">Ervaring in de wereld van superjachten (300+ projecten), high-end residences en internationale premium merken. Culturele verschillen vanuit Japan.</div><span class="sk-tag">VBH · Alchimia · Japan</span></div>
-      <div class="sk reveal d3"><div class="sk-num">VI</div><div class="sk-h">Projectmanagement</div><div class="sk-d">Meerdere rollen en projecten tegelijk managen — gestructureerd, precies en op deadline. Bewezen in de praktijk.</div><span class="sk-tag">DPG Media · VBH · UMH</span></div>
+      <div class="sk-flip reveal">
+        <div class="sk-flip-inner">
+          <div class="sk-front"><div class="sk-num">I</div><div class="sk-h">Sociale media strategie</div><div class="sk-d">Campagnes opzetten, content kalenders bouwen en Instagram &amp; LinkedIn-strategieën ontwikkelen voor premium merken als VBH en Alchimia.</div><span class="sk-tag">VBH · Alchimia</span></div>
+          <div class="sk-back"><div class="sk-back-label">In de praktijk</div><div class="sk-back-text"><strong>VBH &amp; Alchimia</strong> — Instagram- en LinkedIn-strategieën ontwikkeld voor een internationaal superjachtmerk actief in 10+ landen. Content kalenders gebouwd en campagnes opgezet voor zowel het moedermerk als het luxury design-label.</div></div>
+        </div>
+      </div>
+      <div class="sk-flip reveal d1">
+        <div class="sk-flip-inner">
+          <div class="sk-front"><div class="sk-num">II</div><div class="sk-h">Contentstrategie &amp; storytelling</div><div class="sk-d">Merkverhalen vertalen naar consistente content — van editoriaal conceptdenken tot publicaties voor superjacht- en luxury residence-merken.</div><span class="sk-tag">DPG Media · VBH</span></div>
+          <div class="sk-back"><div class="sk-back-label">In de praktijk</div><div class="sk-back-text"><strong>DPG Media</strong> — E-learning content ontwikkeld voor het Certified-platform (extern, voor mediaprofessionals) en Digital Continuous Learning (intern). Van stagiaire doorgegroeid naar Content Manager.</div></div>
+        </div>
+      </div>
+      <div class="sk-flip reveal d2">
+        <div class="sk-flip-inner">
+          <div class="sk-front"><div class="sk-num">III</div><div class="sk-h">Brand &amp; positionering</div><div class="sk-d">Meedenken over hoe een premium merk zich onderscheidt — van visuele identiteit tot tone of voice en doelgroepstrategie.</div><span class="sk-tag">Alchimia · VBH</span></div>
+          <div class="sk-back"><div class="sk-back-label">In de praktijk</div><div class="sk-back-text"><strong>Alchimia</strong> — Mee gewerkt aan de positionering van Alchimia als luxury design-lijn voor high-end residences en superjachten. Visuele identiteit en tone of voice mee ontwikkeld voor een internationaal premium publiek.</div></div>
+        </div>
+      </div>
+      <div class="sk-flip reveal d1">
+        <div class="sk-flip-inner">
+          <div class="sk-front"><div class="sk-num">IV</div><div class="sk-h">Campagne-opzet</div><div class="sk-d">Van concept naar executie. Doelgroepen definiëren, kanalen kiezen en content inzetten op het juiste moment voor het juiste publiek.</div><span class="sk-tag">Instagram · LinkedIn</span></div>
+          <div class="sk-back"><div class="sk-back-label">In de praktijk</div><div class="sk-back-text"><strong>VBH &amp; Alchimia</strong> — Campagnes opgezet van concept tot executie. Doelgroepen gedefinieerd, kanalen gekozen en content strategisch ingezet voor zowel het superjachtmerk als het luxury design-label in een internationale markt.</div></div>
+        </div>
+      </div>
+      <div class="sk-flip reveal d2">
+        <div class="sk-flip-inner">
+          <div class="sk-front"><div class="sk-num">V</div><div class="sk-h">Luxury &amp; international context</div><div class="sk-d">Ervaring in de superjachtindustrie, luxury integrated technology &amp; architecture en internationale premium merken. Culturele verschillen vanuit Japan.</div><span class="sk-tag">VBH · Alchimia · Japan</span></div>
+          <div class="sk-back"><div class="sk-back-label">In de praktijk</div><div class="sk-back-text"><strong>VBH</strong> — Marketing in de superjachtindustrie en luxury integrated technology &amp; architecture. Internationaal merk actief in 10+ landen. <strong>Japan</strong> — Japanse markt en consumentengedrag onderzocht in Tokyo voor het HvA Honours-programma.</div></div>
+        </div>
+      </div>
+      <div class="sk-flip reveal d3">
+        <div class="sk-flip-inner">
+          <div class="sk-front"><div class="sk-num">VI</div><div class="sk-h">Projectmanagement</div><div class="sk-d">Meerdere rollen en projecten tegelijk managen — gestructureerd, precies en op deadline. Bewezen in de praktijk.</div><span class="sk-tag">DPG Media · VBH · UMH</span></div>
+          <div class="sk-back"><div class="sk-back-label">In de praktijk</div><div class="sk-back-text">Twee verantwoordelijkheden bij <strong>DPG Media</strong> (Certified + Digital Continuous Learning) én twee bij <strong>VBH</strong> (VBH + Alchimia) tegelijk gemanaged. Daarvoor 4+ jaar Shift Lead bij Maison de George met operationele verantwoordelijkheid.</div></div>
+        </div>
+      </div>
     </div>
     <div class="honours-wrap reveal">
       <span class="chip orange" style="margin-bottom:1.8rem;">Honours Programma HvA</span>
       <h2 class="h-serif" style="margin-bottom:.8rem;">Extra vakken, <em>extra diepgang</em></h2>
       <p class="body-text">Naast mijn reguliere studie heb ik extra vakken gevolgd binnen het Honours Programma van de HvA — voor studenten die meer uit hun studie willen halen dan het minimum.</p>
       <div class="honours-grid">
-        <div class="honours-card"><div class="honours-ects">15</div><div class="honours-h">Leadership in Marketing</div><div class="honours-d">Verdieping in strategische marketing en leiderschap binnen marketingteams. Hoe onderbouw je marketingkeuzes vanuit merkstrategie en positionering? Focus op het combineren van strategisch denken met praktische toepassing in realistische marketingvraagstukken.</div></div>
-        <div class="honours-card"><div class="honours-ects">5</div><div class="honours-h">International Business — Japan</div><div class="honours-d">Internationale business en marketing in Japan (Tokyo). Samengewerkt met lokale organisaties, onderzoek gedaan naar de Japanse markt en consumentengedrag. Deze ervaring heeft mijn begrip van culturele verschillen in business sterk verdiept.</div></div>
+        <div class="honours-flip">
+          <div class="honours-flip-inner">
+            <div class="honours-front"><div class="honours-ects">15</div><div class="honours-h">Leadership in Marketing</div><div class="honours-d">Verdieping in strategische marketing en leiderschap binnen marketingteams. Hoe onderbouw je marketingkeuzes vanuit merkstrategie en positionering? Focus op het combineren van strategisch denken met praktische toepassing in realistische marketingvraagstukken.</div></div>
+            <div class="honours-back"><div class="honours-back-label">Wat ik leerde &amp; deed</div><div class="honours-back-text">Strategische marketingkeuzes leren onderbouwen vanuit <strong>merkstrategie en positionering</strong>. Stakeholders meenemen in besluitvorming. Strategisch denken combineren met praktische toepassing — vaardigheden die ik nu dagelijks inzet bij VBH en DPG Media.</div></div>
+          </div>
+        </div>
+        <div class="honours-flip">
+          <div class="honours-flip-inner">
+            <div class="honours-front"><div class="honours-ects">5</div><div class="honours-h">International Business — Japan</div><div class="honours-d">Internationale business en marketing in Japan (Tokyo). Samengewerkt met lokale organisaties, onderzoek gedaan naar de Japanse markt en consumentengedrag. Deze ervaring heeft mijn begrip van culturele verschillen in business sterk verdiept.</div></div>
+            <div class="honours-back"><div class="honours-back-label">Wat ik leerde &amp; deed</div><div class="honours-back-text">In <strong>Tokyo</strong> samengewerkt met lokale organisaties en onderzoek gedaan naar Japans consumentengedrag. Inzichten gepresenteerd over culturele verschillen in marketing en business — een ervaring die mijn internationale blik blijvend heeft gevormd.</div></div>
+          </div>
+        </div>
       </div>
     </div>
     <span class="chip orange reveal" style="margin-bottom:2rem;">Werkervaring</span>
@@ -525,7 +578,7 @@ document.addEventListener('mousemove', function(e) {
   cur.style.left = e.clientX + 'px';
   cur.style.top = e.clientY + 'px';
 });
-document.querySelectorAll('a, button, .kwal-card, .q-item, .sk, .ab, .honours-card, .cf-card, .tl-role, .mbti-row, .mbti-dim-card').forEach(function(el) {
+document.querySelectorAll('a, button, .kwal-card, .q-item, .sk-flip, .ab, .honours-flip, .cf-card, .tl-role, .mbti-row, .mbti-dim-card').forEach(function(el) {
   el.addEventListener('mouseenter', function() { cur.classList.add('big'); });
   el.addEventListener('mouseleave', function() { cur.classList.remove('big'); });
 });
