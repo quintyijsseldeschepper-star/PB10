@@ -152,12 +152,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 
 /* WAT WIL IK */
 .van-section{background:var(--white);border:1px solid var(--rule);padding:4rem;margin-bottom:4rem;position:relative;overflow:hidden;}
-.van-section::before{content:"Vancouver";position:absolute;right:-1rem;bottom:-2rem;font-family:"Playfair Display",serif;font-style:italic;font-size:9rem;font-weight:600;color:rgba(26,86,219,.04);line-height:1;pointer-events:none;white-space:nowrap;}
-.van-flag-bg{position:absolute;inset:0;pointer-events:none;opacity:.03;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='150' height='400' fill='%23D52B1E'/%3E%3Crect x='450' width='150' height='400' fill='%23D52B1E'/%3E%3Crect x='150' width='300' height='400' fill='white'/%3E%3Cpath d='M300 60 L320 120 L380 120 L335 155 L355 215 L300 180 L245 215 L265 155 L220 120 L280 120 Z' fill='%23D52B1E'/%3E%3C/svg%3E") center/contain no-repeat;}
-.van-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
-.van-text p{font-size:.9rem;color:var(--mid);line-height:1.9;margin-bottom:1rem;}
+.van-flag-bg{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.06;background:url("https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg") center/cover no-repeat;}
+.van-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.van-text p{font-size:.9rem;color:var(--ink);line-height:1.9;margin-bottom:1rem;}
 .globe-wrap{display:flex;flex-direction:column;align-items:center;gap:1.2rem;}
-.globe-svg-container{width:280px;height:280px;}
+.globe-canvas{width:340px;height:340px;cursor:grab;border-radius:50%;}
+.globe-canvas:active{cursor:grabbing;}
 .globe-svg-container svg{width:100%;height:100%;}
 .globe-label{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--light);text-align:center;}
 .globe-label span{color:var(--blue);}
@@ -480,57 +480,18 @@ footer p{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;co
 <!-- WAT WIL IK -->
 <div class="pg" id="pg-wil">
   <div class="wrap sec">
-    <span class="chip orange reveal">Volgende bestemming</span>
-    <div class="van-section reveal d1">
+    <div class="van-section reveal">
       <div class="van-flag-bg"></div>
       <div class="van-inner">
         <div class="van-text">
+          <span class="chip orange" style="margin-bottom:1rem;">Volgende bestemming</span>
           <h2 class="h-serif">Minor in <em>Vancouver, Canada</em></h2>
           <p>Van september 2026 volg ik mijn minor aan de Kwantlen Polytechnic University (KPU) in Vancouver, Canada. Een stad die bekendstaat als een van de meest internationale en dynamische hubs van Noord-Amerika — op het kruispunt van Europa, Azië en de Stille Oceaan.</p>
           <p>Het is niet mijn eerste keer buiten de grenzen. Voor de HvA reisde ik al naar Japan — Tokyo — voor een internationaal business-programma. Vancouver is de volgende stap in een patroon dat ik bewust uitbouw: de wereld niet alleen bestuderen, maar ervaren.</p>
           <p>Vancouver stopt niet bij de universiteit — het is ook een kans om een nieuw netwerk op te bouwen, nieuwe perspectieven op te doen en te begrijpen hoe marketing werkt in een van de meest diverse steden ter wereld.</p>
         </div>
         <div class="globe-wrap">
-          <div class="globe-svg-container">
-            <svg viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <radialGradient id="ocean" cx="42%" cy="38%"><stop offset="0%" stop-color="#2563EB"/><stop offset="100%" stop-color="#0D2B6B"/></radialGradient>
-                <radialGradient id="shine" cx="35%" cy="30%"><stop offset="0%" stop-color="rgba(255,255,255,0.18)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient>
-                <clipPath id="gc"><circle cx="140" cy="140" r="118"/></clipPath>
-                <path id="fp" d="M 175 96 Q 155 55 120 70 Q 90 83 85 115"/>
-              </defs>
-              <circle cx="140" cy="140" r="118" fill="url(#ocean)"/>
-              <g clip-path="url(#gc)" stroke="rgba(255,255,255,0.1)" stroke-width="0.7" fill="none">
-                <ellipse cx="140" cy="140" rx="118" ry="30"/><ellipse cx="140" cy="140" rx="118" ry="70"/><ellipse cx="140" cy="140" rx="118" ry="102"/>
-                <line x1="140" y1="22" x2="140" y2="258"/><ellipse cx="140" cy="140" rx="38" ry="118"/><ellipse cx="140" cy="140" rx="80" ry="118"/>
-              </g>
-              <g clip-path="url(#gc)">
-                <path d="M148,72 L158,68 L165,74 L168,82 L162,90 L156,95 L150,98 L145,92 L143,84 L145,76 Z" fill="rgba(255,255,255,0.18)"/>
-                <path d="M154,60 L160,56 L163,62 L158,68 L153,66 Z" fill="rgba(255,255,255,0.14)"/>
-                <path d="M148,100 L158,98 L166,106 L168,120 L164,138 L158,152 L152,158 L146,152 L142,140 L140,124 L142,110 Z" fill="rgba(255,255,255,0.16)"/>
-                <path d="M165,74 L178,70 L195,68 L210,72 L222,80 L228,90 L224,98 L212,104 L198,106 L182,102 L170,96 L164,88 Z" fill="rgba(255,255,255,0.15)"/>
-                <path d="M195,110 L204,108 L210,118 L206,132 L198,136 L192,126 L190,116 Z" fill="rgba(255,255,255,0.12)"/>
-                <path d="M214,112 L224,110 L230,118 L226,126 L218,124 L212,118 Z" fill="rgba(255,255,255,0.11)"/>
-                <path d="M212,158 L228,154 L236,162 L234,178 L222,184 L210,180 L206,168 Z" fill="rgba(255,255,255,0.13)"/>
-                <path d="M108,54 L118,50 L124,56 L122,66 L114,70 L106,64 Z" fill="rgba(255,255,255,0.13)"/>
-                <path d="M72,72 L88,66 L100,70 L108,78 L112,90 L108,104 L96,112 L82,114 L70,106 L62,92 L64,80 Z" fill="rgba(255,255,255,0.17)"/>
-                <path d="M82,116 L90,114 L96,122 L92,130 L84,128 L80,120 Z" fill="rgba(255,255,255,0.12)"/>
-                <path d="M90,130 L102,126 L112,132 L116,148 L112,168 L104,182 L94,186 L84,176 L80,160 L82,144 Z" fill="rgba(255,255,255,0.15)"/>
-              </g>
-              <circle cx="140" cy="140" r="118" fill="url(#shine)"/>
-              <path d="M 175 96 Q 155 55 120 70 Q 90 83 85 115" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" stroke-dasharray="5 3" fill="none" clip-path="url(#gc)"/>
-              <circle cx="175" cy="96" r="4.5" fill="#ffffff" clip-path="url(#gc)"/>
-              <circle cx="175" cy="96" r="8" fill="rgba(255,255,255,0.2)" clip-path="url(#gc)"/>
-              <text x="180" y="92" font-family="DM Mono,monospace" font-size="7.5" fill="rgba(255,255,255,0.85)" letter-spacing="0.04em">Amsterdam</text>
-              <circle cx="85" cy="115" r="5.5" fill="#E8650A"/>
-              <circle cx="85" cy="115" r="5.5" fill="rgba(232,101,10,0.4)"><animate attributeName="r" values="5.5;13;5.5" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0;0.6" dur="2.4s" repeatCount="indefinite"/></circle>
-              <text x="50" y="111" font-family="DM Mono,monospace" font-size="7.5" fill="#E8650A" letter-spacing="0.04em">Vancouver ✦</text>
-              <circle cx="220" cy="118" r="3" fill="rgba(255,255,255,0.7)"/>
-              <text x="224" y="115" font-family="DM Mono,monospace" font-size="6.5" fill="rgba(255,255,255,0.6)" letter-spacing="0.03em">Tokyo</text>
-              <g><animateMotion dur="5s" repeatCount="indefinite" rotate="auto"><mpath href="#fp"/></animateMotion><text font-size="13" text-anchor="middle" dy="4" fill="white">✈</text></g>
-              <circle cx="140" cy="140" r="118" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-            </svg>
-          </div>
+          <canvas id="globe" class="globe-canvas" width="680" height="680"></canvas>
           <div class="globe-label">Amsterdam → <span>Vancouver, Canada</span><br><span style="opacity:.5;">eerder: Tokyo, Japan</span></div>
         </div>
       </div>
@@ -651,6 +612,231 @@ function animBars() {
     bar.style.width = bar.getAttribute('data-w') + '%';
   });
 }
+
+// Interactive 3D Globe with real map texture
+(function() {
+  var canvas = document.getElementById('globe');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W = canvas.width, H = canvas.height, R = W * 0.43;
+  var cx = W / 2, cy = H / 2;
+  var rotY = -0.4, rotX = 0.3;
+  var autoSpeed = 0.003;
+  var dragging = false, lastX, lastY;
+  var mapReady = false, mapData = null, mapW = 0, mapH = 0;
+  var step = 2; // pixel step for performance
+
+  // Locations: [lat, lon, label, color, radius]
+  var pins = [
+    [52.37, 4.90, 'Amsterdam', '#ffffff', 6],
+    [49.28, -123.12, 'Vancouver', '#E8650A', 7],
+    [35.68, 139.69, 'Tokyo', 'rgba(255,255,255,0.8)', 5]
+  ];
+
+  // Load equirectangular world map
+  var mapImg = new Image();
+  mapImg.crossOrigin = 'anonymous';
+  mapImg.onload = function() {
+    var offscreen = document.createElement('canvas');
+    offscreen.width = mapImg.width;
+    offscreen.height = mapImg.height;
+    var offCtx = offscreen.getContext('2d');
+    offCtx.drawImage(mapImg, 0, 0);
+    mapData = offCtx.getImageData(0, 0, offscreen.width, offscreen.height).data;
+    mapW = offscreen.width;
+    mapH = offscreen.height;
+    mapReady = true;
+  };
+  mapImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Blue_Marble_2002.png/1280px-Blue_Marble_2002.png';
+
+  function toScreen(lat, lon) {
+    var phi = lat * Math.PI / 180;
+    var lam = lon * Math.PI / 180;
+    var x0 = Math.cos(phi) * Math.sin(lam + rotY);
+    var y0 = Math.sin(phi);
+    var z0 = Math.cos(phi) * Math.cos(lam + rotY);
+    var y1 = y0 * Math.cos(rotX) - z0 * Math.sin(rotX);
+    var z1 = y0 * Math.sin(rotX) + z0 * Math.cos(rotX);
+    return { x: cx + x0 * R, y: cy - y1 * R, z: z1 };
+  }
+
+  function drawGlobe() {
+    ctx.clearRect(0, 0, W, H);
+
+    // Atmosphere glow
+    var atmo = ctx.createRadialGradient(cx, cy, R * 0.95, cx, cy, R * 1.15);
+    atmo.addColorStop(0, 'rgba(37,99,235,0.15)');
+    atmo.addColorStop(1, 'rgba(37,99,235,0)');
+    ctx.beginPath();
+    ctx.arc(cx, cy, R * 1.15, 0, Math.PI * 2);
+    ctx.fillStyle = atmo;
+    ctx.fill();
+
+    // Ocean base
+    var grad = ctx.createRadialGradient(cx - R * 0.2, cy - R * 0.2, 0, cx, cy, R);
+    grad.addColorStop(0, '#1a6fdb');
+    grad.addColorStop(1, '#0a2055');
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    if (mapReady) {
+      // Texture-map the world map onto sphere
+      var imgOut = ctx.getImageData(0, 0, W, H);
+      var data = imgOut.data;
+      var cosRx = Math.cos(rotX), sinRx = Math.sin(rotX);
+
+      for (var py = cy - R; py < cy + R; py += step) {
+        for (var px = cx - R; px < cx + R; px += step) {
+          var dx = px - cx, dy = py - cy;
+          var dist2 = dx * dx + dy * dy;
+          if (dist2 > R * R) continue;
+
+          var dz = Math.sqrt(R * R - dist2);
+          // Reverse the rotation to get lat/lon
+          var nx = dx / R;
+          var ny_rot = -dy / R;
+          var nz_rot = dz / R;
+          // Undo X rotation
+          var ny = ny_rot * cosRx + nz_rot * sinRx;
+          var nz = -ny_rot * sinRx + nz_rot * cosRx;
+
+          var lat = Math.asin(ny);
+          var lon = Math.atan2(nx, nz) - rotY;
+
+          // Map to texture coords
+          var u = ((lon / Math.PI + 1) / 2) % 1;
+          if (u < 0) u += 1;
+          var v = 0.5 - lat / Math.PI;
+
+          var mx = Math.floor(u * (mapW - 1));
+          var my = Math.floor(v * (mapH - 1));
+          var mi = (my * mapW + mx) * 4;
+
+          var r = mapData[mi], g = mapData[mi + 1], b = mapData[mi + 2];
+
+          // Lighting: brighter on front, darker at edges
+          var light = 0.5 + 0.5 * (dz / R);
+
+          // Fill step x step block
+          for (var sy = 0; sy < step && (py + sy) < H; sy++) {
+            for (var sx = 0; sx < step && (px + sx) < W; sx++) {
+              var i = (Math.floor(py + sy) * W + Math.floor(px + sx)) * 4;
+              data[i] = Math.min(255, r * light);
+              data[i + 1] = Math.min(255, g * light);
+              data[i + 2] = Math.min(255, b * light);
+              data[i + 3] = 255;
+            }
+          }
+        }
+      }
+      ctx.putImageData(imgOut, 0, 0);
+    }
+
+    // Flight path Amsterdam -> Vancouver (great circle)
+    ctx.beginPath();
+    ctx.setLineDash([8, 5]);
+    ctx.strokeStyle = 'rgba(255,255,255,0.5)';
+    ctx.lineWidth = 2;
+    var first = true;
+    for (var t = 0; t <= 1; t += 0.015) {
+      var la = 52.37 + (49.28 - 52.37) * t;
+      var lo = 4.90 + (-123.12 - 4.90) * t;
+      var alt = Math.sin(t * Math.PI) * 10;
+      var p = toScreen(la + alt, lo);
+      if (p.z < 0) { first = true; continue; }
+      if (first) { ctx.moveTo(p.x, p.y); first = false; }
+      else ctx.lineTo(p.x, p.y);
+    }
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Pins with labels
+    pins.forEach(function(pin) {
+      var p = toScreen(pin[0], pin[1]);
+      if (p.z < 0) return;
+      // Glow
+      var glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, pin[4] * 3);
+      if (pin[3] === '#E8650A') {
+        glow.addColorStop(0, 'rgba(232,101,10,0.35)');
+      } else {
+        glow.addColorStop(0, 'rgba(255,255,255,0.2)');
+      }
+      glow.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, pin[4] * 3, 0, Math.PI * 2);
+      ctx.fillStyle = glow;
+      ctx.fill();
+      // Dot
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, pin[4], 0, Math.PI * 2);
+      ctx.fillStyle = pin[3];
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,0.5)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      // Label
+      ctx.font = '600 22px "DM Mono", monospace';
+      ctx.fillStyle = pin[3];
+      ctx.shadowColor = 'rgba(0,0,0,0.6)';
+      ctx.shadowBlur = 4;
+      ctx.fillText(pin[2], p.x + pin[4] + 8, p.y + 6);
+      ctx.shadowBlur = 0;
+    });
+
+    // Shine overlay
+    var shine = ctx.createRadialGradient(cx - R * 0.3, cy - R * 0.3, 0, cx, cy, R);
+    shine.addColorStop(0, 'rgba(255,255,255,0.08)');
+    shine.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, 0, Math.PI * 2);
+    ctx.fillStyle = shine;
+    ctx.fill();
+
+    // Crisp border
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+  }
+
+  // Drag interaction
+  canvas.addEventListener('mousedown', function(e) {
+    dragging = true; lastX = e.clientX; lastY = e.clientY; autoSpeed = 0;
+  });
+  document.addEventListener('mousemove', function(e) {
+    if (!dragging) return;
+    rotY += (e.clientX - lastX) * 0.005;
+    rotX += (e.clientY - lastY) * 0.005;
+    rotX = Math.max(-1.2, Math.min(1.2, rotX));
+    lastX = e.clientX; lastY = e.clientY;
+  });
+  document.addEventListener('mouseup', function() {
+    if (dragging) { dragging = false; autoSpeed = 0.003; }
+  });
+  canvas.addEventListener('touchstart', function(e) {
+    dragging = true; lastX = e.touches[0].clientX; lastY = e.touches[0].clientY; autoSpeed = 0; e.preventDefault();
+  }, {passive: false});
+  canvas.addEventListener('touchmove', function(e) {
+    if (!dragging) return;
+    rotY += (e.touches[0].clientX - lastX) * 0.005;
+    rotX += (e.touches[0].clientY - lastY) * 0.005;
+    rotX = Math.max(-1.2, Math.min(1.2, rotX));
+    lastX = e.touches[0].clientX; lastY = e.touches[0].clientY; e.preventDefault();
+  }, {passive: false});
+  canvas.addEventListener('touchend', function() {
+    if (dragging) { dragging = false; autoSpeed = 0.003; }
+  });
+
+  function animate() {
+    if (!dragging) rotY += autoSpeed;
+    drawGlobe();
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
 
 showPage('home');
 </script>
