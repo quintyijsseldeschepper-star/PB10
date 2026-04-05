@@ -161,6 +161,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .globe-svg-container svg{width:100%;height:100%;}
 .globe-label{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--light);text-align:center;}
 .globe-label span{color:var(--blue);}
+.drijfveer{position:relative;margin-bottom:5rem;padding:4rem;background:linear-gradient(135deg,rgba(26,86,219,.03),rgba(232,101,10,.03));border:1px solid var(--rule);overflow:hidden;}
+.drijfveer::before{content:"✦";position:absolute;right:3rem;top:2rem;font-size:5rem;color:var(--gold);opacity:.08;pointer-events:none;}
+.drijfveer-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.drijfveer-text p{font-family:"Playfair Display",serif;font-size:1.05rem;color:var(--mid);line-height:2;font-style:italic;margin-bottom:1.2rem;}
+.drijfveer-text p:last-child{margin-bottom:0;}
+.drijfveer-pillars{display:flex;flex-direction:column;gap:1rem;}
+.drijfveer-pillar{padding:1.2rem 1.4rem;border-left:2px solid var(--rule);transition:border-color .3s;}
+.drijfveer-pillar:hover{border-color:var(--gold);}
+.drijfveer-pillar-h{font-weight:600;font-size:.84rem;margin-bottom:.3rem;color:var(--ink);}
+.drijfveer-pillar-d{font-size:.78rem;color:var(--mid);line-height:1.75;}
 .ambitie-lead{max-width:700px;margin-bottom:4rem;}
 .ambitie-lead p{font-size:.95rem;color:var(--mid);line-height:1.95;margin-top:1.2rem;}
 .ambitie-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
@@ -175,7 +185,8 @@ footer p{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;co
 @media(max-width:800px){
   nav{padding:1rem 1.4rem;} .wrap{padding:0 1.4rem;}
   .hero{grid-template-columns:1fr;gap:2rem;padding:2rem 1.4rem;} .photo-wrap{max-width:280px;}
-  .wie-intro,.kan-intro,.van-inner,.cf-grid,.mbti-header,.mbti-dim-grid,.honours-grid,.ambitie-grid,.kwal-grid{grid-template-columns:1fr;gap:2rem;}
+  .wie-intro,.kan-intro,.van-inner,.cf-grid,.mbti-header,.mbti-dim-grid,.honours-grid,.ambitie-grid,.kwal-grid,.drijfveer-inner{grid-template-columns:1fr;gap:2rem;}
+  .drijfveer{padding:2rem;}
   .skills-grid{grid-template-columns:1fr 1fr;} .sk-flip{min-height:180px;} .sk-flip-inner{min-height:180px;} .q-item{grid-template-columns:50px 1fr;gap:1rem;}
   footer{flex-direction:column;gap:.5rem;text-align:center;}
 }
@@ -524,6 +535,23 @@ footer p{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;co
         </div>
       </div>
     </div>
+    <div class="drijfveer reveal">
+      <span class="chip" style="margin-bottom:1.4rem;">Wat mij drijft</span>
+      <h2 class="h-serif" style="margin-bottom:2rem;">Niet alleen <em>ambitieus</em>,<br>ook nieuwsgierig</h2>
+      <div class="drijfveer-inner">
+        <div class="drijfveer-text">
+          <p>Ik ben iemand die niet stilzit. Niet omdat het moet, maar omdat ik het gevoel heb dat er altijd meer te ontdekken is — meer plekken, meer perspectieven, meer manieren om naar de wereld te kijken.</p>
+          <p>Reizen is voor mij geen vakantie, het is hoe ik leer. Elke cultuur die ik meemaak verandert hoe ik denk over mensen, over merken, over communicatie. En die nieuwsgierigheid stopt niet bij grenzen — het geldt net zo goed voor technologie, voor AI, voor alles wat de wereld van marketing aan het veranderen is.</p>
+        </div>
+        <div class="drijfveer-pillars">
+          <div class="drijfveer-pillar"><div class="drijfveer-pillar-h">Reizen &amp; culturen</div><div class="drijfveer-pillar-d">Japan, straks Vancouver — en daarna? Ik wil de wereld niet alleen bestuderen, maar voelen. Elke plek vormt hoe ik denk.</div></div>
+          <div class="drijfveer-pillar"><div class="drijfveer-pillar-h">Continu leren</div><div class="drijfveer-pillar-d">Stilstaan voelt als achteruitgaan. Een Honours-programma, een MBA op de lijst — ik wil altijd in beweging blijven.</div></div>
+          <div class="drijfveer-pillar"><div class="drijfveer-pillar-h">AI &amp; technologie</div><div class="drijfveer-pillar-d">Gefascineerd door wat technologie kan. Niet als vervanging, maar als versterking van creativiteit en menselijk inzicht.</div></div>
+          <div class="drijfveer-pillar"><div class="drijfveer-pillar-h">Dromen &amp; doen</div><div class="drijfveer-pillar-d">Ik droom groot, maar ik blijf niet bij dromen. Elk plan wordt een stap, elke stap brengt me ergens.</div></div>
+        </div>
+      </div>
+    </div>
+
     <div class="ambitie-lead reveal">
       <span class="chip orange">Ambitie</span>
       <h2 class="h-serif">Ergens <em>bovenaan</em> staan.<br>Of zelf iets bouwen.</h2>
