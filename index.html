@@ -267,18 +267,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .ambitie-lead{max-width:700px;margin-bottom:4rem;}
 .ambitie-lead p{font-size:.95rem;color:var(--mid);line-height:1.95;margin-top:1.2rem;}
 .ambitie-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
-.ab{padding:2.2rem;border-top:2px solid var(--rule);transition:border-color .3s ease,transform .3s ease,background .3s ease;}
+.ab{padding:2rem;border-top:2px solid var(--rule);transition:border-color .3s ease,transform .3s ease,background .3s ease;display:grid;grid-template-columns:100px 1fr;gap:1.5rem;align-items:start;}
 .ab:hover{border-color:var(--gold);transform:translateY(-3px);background:var(--white);}
+.ab-img{width:96px;height:96px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--bg);border:1px solid var(--rule);border-radius:4px;transition:border-color .3s ease;}
+.ab:hover .ab-img{border-color:var(--gold);}
+.ab-img svg{width:56px;height:56px;}
 .ab h3{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:.9rem;}
 .ab p{font-size:.86rem;color:var(--mid);line-height:1.85;}
 
 footer{padding:1.6rem 4rem;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;}
 footer p{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;color:var(--light);}
 
+/* LANG TOGGLE */
+#lang-toggle{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--light);background:transparent;border:1px solid var(--rule);padding:.35rem .7rem;cursor:pointer;transition:color .2s,border-color .2s;flex-shrink:0;}
+#lang-toggle:hover{color:var(--blue);border-color:var(--blue);}
+
 @media(max-width:800px){
   nav{padding:1rem 1.4rem;} .wrap{padding:0 1.4rem;}
   .hero{grid-template-columns:1fr;gap:2rem;padding:2rem 1.4rem;} .photo-wrap{max-width:280px;}
   .wie-intro,.kan-intro,.van-inner,.cf-compare,.honours-grid,.ambitie-grid,.drijfveer-inner{grid-template-columns:1fr;gap:2rem;}
+  .ab{grid-template-columns:72px 1fr;gap:1rem;} .ab-img{width:72px;height:72px;}
   .mbti-hero{grid-template-columns:1fr;gap:1.5rem;padding:2rem;text-align:center;}
   .mbti-avatar{width:140px;height:140px;}
   .mbti-dim{grid-template-columns:1fr;gap:.8rem;}
@@ -303,26 +311,27 @@ footer p{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;co
 <nav>
   <a class="nav-logo" href="#" data-page="home">Quinty IJssel de Schepper</a>
   <ul class="nav-links">
-    <li><a id="n-home" data-page="home">Home</a></li>
-    <li><a id="n-wie" data-page="wie">Wie ben ik</a></li>
-    <li><a id="n-kan" data-page="kan">Wat kan ik</a></li>
-    <li><a id="n-wil" data-page="wil">Wat wil ik</a></li>
+    <li><a id="n-home" data-page="home" data-i18n="nav-home">Home</a></li>
+    <li><a id="n-wie" data-page="wie" data-i18n="nav-wie">Wie ben ik</a></li>
+    <li><a id="n-kan" data-page="kan" data-i18n="nav-kan">Wat kan ik</a></li>
+    <li><a id="n-wil" data-page="wil" data-i18n="nav-wil">Wat wil ik</a></li>
   </ul>
+  <button id="lang-toggle">EN</button>
 </nav>
 
 <!-- HOME -->
 <div class="pg on" id="pg-home">
   <div class="hero">
     <div>
-      <p class="hero-eyebrow">Commerciële Economie · Digital Marketing</p>
+      <p class="hero-eyebrow" data-i18n="hero-eyebrow">Commerciële Economie · Digital Marketing</p>
       <h1 class="hero-name"><em>Quinty</em></h1>
       <p class="hero-surname">IJssel de Schepper</p>
-      <p class="hero-intro">Hi, ik ben Quinty — 22 jaar, student Commerciële Economie aan de HvA. Strategische marketeer die niet alleen uitvoert, maar actief meedenkt over merkpositionering en contentstrategie — versterkt door AI. Ik geloof dat technologie een krachtig hulpmiddel is, maar een echte marketeer niet kan vervangen.</p>
+      <p class="hero-intro" data-i18n="hero-intro">Hi, ik ben Quinty — 22 jaar, student Commerciële Economie aan de HvA. Strategische marketeer die niet alleen uitvoert, maar actief meedenkt over merkpositionering en contentstrategie — versterkt door AI. Ik geloof dat technologie een krachtig hulpmiddel is, maar een echte marketeer niet kan vervangen.</p>
       <div class="hero-btns">
-        <button class="btn btn-dark" data-page="wie">Wie ben ik</button>
-        <button class="btn btn-dark" data-page="kan">Wat kan ik</button>
-        <button class="btn btn-dark" data-page="wil">Wat wil ik</button>
-        <button class="btn btn-out" data-page="contact">Contact</button>
+        <button class="btn btn-dark" data-page="wie" data-i18n="nav-wie">Wie ben ik</button>
+        <button class="btn btn-dark" data-page="kan" data-i18n="nav-kan">Wat kan ik</button>
+        <button class="btn btn-dark" data-page="wil" data-i18n="nav-wil">Wat wil ik</button>
+        <button class="btn btn-out" data-page="contact" data-i18n="nav-contact">Contact</button>
       </div>
       <div class="hero-tags">
         <span class="tag">Content Strategy</span>
@@ -352,118 +361,118 @@ footer p{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;co
   <div class="wrap sec">
     <div class="wie-intro">
       <div class="reveal">
-        <span class="chip">Wie ben ik</span>
-        <h2 class="h-serif">Groei als <em>drijfveer</em>,<br>impact als doel</h2>
+        <span class="chip" data-i18n="chip-wie-ben-ik">Wie ben ik</span>
+        <h2 class="h-serif" data-i18n="wie-h2">Groei als <em>drijfveer</em>,<br>impact als doel</h2>
       </div>
       <div class="reveal d1">
-        <p class="body-text">Ik word gedreven door groei en vooruitgang. Niet stilstaan, maar mezelf continu ontwikkelen en beter worden. Ik haal motivatie uit het gevoel dat ik ergens invloed op heb — niet alleen meewerken, maar echt bijdragen aan hoe iets beter, sterker en professioneler kan worden.</p>
-        <p class="body-text">Ik zoek omgevingen die mij uitdagen, inspireren en ruimte geven om te groeien. Kwaliteit maakt het verschil.</p>
+        <p class="body-text" data-i18n="wie-body1">Ik word gedreven door groei en vooruitgang. Niet stilstaan, maar mezelf continu ontwikkelen en beter worden. Ik haal motivatie uit het gevoel dat ik ergens invloed op heb — niet alleen meewerken, maar echt bijdragen aan hoe iets beter, sterker en professioneler kan worden.</p>
+        <p class="body-text" data-i18n="wie-body2">Ik zoek omgevingen die mij uitdagen, inspireren en ruimte geven om te groeien. Kwaliteit maakt het verschil.</p>
       </div>
     </div>
     <div class="kwal-scroll">
       <div class="kwal-sticky reveal">
-        <div class="kwal-sticky-title">Kwaliteiten</div>
+        <div class="kwal-sticky-title" data-i18n="chip-kwaliteiten">Kwaliteiten</div>
         <div class="kwal-progress">
-          <div class="kwal-dot active" data-kwal="0"><span class="kwal-dot-circle"></span><span class="kwal-dot-label">Ambitieus</span></div>
-          <div class="kwal-dot" data-kwal="1"><span class="kwal-dot-circle"></span><span class="kwal-dot-label">Strategisch</span></div>
-          <div class="kwal-dot" data-kwal="2"><span class="kwal-dot-circle"></span><span class="kwal-dot-label">Verantwoordelijk</span></div>
-          <div class="kwal-dot" data-kwal="3"><span class="kwal-dot-circle"></span><span class="kwal-dot-label">Snel leren</span></div>
-          <div class="kwal-dot" data-kwal="4"><span class="kwal-dot-circle"></span><span class="kwal-dot-label">Communicatief</span></div>
-          <div class="kwal-dot" data-kwal="5"><span class="kwal-dot-circle"></span><span class="kwal-dot-label">AI-minded</span></div>
-          <div class="kwal-dot" data-kwal="6"><span class="kwal-dot-circle"></span><span class="kwal-dot-label">Internationaal</span></div>
+          <div class="kwal-dot active" data-kwal="0"><span class="kwal-dot-circle"></span><span class="kwal-dot-label" data-i18n="kwal-dot-0">Ambitieus</span></div>
+          <div class="kwal-dot" data-kwal="1"><span class="kwal-dot-circle"></span><span class="kwal-dot-label" data-i18n="kwal-dot-1">Strategisch</span></div>
+          <div class="kwal-dot" data-kwal="2"><span class="kwal-dot-circle"></span><span class="kwal-dot-label" data-i18n="kwal-dot-2">Verantwoordelijk</span></div>
+          <div class="kwal-dot" data-kwal="3"><span class="kwal-dot-circle"></span><span class="kwal-dot-label" data-i18n="kwal-dot-3">Snel leren</span></div>
+          <div class="kwal-dot" data-kwal="4"><span class="kwal-dot-circle"></span><span class="kwal-dot-label" data-i18n="kwal-dot-4">Communicatief</span></div>
+          <div class="kwal-dot" data-kwal="5"><span class="kwal-dot-circle"></span><span class="kwal-dot-label" data-i18n="kwal-dot-5">AI-minded</span></div>
+          <div class="kwal-dot" data-kwal="6"><span class="kwal-dot-circle"></span><span class="kwal-dot-label" data-i18n="kwal-dot-6">Internationaal</span></div>
         </div>
       </div>
       <div class="kwal-cards">
         <div class="kwal-card kwal-active">
           <span class="kwal-icon">🚀</span>
-          <div class="kwal-h">Ambitieus</div>
-          <div class="kwal-d">Altijd op zoek naar de volgende stap. Stilstaan voelt als achteruitgaan.</div>
-          <div class="kwal-example">Tijdens mijn studie combineerde ik altijd meerdere rollen tegelijk: stage bij DPG Media én werk bij VBH. Nu, naast mijn afstuderen, ben ik tegelijkertijd Content Manager én Junior Brand Marketeer.</div>
+          <div class="kwal-h" data-i18n="kwal-h-0">Ambitieus</div>
+          <div class="kwal-d" data-i18n="kwal-d-0">Altijd op zoek naar de volgende stap. Stilstaan voelt als achteruitgaan.</div>
+          <div class="kwal-example" data-i18n="kwal-ex-0">Tijdens mijn studie combineerde ik altijd meerdere rollen tegelijk: stage bij DPG Media én werk bij VBH. Nu, naast mijn afstuderen, ben ik tegelijkertijd Content Manager én Junior Brand Marketeer.</div>
         </div>
         <div class="kwal-card">
           <span class="kwal-icon">♟️</span>
-          <div class="kwal-h">Strategisch</div>
-          <div class="kwal-d">Het grote plaatje zien én de details bewaken. Van merkpositionering tot concrete uitvoering.</div>
-          <div class="kwal-example">"Quinty is een enthousiasteling met oog voor het grotere plaatje en vergeet daarbij niet tot in de details door te vragen." — Dennis Bliek</div>
+          <div class="kwal-h" data-i18n="kwal-h-1">Strategisch</div>
+          <div class="kwal-d" data-i18n="kwal-d-1">Het grote plaatje zien én de details bewaken. Van merkpositionering tot concrete uitvoering.</div>
+          <div class="kwal-example" data-i18n="kwal-ex-1">"Quinty is een enthousiasteling met oog voor het grotere plaatje en vergeet daarbij niet tot in de details door te vragen." — Dennis Bliek</div>
         </div>
         <div class="kwal-card">
           <span class="kwal-icon">🎯</span>
-          <div class="kwal-h">Verantwoordelijk</div>
-          <div class="kwal-d">Ownership nemen zonder dat het gevraagd wordt. Problemen oplossen in plaats van doorschuiven.</div>
-          <div class="kwal-example">Als Shift Lead bij Maison de George droeg ik operationele verantwoordelijkheid met directe impact op klantbeleving.</div>
+          <div class="kwal-h" data-i18n="kwal-h-2">Verantwoordelijk</div>
+          <div class="kwal-d" data-i18n="kwal-d-2">Ownership nemen zonder dat het gevraagd wordt. Problemen oplossen in plaats van doorschuiven.</div>
+          <div class="kwal-example" data-i18n="kwal-ex-2">Als Shift Lead bij Maison de George droeg ik operationele verantwoordelijkheid met directe impact op klantbeleving.</div>
         </div>
         <div class="kwal-card">
           <span class="kwal-icon">⚡</span>
-          <div class="kwal-h">Snel leren &amp; schakelen</div>
-          <div class="kwal-d">Nieuwe omgevingen en processen eigen maken in korte tijd — en dan doorgroeien.</div>
-          <div class="kwal-example">"Ze pakt nieuwe taken razendsnel op en werkt precies en gestructureerd." — Febe Aarts, DPG Media</div>
+          <div class="kwal-h" data-i18n="kwal-h-3">Snel leren &amp; schakelen</div>
+          <div class="kwal-d" data-i18n="kwal-d-3">Nieuwe omgevingen en processen eigen maken in korte tijd — en dan doorgroeien.</div>
+          <div class="kwal-example" data-i18n="kwal-ex-3">"Ze pakt nieuwe taken razendsnel op en werkt precies en gestructureerd." — Febe Aarts, DPG Media</div>
         </div>
         <div class="kwal-card">
           <span class="kwal-icon">💬</span>
-          <div class="kwal-h">Communicatief sterk</div>
-          <div class="kwal-d">Helder communiceren, voor eigen mening opkomen en anderen overtuigen — intern en extern.</div>
-          <div class="kwal-example">"Communicatief erg vaardig en kan goed voor zichzelf opkomen." — Dennis Bliek</div>
+          <div class="kwal-h" data-i18n="kwal-h-4">Communicatief sterk</div>
+          <div class="kwal-d" data-i18n="kwal-d-4">Helder communiceren, voor eigen mening opkomen en anderen overtuigen — intern en extern.</div>
+          <div class="kwal-example" data-i18n="kwal-ex-4">"Communicatief erg vaardig en kan goed voor zichzelf opkomen." — Dennis Bliek</div>
         </div>
         <div class="kwal-card">
           <span class="kwal-icon">🤖</span>
-          <div class="kwal-h">AI-minded marketeer</div>
-          <div class="kwal-d">Ik werk graag met AI en zoek de middenweg tussen technologie en menselijk inzicht. AI versterkt mijn werk — maar vervangt een echte marketeer niet.</div>
-          <div class="kwal-example">Van prompt engineering tot AI-tools inzetten voor contentstrategie. Creativiteit en technologie samen.</div>
+          <div class="kwal-h" data-i18n="kwal-h-5">AI-minded marketeer</div>
+          <div class="kwal-d" data-i18n="kwal-d-5">Ik werk graag met AI en zoek de middenweg tussen technologie en menselijk inzicht. AI versterkt mijn werk — maar vervangt een echte marketeer niet.</div>
+          <div class="kwal-example" data-i18n="kwal-ex-5">Van prompt engineering tot AI-tools inzetten voor contentstrategie. Creativiteit en technologie samen.</div>
         </div>
         <div class="kwal-card">
           <span class="kwal-icon">🌍</span>
-          <div class="kwal-h">Internationaal georiënteerd</div>
-          <div class="kwal-d">Werken en studeren in internationale contexten — van superjachten tot Japan en Vancouver.</div>
-          <div class="kwal-example">Internationale business in Japan (Tokyo). Minor aan KPU Vancouver, september 2026.</div>
+          <div class="kwal-h" data-i18n="kwal-h-6">Internationaal georiënteerd</div>
+          <div class="kwal-d" data-i18n="kwal-d-6">Werken en studeren in internationale contexten — van superjachten tot Japan en Vancouver.</div>
+          <div class="kwal-example" data-i18n="kwal-ex-6">Internationale business in Japan (Tokyo). Minor aan KPU Vancouver, september 2026.</div>
         </div>
       </div>
     </div>
     <div class="reveal" style="margin-bottom:4rem;">
-      <span class="chip" style="margin-bottom:1.8rem;">Waar pas ik?</span>
-      <h2 class="h-serif" style="margin-bottom:.8rem;">MKB vs. <em>corporate</em></h2>
-      <p class="body-text">Ik heb beide werelden van dichtbij meegemaakt: VBH als gedreven MKB, DPG Media als grote corporate. Samen geven ze mij een helder beeld van waar ik nu naartoe wil.</p>
+      <span class="chip" style="margin-bottom:1.8rem;" data-i18n="chip-waar-pas-ik">Waar pas ik?</span>
+      <h2 class="h-serif" style="margin-bottom:.8rem;" data-i18n="mkb-h2">MKB vs. <em>corporate</em></h2>
+      <p class="body-text" data-i18n="mkb-body">Ik heb beide werelden van dichtbij meegemaakt: VBH als gedreven MKB, DPG Media als grote corporate. Samen geven ze mij een helder beeld van waar ik nu naartoe wil.</p>
       <div class="cf-compare">
         <div class="cf-col">
           <div class="cf-col-head">
             <div class="cf-col-icon mkb">◆</div>
-            <div><div class="cf-col-title">MKB — VBH</div><div class="cf-col-sub">Bewegelijk &amp; persoonlijk</div></div>
+            <div><div class="cf-col-title" data-i18n="mkb-col1-title">MKB — VBH</div><div class="cf-col-sub" data-i18n="mkb-col1-sub">Bewegelijk &amp; persoonlijk</div></div>
           </div>
           <div class="cf-items">
-            <div class="cf-item pro"><span class="cf-item-tag">Pluspunt</span><div class="cf-item-text">Meer verantwoordelijkheid per persoon</div></div>
-            <div class="cf-item pro"><span class="cf-item-tag">Pluspunt</span><div class="cf-item-text">Directe impact zichtbaar</div></div>
-            <div class="cf-item pro"><span class="cf-item-tag">Pluspunt</span><div class="cf-item-text">Innovatieve, snelle omgeving</div></div>
-            <div class="cf-item con"><span class="cf-item-tag">Keerzijde</span><div class="cf-item-text">Minder gespecialiseerde kennis</div></div>
-            <div class="cf-item con"><span class="cf-item-tag">Keerzijde</span><div class="cf-item-text">Minder structuur en begeleiding</div></div>
+            <div class="cf-item pro"><span class="cf-item-tag" data-i18n="cf-pro">Pluspunt</span><div class="cf-item-text" data-i18n="mkb-pro1">Meer verantwoordelijkheid per persoon</div></div>
+            <div class="cf-item pro"><span class="cf-item-tag" data-i18n="cf-pro">Pluspunt</span><div class="cf-item-text" data-i18n="mkb-pro2">Directe impact zichtbaar</div></div>
+            <div class="cf-item pro"><span class="cf-item-tag" data-i18n="cf-pro">Pluspunt</span><div class="cf-item-text" data-i18n="mkb-pro3">Innovatieve, snelle omgeving</div></div>
+            <div class="cf-item con"><span class="cf-item-tag" data-i18n="cf-con">Keerzijde</span><div class="cf-item-text" data-i18n="mkb-con1">Minder gespecialiseerde kennis</div></div>
+            <div class="cf-item con"><span class="cf-item-tag" data-i18n="cf-con">Keerzijde</span><div class="cf-item-text" data-i18n="mkb-con2">Minder structuur en begeleiding</div></div>
           </div>
         </div>
         <div class="cf-col">
           <div class="cf-col-head">
             <div class="cf-col-icon corp">■</div>
-            <div><div class="cf-col-title">Corporate — DPG Media</div><div class="cf-col-sub">Gestructureerd &amp; diepgaand</div></div>
+            <div><div class="cf-col-title" data-i18n="mkb-col2-title">Corporate — DPG Media</div><div class="cf-col-sub" data-i18n="mkb-col2-sub">Gestructureerd &amp; diepgaand</div></div>
           </div>
           <div class="cf-items">
-            <div class="cf-item pro"><span class="cf-item-tag">Pluspunt</span><div class="cf-item-text">Leren van gespecialiseerde experts</div></div>
-            <div class="cf-item pro"><span class="cf-item-tag">Pluspunt</span><div class="cf-item-text">Sterke structuur en processen</div></div>
-            <div class="cf-item pro"><span class="cf-item-tag">Pluspunt</span><div class="cf-item-text">Breed netwerk &amp; schaal</div></div>
-            <div class="cf-item con"><span class="cf-item-tag">Keerzijde</span><div class="cf-item-text">Minder ruimte voor eigen initiatief</div></div>
-            <div class="cf-item con"><span class="cf-item-tag">Keerzijde</span><div class="cf-item-text">Langzamer besluitvormingsproces</div></div>
+            <div class="cf-item pro"><span class="cf-item-tag" data-i18n="cf-pro">Pluspunt</span><div class="cf-item-text" data-i18n="corp-pro1">Leren van gespecialiseerde experts</div></div>
+            <div class="cf-item pro"><span class="cf-item-tag" data-i18n="cf-pro">Pluspunt</span><div class="cf-item-text" data-i18n="corp-pro2">Sterke structuur en processen</div></div>
+            <div class="cf-item pro"><span class="cf-item-tag" data-i18n="cf-pro">Pluspunt</span><div class="cf-item-text" data-i18n="corp-pro3">Breed netwerk &amp; schaal</div></div>
+            <div class="cf-item con"><span class="cf-item-tag" data-i18n="cf-con">Keerzijde</span><div class="cf-item-text" data-i18n="corp-con1">Minder ruimte voor eigen initiatief</div></div>
+            <div class="cf-item con"><span class="cf-item-tag" data-i18n="cf-con">Keerzijde</span><div class="cf-item-text" data-i18n="corp-con2">Langzamer besluitvormingsproces</div></div>
           </div>
         </div>
       </div>
       <div class="cf-conclusion">
-        <span class="cf-concl-label">Waar ik nu naartoe wil</span>
-        <div class="cf-concl-h">Corporate nu, MKB later</div>
+        <span class="cf-concl-label" data-i18n="concl-label">Waar ik nu naartoe wil</span>
+        <div class="cf-concl-h" data-i18n="concl-h">Corporate nu, MKB later</div>
         <ul class="cf-concl-list">
-          <li>Nu groot: sneller gespecialiseerde kennis</li>
-          <li>Leren van de beste mensen</li>
-          <li>Later kleiner: meer vrijheid en impact</li>
-          <li>En misschien: iets eigens opstarten</li>
+          <li data-i18n="concl-li1">Nu groot: sneller gespecialiseerde kennis</li>
+          <li data-i18n="concl-li2">Leren van de beste mensen</li>
+          <li data-i18n="concl-li3">Later kleiner: meer vrijheid en impact</li>
+          <li data-i18n="concl-li4">En misschien: iets eigens opstarten</li>
         </ul>
       </div>
     </div>
     <div class="reveal" style="margin-bottom:2rem;">
-      <div class="pers-section-title">Persoonlijkheidstesten</div>
-      <p class="pers-section-sub">Twee tests, drie jaar ertussen — en toch dezelfde rode draad. Van 16Personalities (2022) tot DISC-analyse (2025): wie ik ben als professional is consistent.</p>
+      <div class="pers-section-title" data-i18n="pers-title">Persoonlijkheidstesten</div>
+      <p class="pers-section-sub" data-i18n="pers-sub">Twee tests, drie jaar ertussen — en toch dezelfde rode draad. Van 16Personalities (2022) tot DISC-analyse (2025): wie ik ben als professional is consistent.</p>
     </div>
     <div class="pers-test-label reveal"><span class="chip orange" style="margin-bottom:0;">16Personalities — ESTJ-A</span><span class="pers-year">2022</span></div>
     <div class="mbti-hero reveal d1">
@@ -476,64 +485,64 @@ footer p{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;co
         <div class="mbti-type-letter">ESTJ-A</div>
         <div class="mbti-type-name">The Executive</div>
         <div class="mbti-type-sub">Extravert · Observant · Thinking · Judging · Assertive</div>
-        <p class="mbti-hero-desc">Organisatoren met een scherp oog voor structuur en efficiëntie. Executives zijn besluitvaardig, nemen verantwoordelijkheid en brengen orde in chaos — precies hoe ik werk.</p>
+        <p class="mbti-hero-desc" data-i18n="mbti-desc">Organisatoren met een scherp oog voor structuur en efficiëntie. Executives zijn besluitvaardig, nemen verantwoordelijkheid en brengen orde in chaos — precies hoe ik werk.</p>
       </div>
     </div>
-    <h3 class="reveal d1" style="font-family:Playfair Display,serif;font-style:italic;font-size:1.1rem;margin-bottom:1.6rem;">Wat zeggen deze scores over mij?</h3>
+    <h3 class="reveal d1" style="font-family:Playfair Display,serif;font-style:italic;font-size:1.1rem;margin-bottom:1.6rem;" data-i18n="mbti-scores-h">Wat zeggen deze scores over mij?</h3>
     <div class="mbti-dims">
       <div class="mbti-dim">
         <div class="mbti-dim-left">
           <div class="mbti-dim-label" style="color:var(--mbti-e);">Extravert</div>
-          <div class="mbti-dim-vs">vs. Introvert</div>
+          <div class="mbti-dim-vs" data-i18n="mbti-vs-e">vs. Introvert</div>
           <div class="mbti-dim-bar"><div class="mbti-dim-bar-fill c-e" data-w="67"></div></div>
         </div>
         <div>
           <div class="mbti-dim-pct" style="color:var(--mbti-e);">67%</div>
-          <div class="mbti-dim-right">Ik laad op van contact en samenwerking. Bij DPG Media groeide ik door actief te netwerken en initiatieven te nemen — niet af te wachten.</div>
+          <div class="mbti-dim-right" data-i18n="mbti-right-e">Ik laad op van contact en samenwerking. Bij DPG Media groeide ik door actief te netwerken en initiatieven te nemen — niet af te wachten.</div>
         </div>
       </div>
       <div class="mbti-dim">
         <div class="mbti-dim-left">
           <div class="mbti-dim-label" style="color:var(--mbti-s);">Observant</div>
-          <div class="mbti-dim-vs">vs. Intuïtief</div>
+          <div class="mbti-dim-vs" data-i18n="mbti-vs-s">vs. Intuïtief</div>
           <div class="mbti-dim-bar"><div class="mbti-dim-bar-fill c-s" data-w="62"></div></div>
         </div>
         <div>
           <div class="mbti-dim-pct" style="color:var(--mbti-s);">62%</div>
-          <div class="mbti-dim-right">Ik werk vanuit de werkelijkheid, niet vanuit abstracties. Bij VBH vertaalde ik campagnedoelen direct naar uitvoerbare social media strategieën.</div>
+          <div class="mbti-dim-right" data-i18n="mbti-right-s">Ik werk vanuit de werkelijkheid, niet vanuit abstracties. Bij VBH vertaalde ik campagnedoelen direct naar uitvoerbare social media strategieën.</div>
         </div>
       </div>
       <div class="mbti-dim">
         <div class="mbti-dim-left">
           <div class="mbti-dim-label" style="color:var(--mbti-t);">Thinking</div>
-          <div class="mbti-dim-vs">vs. Feeling</div>
+          <div class="mbti-dim-vs" data-i18n="mbti-vs-t">vs. Feeling</div>
           <div class="mbti-dim-bar"><div class="mbti-dim-bar-fill c-t" data-w="72"></div></div>
         </div>
         <div>
           <div class="mbti-dim-pct" style="color:var(--mbti-t);">72%</div>
-          <div class="mbti-dim-right">Beslissingen neem ik rationeel en resultaatgericht. Als Shift Lead loste ik uitdagingen op met een helder hoofd. Logica en resultaat leiden mijn keuzes.</div>
+          <div class="mbti-dim-right" data-i18n="mbti-right-t">Beslissingen neem ik rationeel en resultaatgericht. Als Shift Lead loste ik uitdagingen op met een helder hoofd. Logica en resultaat leiden mijn keuzes.</div>
         </div>
       </div>
       <div class="mbti-dim">
         <div class="mbti-dim-left">
           <div class="mbti-dim-label" style="color:var(--mbti-j);">Judging</div>
-          <div class="mbti-dim-vs">vs. Prospecting</div>
+          <div class="mbti-dim-vs" data-i18n="mbti-vs-j">vs. Prospecting</div>
           <div class="mbti-dim-bar"><div class="mbti-dim-bar-fill c-j" data-w="76"></div></div>
         </div>
         <div>
           <div class="mbti-dim-pct" style="color:var(--mbti-j);">76%</div>
-          <div class="mbti-dim-right">Structuur en planning zijn mijn kracht. Meerdere veeleisende rollen tegelijk combineren zonder de controle te verliezen — dat zegt genoeg.</div>
+          <div class="mbti-dim-right" data-i18n="mbti-right-j">Structuur en planning zijn mijn kracht. Meerdere veeleisende rollen tegelijk combineren zonder de controle te verliezen — dat zegt genoeg.</div>
         </div>
       </div>
       <div class="mbti-dim">
         <div class="mbti-dim-left">
           <div class="mbti-dim-label" style="color:var(--mbti-a);">Assertive</div>
-          <div class="mbti-dim-vs">vs. Turbulent</div>
+          <div class="mbti-dim-vs" data-i18n="mbti-vs-a">vs. Turbulent</div>
           <div class="mbti-dim-bar"><div class="mbti-dim-bar-fill c-a" data-w="81"></div></div>
         </div>
         <div>
           <div class="mbti-dim-pct" style="color:var(--mbti-a);">81%</div>
-          <div class="mbti-dim-right">Zelfverzekerd en stabiel onder druk. Ik kom op voor mijn mening en stel hoge standaarden voor mijzelf én het werk. Lode Broekman: "Zij legt de lat hoog en levert goed werk, zowel kwalitatief als kwantitatief."</div>
+          <div class="mbti-dim-right" data-i18n="mbti-right-a">Zelfverzekerd en stabiel onder druk. Ik kom op voor mijn mening en stel hoge standaarden voor mijzelf én het werk. Lode Broekman: "Zij legt de lat hoog en levert goed werk, zowel kwalitatief als kwantitatief."</div>
         </div>
       </div>
     </div>
@@ -541,7 +550,7 @@ footer p{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;co
     <div class="pers-test-label reveal" style="margin-top:3rem;"><span class="chip" style="margin-bottom:0;">DISC-analyse — DC-profiel</span><span class="pers-year">2025</span></div>
     <div class="disc-hero reveal d1">
       <div>
-        <div class="disc-chart-title">Responsstijl</div>
+        <div class="disc-chart-title" data-i18n="disc-chart-title">Responsstijl</div>
         <div class="disc-chart">
           <div class="disc-bar-wrap"><div class="disc-bar d-bar" data-h="68"></div><div class="disc-bar-pct">68</div><div class="disc-bar-label d-l">D</div></div>
           <div class="disc-bar-wrap"><div class="disc-bar i-bar" data-h="28"></div><div class="disc-bar-pct">28</div><div class="disc-bar-label i-l">I</div></div>
@@ -551,69 +560,69 @@ footer p{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;co
       </div>
       <div class="disc-hero-text">
         <div class="disc-type-letter">DC</div>
-        <div class="disc-type-name">Dominant · Consciëntieus</div>
-        <div class="disc-type-sub">Resultaatgericht met oog voor kwaliteit</div>
-        <p class="disc-hero-desc">Een combinatie van daadkracht en analytisch denken. Ik pak problemen direct aan, maar onderbouw mijn beslissingen met feiten en structuur. Doelen halen op een hoog niveau — daar draait het om.</p>
+        <div class="disc-type-name" data-i18n="disc-type-name">Dominant · Consciëntieus</div>
+        <div class="disc-type-sub" data-i18n="disc-type-sub">Resultaatgericht met oog voor kwaliteit</div>
+        <p class="disc-hero-desc" data-i18n="disc-desc">Een combinatie van daadkracht en analytisch denken. Ik pak problemen direct aan, maar onderbouw mijn beslissingen met feiten en structuur. Doelen halen op een hoog niveau — daar draait het om.</p>
       </div>
     </div>
-    <h3 class="reveal d1" style="font-family:Playfair Display,serif;font-style:italic;font-size:1.1rem;margin-bottom:1.6rem;">De vier gedragsstijlen</h3>
+    <h3 class="reveal d1" style="font-family:Playfair Display,serif;font-style:italic;font-size:1.1rem;margin-bottom:1.6rem;" data-i18n="disc-dims-h">De vier gedragsstijlen</h3>
     <div class="disc-dims">
       <div class="disc-dim">
         <div class="disc-dim-icon dd">D</div>
         <div class="disc-dim-content">
-          <div class="disc-dim-title dd">Dominant — 68 / 78</div>
-          <div class="disc-dim-desc">Resultaatgericht en direct. Ik neem graag de leiding, durf grote problemen te tackelen en ga de confrontatie niet uit de weg. Mijn actieve geest holt al vooruit.</div>
-          <div class="disc-dim-score">Responsstijl 68 · Basisstijl 78</div>
+          <div class="disc-dim-title dd" data-i18n="disc-d-title">Dominant — 68 / 78</div>
+          <div class="disc-dim-desc" data-i18n="disc-d-desc">Resultaatgericht en direct. Ik neem graag de leiding, durf grote problemen te tackelen en ga de confrontatie niet uit de weg. Mijn actieve geest holt al vooruit.</div>
+          <div class="disc-dim-score" data-i18n="disc-d-score">Responsstijl 68 · Basisstijl 78</div>
         </div>
       </div>
       <div class="disc-dim">
         <div class="disc-dim-icon dc">C</div>
         <div class="disc-dim-content">
-          <div class="disc-dim-title dc">Consciëntieus — 83 / 71</div>
-          <div class="disc-dim-desc">Kwaliteitsgericht en analytisch. Ik werk volgens hoge standaarden, beoordeel gegevens kritisch en neem doordachte beslissingen op basis van feiten.</div>
-          <div class="disc-dim-score">Responsstijl 83 · Basisstijl 71</div>
+          <div class="disc-dim-title dc" data-i18n="disc-c-title">Consciëntieus — 83 / 71</div>
+          <div class="disc-dim-desc" data-i18n="disc-c-desc">Kwaliteitsgericht en analytisch. Ik werk volgens hoge standaarden, beoordeel gegevens kritisch en neem doordachte beslissingen op basis van feiten.</div>
+          <div class="disc-dim-score" data-i18n="disc-c-score">Responsstijl 83 · Basisstijl 71</div>
         </div>
       </div>
       <div class="disc-dim">
         <div class="disc-dim-icon di">I</div>
         <div class="disc-dim-content">
-          <div class="disc-dim-title di">Invloed — 28 / 28</div>
-          <div class="disc-dim-desc">Ik overtuig liever met feiten en resultaten dan met enthousiasme. Mijn communicatie is helder en direct — to the point, niet om de mensen heen.</div>
-          <div class="disc-dim-score">Responsstijl 28 · Basisstijl 28</div>
+          <div class="disc-dim-title di" data-i18n="disc-i-title">Invloed — 28 / 28</div>
+          <div class="disc-dim-desc" data-i18n="disc-i-desc">Ik overtuig liever met feiten en resultaten dan met enthousiasme. Mijn communicatie is helder en direct — to the point, niet om de mensen heen.</div>
+          <div class="disc-dim-score" data-i18n="disc-i-score">Responsstijl 28 · Basisstijl 28</div>
         </div>
       </div>
       <div class="disc-dim">
         <div class="disc-dim-icon ds">S</div>
         <div class="disc-dim-content">
-          <div class="disc-dim-title ds">Stabiliteit — 22 / 25</div>
-          <div class="disc-dim-desc">Ik prefereer afwisseling en een veranderlijke omgeving boven routine. Op mijn best als er verschillende projecten tegelijkertijd lopen.</div>
-          <div class="disc-dim-score">Responsstijl 22 · Basisstijl 25</div>
+          <div class="disc-dim-title ds" data-i18n="disc-s-title">Stabiliteit — 22 / 25</div>
+          <div class="disc-dim-desc" data-i18n="disc-s-desc">Ik prefereer afwisseling en een veranderlijke omgeving boven routine. Op mijn best als er verschillende projecten tegelijkertijd lopen.</div>
+          <div class="disc-dim-score" data-i18n="disc-s-score">Responsstijl 22 · Basisstijl 25</div>
         </div>
       </div>
     </div>
 
     <div class="pers-overlap">
-      <span class="pers-overlap-label">De rode draad — 2022 vs. 2025</span>
-      <p class="pers-overlap-sub">Drie jaar, twee tests, één conclusie. Wat de 16Personalities in 2022 liet zien, bevestigt de DISC-analyse in 2025.</p>
+      <span class="pers-overlap-label" data-i18n="overlap-label">De rode draad — 2022 vs. 2025</span>
+      <p class="pers-overlap-sub" data-i18n="overlap-sub">Drie jaar, twee tests, één conclusie. Wat de 16Personalities in 2022 liet zien, bevestigt de DISC-analyse in 2025.</p>
       <div class="pers-overlap-grid">
         <div class="pers-overlap-item">
-          <div class="pers-overlap-item-h">Resultaatgericht &amp; besluitvaardig</div>
-          <div class="pers-overlap-item-d">ESTJ's Thinking + Judging komt terug in DISC's hoge D-score. Doelen stellen, beslissingen nemen, doorpakken.</div>
+          <div class="pers-overlap-item-h" data-i18n="overlap-h1">Resultaatgericht &amp; besluitvaardig</div>
+          <div class="pers-overlap-item-d" data-i18n="overlap-d1">ESTJ's Thinking + Judging komt terug in DISC's hoge D-score. Doelen stellen, beslissingen nemen, doorpakken.</div>
           <div class="pers-overlap-item-tags"><span class="pers-overlap-tag">Thinking 72%</span><span class="pers-overlap-tag">D-score 78</span></div>
         </div>
         <div class="pers-overlap-item">
-          <div class="pers-overlap-item-h">Structuur &amp; kwaliteit</div>
-          <div class="pers-overlap-item-d">Judging (76%) en Consciëntieus (83%) vertellen hetzelfde verhaal: orde, planning en hoge standaarden zijn niet onderhandelbaar.</div>
+          <div class="pers-overlap-item-h" data-i18n="overlap-h2">Structuur &amp; kwaliteit</div>
+          <div class="pers-overlap-item-d" data-i18n="overlap-d2">Judging (76%) en Consciëntieus (83%) vertellen hetzelfde verhaal: orde, planning en hoge standaarden zijn niet onderhandelbaar.</div>
           <div class="pers-overlap-item-tags"><span class="pers-overlap-tag">Judging 76%</span><span class="pers-overlap-tag">C-score 83</span></div>
         </div>
         <div class="pers-overlap-item">
-          <div class="pers-overlap-item-h">Assertief &amp; direct</div>
-          <div class="pers-overlap-item-d">De hoogste ESTJ-score (Assertive 81%) en de hoogste DISC-basisstijl (D 78) bevestigen: ik kom op voor mijn mening en ben stabiel onder druk.</div>
+          <div class="pers-overlap-item-h" data-i18n="overlap-h3">Assertief &amp; direct</div>
+          <div class="pers-overlap-item-d" data-i18n="overlap-d3">De hoogste ESTJ-score (Assertive 81%) en de hoogste DISC-basisstijl (D 78) bevestigen: ik kom op voor mijn mening en ben stabiel onder druk.</div>
           <div class="pers-overlap-item-tags"><span class="pers-overlap-tag">Assertive 81%</span><span class="pers-overlap-tag">D-score 78</span></div>
         </div>
         <div class="pers-overlap-item">
-          <div class="pers-overlap-item-h">Actie boven afwachten</div>
-          <div class="pers-overlap-item-d">Extravert (67%) en een lage S-score (22%) laten zien: ik ben een zelfstarter die energie haalt uit nieuwe uitdagingen, niet uit routine.</div>
+          <div class="pers-overlap-item-h" data-i18n="overlap-h4">Actie boven afwachten</div>
+          <div class="pers-overlap-item-d" data-i18n="overlap-d4">Extravert (67%) en een lage S-score (22%) laten zien: ik ben een zelfstarter die energie haalt uit nieuwe uitdagingen, niet uit routine.</div>
           <div class="pers-overlap-item-tags"><span class="pers-overlap-tag">Extravert 67%</span><span class="pers-overlap-tag">S-score 22</span></div>
         </div>
       </div>
@@ -626,126 +635,126 @@ footer p{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;co
   <div class="wrap sec">
     <div class="kan-intro">
       <div class="reveal">
-        <span class="chip">Wat kan ik</span>
-        <h2 class="h-serif">Brand storytelling<br>in <em>luxury context</em></h2>
+        <span class="chip" data-i18n="chip-wat-kan-ik">Wat kan ik</span>
+        <h2 class="h-serif" data-i18n="kan-h2">Brand storytelling<br>in <em>luxury context</em></h2>
       </div>
-      <p class="reveal d1 body-text">Van superjachten tot luxury residences — ik heb geleerd hoe je premium merken neerzet, verhalen vertelt en doelgroepen bereikt in een wereld waar standaard niet bestaat.</p>
+      <p class="reveal d1 body-text" data-i18n="kan-body">Van superjachten tot luxury residences — ik heb geleerd hoe je premium merken neerzet, verhalen vertelt en doelgroepen bereikt in een wereld waar standaard niet bestaat.</p>
     </div>
     <div class="skills-grid">
       <div class="sk-flip reveal">
         <div class="sk-flip-inner">
-          <div class="sk-front"><div class="sk-front-img" style="background-image:url('https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&q=80')"></div><div class="sk-front-overlay"></div><div class="sk-front-content"><div class="sk-num">I</div><div class="sk-h">Sociale media strategie</div><span class="sk-tag">VBH · Alchimia</span></div></div>
-          <div class="sk-back"><div class="sk-back-label">In de praktijk</div><div class="sk-back-text"><strong>VBH &amp; Alchimia</strong> — Instagram- en LinkedIn-strategieën ontwikkeld voor een internationaal superjachtmerk actief in 10+ landen. Content kalenders gebouwd en campagnes opgezet voor zowel het moedermerk als het luxury design-label.</div></div>
+          <div class="sk-front"><div class="sk-front-img" style="background-image:url('https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&q=80')"></div><div class="sk-front-overlay"></div><div class="sk-front-content"><div class="sk-num">I</div><div class="sk-h" data-i18n="sk-h-0">Sociale media strategie</div><span class="sk-tag">VBH · Alchimia</span></div></div>
+          <div class="sk-back"><div class="sk-back-label" data-i18n="sk-back-label">In de praktijk</div><div class="sk-back-text" data-i18n="sk-back-0"><strong>VBH &amp; Alchimia</strong> — Instagram- en LinkedIn-strategieën ontwikkeld voor een internationaal superjachtmerk actief in 10+ landen. Content kalenders gebouwd en campagnes opgezet voor zowel het moedermerk als het luxury design-label.</div></div>
         </div>
       </div>
       <div class="sk-flip reveal d1">
         <div class="sk-flip-inner">
-          <div class="sk-front"><div class="sk-front-img" style="background-image:url('https://images.unsplash.com/photo-1517842645767-c639042777db?w=600&q=80')"></div><div class="sk-front-overlay"></div><div class="sk-front-content"><div class="sk-num">II</div><div class="sk-h">Contentstrategie &amp; storytelling</div><span class="sk-tag">DPG Media · VBH</span></div></div>
-          <div class="sk-back"><div class="sk-back-label">In de praktijk</div><div class="sk-back-text"><strong>DPG Media</strong> — E-learning content ontwikkeld voor het Certified-platform (extern, voor mediaprofessionals) en Digital Continuous Learning (intern). Van stagiaire doorgegroeid naar Content Manager.</div></div>
+          <div class="sk-front"><div class="sk-front-img" style="background-image:url('https://images.unsplash.com/photo-1517842645767-c639042777db?w=600&q=80')"></div><div class="sk-front-overlay"></div><div class="sk-front-content"><div class="sk-num">II</div><div class="sk-h" data-i18n="sk-h-1">Contentstrategie &amp; storytelling</div><span class="sk-tag">DPG Media · VBH</span></div></div>
+          <div class="sk-back"><div class="sk-back-label" data-i18n="sk-back-label">In de praktijk</div><div class="sk-back-text" data-i18n="sk-back-1"><strong>DPG Media</strong> — E-learning content ontwikkeld voor het Certified-platform (extern, voor mediaprofessionals) en Digital Continuous Learning (intern). Van stagiaire doorgegroeid naar Content Manager.</div></div>
         </div>
       </div>
       <div class="sk-flip reveal d2">
         <div class="sk-flip-inner">
-          <div class="sk-front"><div class="sk-front-img" style="background-image:url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80')"></div><div class="sk-front-overlay"></div><div class="sk-front-content"><div class="sk-num">III</div><div class="sk-h">Brand &amp; positionering</div><span class="sk-tag">Alchimia · VBH</span></div></div>
-          <div class="sk-back"><div class="sk-back-label">In de praktijk</div><div class="sk-back-text"><strong>Alchimia</strong> — Mee gewerkt aan de positionering van Alchimia als luxury design-lijn voor high-end residences en superjachten. Visuele identiteit en tone of voice mee ontwikkeld voor een internationaal premium publiek.</div></div>
+          <div class="sk-front"><div class="sk-front-img" style="background-image:url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80')"></div><div class="sk-front-overlay"></div><div class="sk-front-content"><div class="sk-num">III</div><div class="sk-h" data-i18n="sk-h-2">Brand &amp; positionering</div><span class="sk-tag">Alchimia · VBH</span></div></div>
+          <div class="sk-back"><div class="sk-back-label" data-i18n="sk-back-label">In de praktijk</div><div class="sk-back-text" data-i18n="sk-back-2"><strong>Alchimia</strong> — Mee gewerkt aan de positionering van Alchimia als luxury design-lijn voor high-end residences en superjachten. Visuele identiteit en tone of voice mee ontwikkeld voor een internationaal premium publiek.</div></div>
         </div>
       </div>
       <div class="sk-flip reveal d1">
         <div class="sk-flip-inner">
-          <div class="sk-front"><div class="sk-front-img" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80')"></div><div class="sk-front-overlay"></div><div class="sk-front-content"><div class="sk-num">IV</div><div class="sk-h">Campagne-opzet</div><span class="sk-tag">Instagram · LinkedIn</span></div></div>
-          <div class="sk-back"><div class="sk-back-label">In de praktijk</div><div class="sk-back-text"><strong>VBH &amp; Alchimia</strong> — Campagnes opgezet van concept tot executie. Doelgroepen gedefinieerd, kanalen gekozen en content strategisch ingezet voor zowel het superjachtmerk als het luxury design-label in een internationale markt.</div></div>
+          <div class="sk-front"><div class="sk-front-img" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80')"></div><div class="sk-front-overlay"></div><div class="sk-front-content"><div class="sk-num">IV</div><div class="sk-h" data-i18n="sk-h-3">Campagne-opzet</div><span class="sk-tag">Instagram · LinkedIn</span></div></div>
+          <div class="sk-back"><div class="sk-back-label" data-i18n="sk-back-label">In de praktijk</div><div class="sk-back-text" data-i18n="sk-back-3"><strong>VBH &amp; Alchimia</strong> — Campagnes opgezet van concept tot executie. Doelgroepen gedefinieerd, kanalen gekozen en content strategisch ingezet voor zowel het superjachtmerk als het luxury design-label in een internationale markt.</div></div>
         </div>
       </div>
       <div class="sk-flip reveal d2">
         <div class="sk-flip-inner">
-          <div class="sk-front"><div class="sk-front-img" style="background-image:url('https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=600&q=80')"></div><div class="sk-front-overlay"></div><div class="sk-front-content"><div class="sk-num">V</div><div class="sk-h">Luxury &amp; international context</div><span class="sk-tag">VBH · Alchimia · Japan</span></div></div>
-          <div class="sk-back"><div class="sk-back-label">In de praktijk</div><div class="sk-back-text"><strong>VBH</strong> — Marketing in de superjachtindustrie en luxury integrated technology &amp; architecture. Internationaal merk actief in 10+ landen. <strong>Japan</strong> — Japanse markt en consumentengedrag onderzocht in Tokyo voor het HvA Honours-programma.</div></div>
+          <div class="sk-front"><div class="sk-front-img" style="background-image:url('https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=600&q=80')"></div><div class="sk-front-overlay"></div><div class="sk-front-content"><div class="sk-num">V</div><div class="sk-h" data-i18n="sk-h-4">Luxury &amp; international context</div><span class="sk-tag">VBH · Alchimia · Japan</span></div></div>
+          <div class="sk-back"><div class="sk-back-label" data-i18n="sk-back-label">In de praktijk</div><div class="sk-back-text" data-i18n="sk-back-4"><strong>VBH</strong> — Marketing in de superjachtindustrie en luxury integrated technology &amp; architecture. Internationaal merk actief in 10+ landen. <strong>Japan</strong> — Japanse markt en consumentengedrag onderzocht in Tokyo voor het HvA Honours-programma.</div></div>
         </div>
       </div>
       <div class="sk-flip reveal d3">
         <div class="sk-flip-inner">
-          <div class="sk-front"><div class="sk-front-img" style="background-image:url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&q=80')"></div><div class="sk-front-overlay"></div><div class="sk-front-content"><div class="sk-num">VI</div><div class="sk-h">Projectmanagement</div><span class="sk-tag">DPG Media · VBH · UMH</span></div></div>
-          <div class="sk-back"><div class="sk-back-label">In de praktijk</div><div class="sk-back-text">Twee verantwoordelijkheden bij <strong>DPG Media</strong> (Certified + Digital Continuous Learning) én twee bij <strong>VBH</strong> (VBH + Alchimia) tegelijk gemanaged. Daarvoor 4+ jaar Shift Lead bij Maison de George met operationele verantwoordelijkheid.</div></div>
+          <div class="sk-front"><div class="sk-front-img" style="background-image:url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&q=80')"></div><div class="sk-front-overlay"></div><div class="sk-front-content"><div class="sk-num">VI</div><div class="sk-h" data-i18n="sk-h-5">Projectmanagement</div><span class="sk-tag">DPG Media · VBH · UMH</span></div></div>
+          <div class="sk-back"><div class="sk-back-label" data-i18n="sk-back-label">In de praktijk</div><div class="sk-back-text" data-i18n="sk-back-5">Twee verantwoordelijkheden bij <strong>DPG Media</strong> (Certified + Digital Continuous Learning) én twee bij <strong>VBH</strong> (VBH + Alchimia) tegelijk gemanaged. Daarvoor 4+ jaar Shift Lead bij Maison de George met operationele verantwoordelijkheid.</div></div>
         </div>
       </div>
     </div>
     <div class="honours-wrap reveal">
-      <span class="chip orange" style="margin-bottom:1.8rem;">Honours Programma HvA</span>
-      <h2 class="h-serif" style="margin-bottom:.8rem;">Extra vakken, <em>extra diepgang</em></h2>
-      <p class="body-text">Naast mijn reguliere studie heb ik extra vakken gevolgd binnen het Honours Programma van de HvA — voor studenten die meer uit hun studie willen halen dan het minimum.</p>
+      <span class="chip orange" style="margin-bottom:1.8rem;" data-i18n="chip-honours">Honours Programma HvA</span>
+      <h2 class="h-serif" style="margin-bottom:.8rem;" data-i18n="honours-h2">Extra vakken, <em>extra diepgang</em></h2>
+      <p class="body-text" data-i18n="honours-body">Naast mijn bachelor heb ik extra vakken gevolgd binnen het Honours Programma van de HvA — 20 extra ECTS bovenop mijn reguliere studie, voor studenten die meer willen halen dan het minimum.</p>
       <div class="honours-grid">
         <div class="honours-flip">
           <div class="honours-flip-inner">
-            <div class="honours-front"><div class="honours-ects">15</div><div class="honours-h">Leadership in Marketing</div><div class="honours-d">Verdieping in strategische marketing en leiderschap binnen marketingteams. Hoe onderbouw je marketingkeuzes vanuit merkstrategie en positionering? Focus op het combineren van strategisch denken met praktische toepassing in realistische marketingvraagstukken.</div></div>
-            <div class="honours-back"><div class="honours-back-label">Wat ik leerde &amp; deed</div><div class="honours-back-text">Strategische marketingkeuzes leren onderbouwen vanuit <strong>merkstrategie en positionering</strong>. Stakeholders meenemen in besluitvorming. Strategisch denken combineren met praktische toepassing — vaardigheden die ik nu dagelijks inzet bij VBH en DPG Media.</div></div>
+            <div class="honours-front"><div class="honours-ects">+15 <span style="font-size:.7rem;font-family:DM Mono,monospace;letter-spacing:.06em;">ECTS</span></div><div class="honours-h" data-i18n="honours-h-0">Leadership in Marketing</div><div class="honours-d" data-i18n="honours-d-0">Twee verdiepende courses: <strong>Leadership</strong> — leiderschap in teamdynamiek, besluitvorming en het meenemen van stakeholders. <strong>Marketing</strong> — strategische marketingkeuzes onderbouwen vanuit merkstrategie en positionering.</div></div>
+            <div class="honours-back"><div class="honours-back-label" data-i18n="honours-back-label">Wat ik leerde &amp; deed</div><div class="honours-back-text" data-i18n="honours-back-0">Leren hoe je als leider een team meeneemt in strategische keuzes. <strong>Merkstrategie en positionering</strong> vertalen naar concrete plannen. Strategisch denken combineren met praktische toepassing — vaardigheden die ik nu dagelijks inzet bij VBH en DPG Media.</div></div>
           </div>
         </div>
         <div class="honours-flip">
           <div class="honours-flip-inner">
-            <div class="honours-front"><div class="honours-ects">5</div><div class="honours-h">International Business — Japan</div><div class="honours-d">Internationale business en marketing in Japan (Tokyo). Samengewerkt met lokale organisaties, onderzoek gedaan naar de Japanse markt en consumentengedrag. Deze ervaring heeft mijn begrip van culturele verschillen in business sterk verdiept.</div></div>
-            <div class="honours-back"><div class="honours-back-label">Wat ik leerde &amp; deed</div><div class="honours-back-text">In <strong>Tokyo</strong> samengewerkt met lokale organisaties en onderzoek gedaan naar Japans consumentengedrag. Inzichten gepresenteerd over culturele verschillen in marketing en business — een ervaring die mijn internationale blik blijvend heeft gevormd.</div></div>
+            <div class="honours-front"><div class="honours-ects">+5 <span style="font-size:.7rem;font-family:DM Mono,monospace;letter-spacing:.06em;">ECTS</span></div><div class="honours-h" data-i18n="honours-h-1">International Business — Japan</div><div class="honours-d" data-i18n="honours-d-1">Samengewerkt met Japanse studenten in Tokyo en bedrijfsbezoeken gebracht aan o.a. Yakult. In Choshi advies gegeven aan de burgemeester over het bevorderen van lokaal toerisme.</div></div>
+            <div class="honours-back"><div class="honours-back-label" data-i18n="honours-back-label">Wat ik leerde &amp; deed</div><div class="honours-back-text" data-i18n="honours-back-1">In <strong>Tokyo</strong> samengewerkt met lokale studenten en bedrijven bezocht zoals <strong>Yakult</strong>. In <strong>Choshi</strong> de burgemeester geadviseerd over toerismebevordering. Inzichten opgedaan over culturele verschillen in business — een ervaring die mijn internationale blik blijvend heeft gevormd.</div></div>
           </div>
         </div>
       </div>
     </div>
-    <span class="chip orange reveal" style="margin-bottom:1rem;">Werkervaring</span>
-    <h2 class="h-serif reveal" style="margin-bottom:.6rem;">Mijn <em>loopbaanpad</em></h2>
-    <p class="body-text reveal" style="margin-bottom:2.5rem;max-width:520px;">Van de horeca naar marketing — elke stap bracht nieuwe verantwoordelijkheid, nieuwe skills en een duidelijker beeld van wie ik wil zijn als professional.</p>
+    <span class="chip orange reveal" style="margin-bottom:1rem;" data-i18n="chip-werkervaring">Werkervaring</span>
+    <h2 class="h-serif reveal" style="margin-bottom:.6rem;" data-i18n="career-h2">Mijn <em>loopbaanpad</em></h2>
+    <p class="body-text reveal" style="margin-bottom:2.5rem;max-width:520px;" data-i18n="career-body">Van de horeca naar marketing — elke stap bracht nieuwe verantwoordelijkheid, nieuwe skills en een duidelijker beeld van wie ik wil zijn als professional.</p>
     <div class="career-path">
       <div class="career-line"></div>
       <div class="career-line-fill"></div>
 
       <div class="career-step">
         <div class="career-dot">🍽</div>
-        <div class="career-chapter">Het fundament</div>
+        <div class="career-chapter" data-i18n="career-ch-0">Het fundament</div>
         <div class="career-period">Jun 2021 – Sep 2025</div>
         <div class="career-company">Maison de George — UMH Group</div>
-        <div class="career-industry">Premium hospitality · Laren</div>
+        <div class="career-industry" data-i18n="career-ind-0">Premium hospitality · Laren</div>
         <div class="career-growth">
-          <span class="career-role">Medewerker</span>
+          <span class="career-role" data-i18n="career-role-0a">Medewerker</span>
           <span class="career-arrow">→</span>
-          <span class="career-role current">Shift Lead</span>
+          <span class="career-role current" data-i18n="career-role-0b">Shift Lead</span>
         </div>
-        <p class="career-lesson">Vier jaar waarin ik leerde leidinggeven, snel schakelen en verantwoordelijkheid nemen. Hier ontdekte ik dat ik het beste functioneer als ik de regie heb — over een team, een avond, een probleem.</p>
+        <p class="career-lesson" data-i18n="career-lesson-0">Vier jaar waarin ik leerde leidinggeven, snel schakelen en verantwoordelijkheid nemen. Hier ontdekte ik dat ik het beste functioneer als ik de regie heb — over een team, een avond, een probleem.</p>
       </div>
 
       <div class="career-step">
         <div class="career-dot">⚓</div>
-        <div class="career-chapter">Marketing ontdekken</div>
-        <div class="career-period">Feb 2025 – heden</div>
+        <div class="career-chapter" data-i18n="career-ch-1">Marketing ontdekken</div>
+        <div class="career-period" data-i18n="career-period-1">Feb 2025 – heden</div>
         <div class="career-company">Van Berge Henegouwen (VBH)</div>
-        <div class="career-industry">Superjachten &amp; luxury residences · Weesp</div>
+        <div class="career-industry" data-i18n="career-ind-1">Superjachten &amp; luxury residences · Weesp</div>
         <div class="career-growth">
-          <span class="career-role">Digital Marketing Trainee</span>
+          <span class="career-role" data-i18n="career-role-1a">Digital Marketing Trainee</span>
           <span class="career-arrow">→</span>
-          <span class="career-role current">Junior Brand Marketeer</span>
+          <span class="career-role current" data-i18n="career-role-1b">Junior Brand Marketeer</span>
         </div>
-        <p class="career-lesson">Begonnen als trainee, doorgegroeid naar brand marketeer. Van social media beheer naar campagnes opzetten en merkpositionering voor een internationaal luxemerk. Hier leerde ik marketing niet alleen bedenken, maar ook uitvoeren.</p>
+        <p class="career-lesson" data-i18n="career-lesson-1">Begonnen als trainee, doorgegroeid naar brand marketeer. Van social media beheer naar campagnes opzetten en merkpositionering voor een internationaal luxemerk. Hier leerde ik marketing niet alleen bedenken, maar ook uitvoeren.</p>
       </div>
 
       <div class="career-step">
         <div class="career-dot">📡</div>
-        <div class="career-chapter">Van stagiair naar collega</div>
-        <div class="career-period">Sep 2025 – heden</div>
+        <div class="career-chapter" data-i18n="career-ch-2">Van stagiair naar collega</div>
+        <div class="career-period" data-i18n="career-period-2">Sep 2025 – heden</div>
         <div class="career-company">DPG Media Nederland</div>
-        <div class="career-industry">Media &amp; publishing · Amsterdam</div>
+        <div class="career-industry" data-i18n="career-ind-2">Media &amp; publishing · Amsterdam</div>
         <div class="career-growth">
-          <span class="career-role">Marketing &amp; Content Stagiaire</span>
+          <span class="career-role" data-i18n="career-role-2a">Marketing &amp; Content Stagiaire</span>
           <span class="career-arrow">→</span>
-          <span class="career-role current">Content Manager</span>
+          <span class="career-role current" data-i18n="career-role-2b">Content Manager</span>
         </div>
-        <p class="career-lesson">Stage bij één van Nederland's grootste mediabedrijven — en gebleven als Content Manager. Bewijs dat ik niet alleen leer, maar ook lever. Hier breng ik strategie en uitvoering samen op het snijvlak van content, marketing en product.</p>
+        <p class="career-lesson" data-i18n="career-lesson-2">Stage bij één van Nederland's grootste mediabedrijven — en gebleven als Content Manager. Bewijs dat ik niet alleen leer, maar ook lever. Hier breng ik strategie en uitvoering samen op het snijvlak van content, marketing en product.</p>
       </div>
     </div>
     <div style="margin-top:5rem;">
-      <span class="chip reveal" style="margin-bottom:1.8rem;">Wat anderen zeggen</span>
-      <h2 class="h-serif reveal d1" style="margin-bottom:2.5rem;">Bewijs uit <em>de praktijk</em></h2>
+      <span class="chip reveal" style="margin-bottom:1.8rem;" data-i18n="chip-wat-anderen">Wat anderen zeggen</span>
+      <h2 class="h-serif reveal d1" style="margin-bottom:2.5rem;" data-i18n="bewijs-h2">Bewijs uit <em>de praktijk</em></h2>
     </div>
     <div class="q-list">
-      <div class="q-item reveal"><div class="q-mark">"</div><div><p class="q-text">Quinty is een gedreven en gemotiveerde studente. Zij legt de lat hoog en levert goed werk, zowel kwalitatief als kwantitatief. Zowel in projectgroepen als in individuele opdrachten komt zij goed tot haar recht. Ik kan haar van harte aanbevelen als marketeer.</p><div class="q-name">Lode Broekman</div><div class="q-role">Docent Online Marketing &amp; Marketingadviseur · november 2025</div></div></div>
-      <div class="q-item reveal d1"><div class="q-mark">"</div><div><p class="q-text">Quinty is een enthousiasteling met oog voor het grotere plaatje en vergeet daarbij niet tot in de details door te vragen. Quinty is communicatief erg vaardig en kan op die manier goed voor zichzelf opkomen. Het maakt dat Quinty in mijn ogen grote stappen gaat maken.</p><div class="q-name">Dennis Bliek</div><div class="q-role">Marketing communicatie professional &amp; docent · november 2025</div></div></div>
-      <div class="q-item reveal d2"><div class="q-mark">"</div><div><p class="q-text">Met haar leergierige houding, drive om succesvol te willen zijn en haar behaalde resultaten, laat ze zien waarvoor ze staat en wat ze kan. Ik kan Quinty daarom binnen 'high performance' omgevingen aanbevelen!</p><div class="q-name">Lex Beijersbergen van Henegouwen, MBA</div><div class="q-role">Coach, Docent Minor AI driven MarCom @HvA · november 2025</div></div></div>
-      <div class="q-item reveal d3"><div class="q-mark">"</div><div><p class="q-text">Quinty is een fantastische aanwinst voor DPG Media tijdens haar stage. Vanaf de eerste dag viel ze op door haar zelfstandigheid en initiatief. Ze is creatief, denkt altijd actief mee en pakt nieuwe taken razendsnel op. Kortom: een erg betrouwbare, leergierige en slimme collega die echt meerwaarde toevoegt aan elk team.</p><div class="q-name">Febe Aarts</div><div class="q-role">Project Manager Digital Sales, DPG Media — directe manager</div></div></div>
+      <div class="q-item reveal"><div class="q-mark">"</div><div><p class="q-text" data-i18n="q-text-0">Quinty is een gedreven en gemotiveerde studente. Zij legt de lat hoog en levert goed werk, zowel kwalitatief als kwantitatief. Zowel in projectgroepen als in individuele opdrachten komt zij goed tot haar recht. Ik kan haar van harte aanbevelen als marketeer.</p><div class="q-name">Lode Broekman</div><div class="q-role" data-i18n="q-role-0">Docent Online Marketing &amp; Marketingadviseur · november 2025</div></div></div>
+      <div class="q-item reveal d1"><div class="q-mark">"</div><div><p class="q-text" data-i18n="q-text-1">Quinty is een enthousiasteling met oog voor het grotere plaatje en vergeet daarbij niet tot in de details door te vragen. Quinty is communicatief erg vaardig en kan op die manier goed voor zichzelf opkomen. Het maakt dat Quinty in mijn ogen grote stappen gaat maken.</p><div class="q-name">Dennis Bliek</div><div class="q-role" data-i18n="q-role-1">Marketing communicatie professional &amp; docent · november 2025</div></div></div>
+      <div class="q-item reveal d2"><div class="q-mark">"</div><div><p class="q-text" data-i18n="q-text-2">Met haar leergierige houding, drive om succesvol te willen zijn en haar behaalde resultaten, laat ze zien waarvoor ze staat en wat ze kan. Ik kan Quinty daarom binnen 'high performance' omgevingen aanbevelen!</p><div class="q-name">Lex Beijersbergen van Henegouwen, MBA</div><div class="q-role" data-i18n="q-role-2">Coach, Docent Minor AI driven MarCom @HvA · november 2025</div></div></div>
+      <div class="q-item reveal d3"><div class="q-mark">"</div><div><p class="q-text" data-i18n="q-text-3">Quinty is een fantastische aanwinst voor DPG Media tijdens haar stage. Vanaf de eerste dag viel ze op door haar zelfstandigheid en initiatief. Ze is creatief, denkt altijd actief mee en pakt nieuwe taken razendsnel op. Kortom: een erg betrouwbare, leergierige en slimme collega die echt meerwaarde toevoegt aan elk team.</p><div class="q-name">Febe Aarts</div><div class="q-role" data-i18n="q-role-3">Project Manager Digital Sales, DPG Media — directe manager</div></div></div>
     </div>
   </div>
 </div>
@@ -757,11 +766,11 @@ footer p{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;co
       <div class="van-flag-bg"></div>
       <div class="van-inner">
         <div class="van-text">
-          <span class="chip orange" style="margin-bottom:1rem;">Volgende bestemming</span>
-          <h2 class="h-serif">Minor in <em>Vancouver, Canada</em></h2>
-          <p>Van september 2026 volg ik mijn minor aan de Kwantlen Polytechnic University (KPU) in Vancouver, Canada. Een stad die bekendstaat als een van de meest internationale en dynamische hubs van Noord-Amerika — op het kruispunt van Europa, Azië en de Stille Oceaan.</p>
-          <p>Het is niet mijn eerste keer buiten de grenzen. Voor de HvA reisde ik al naar Japan — Tokyo — voor een internationaal business-programma. Vancouver is de volgende stap in een patroon dat ik bewust uitbouw: de wereld niet alleen bestuderen, maar ervaren.</p>
-          <p>Vancouver stopt niet bij de universiteit — het is ook een kans om een nieuw netwerk op te bouwen, nieuwe perspectieven op te doen en te begrijpen hoe marketing werkt in een van de meest diverse steden ter wereld.</p>
+          <span class="chip orange" style="margin-bottom:1rem;" data-i18n="chip-volgende">Volgende bestemming</span>
+          <h2 class="h-serif" data-i18n="van-h2">Minor in <em>Vancouver, Canada</em></h2>
+          <p data-i18n="van-p1">Van september 2026 volg ik mijn minor aan de Kwantlen Polytechnic University (KPU) in Vancouver, Canada. Een stad die bekendstaat als een van de meest internationale en dynamische hubs van Noord-Amerika — op het kruispunt van Europa, Azië en de Stille Oceaan.</p>
+          <p data-i18n="van-p2">Het is niet mijn eerste keer buiten de grenzen. Voor de HvA reisde ik al naar Japan — Tokyo — voor een internationaal business-programma. Vancouver is de volgende stap in een patroon dat ik bewust uitbouw: de wereld niet alleen bestuderen, maar ervaren.</p>
+          <p data-i18n="van-p3">Vancouver stopt niet bij de universiteit — het is ook een kans om een nieuw netwerk op te bouwen, nieuwe perspectieven op te doen en te begrijpen hoe marketing werkt in een van de meest diverse steden ter wereld.</p>
         </div>
         <div class="globe-wrap">
           <canvas id="globe" class="globe-canvas" width="680" height="680"></canvas>
@@ -770,35 +779,35 @@ footer p{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;co
       </div>
     </div>
     <div class="drijfveer reveal">
-      <span class="chip" style="margin-bottom:1.4rem;">Wat mij drijft</span>
-      <h2 class="h-serif" style="margin-bottom:2rem;">Niet alleen <em>ambitieus</em>,<br>ook nieuwsgierig</h2>
+      <span class="chip" style="margin-bottom:1.4rem;" data-i18n="chip-wat-drijft">Wat mij drijft</span>
+      <h2 class="h-serif" style="margin-bottom:2rem;" data-i18n="drijf-h2">Niet alleen <em>ambitieus</em>,<br>ook nieuwsgierig</h2>
       <div class="drijfveer-inner">
         <div class="drijfveer-text">
-          <p>Ik ben iemand die niet stilzit. Niet omdat het moet, maar omdat ik het gevoel heb dat er altijd meer te ontdekken is — meer plekken, meer perspectieven, meer manieren om naar de wereld te kijken.</p>
-          <p>Reizen is voor mij geen vakantie, het is hoe ik leer. Elke cultuur die ik meemaak verandert hoe ik denk over mensen, over merken, over communicatie. En die nieuwsgierigheid stopt niet bij grenzen — het geldt net zo goed voor technologie, voor AI, voor alles wat de wereld van marketing aan het veranderen is.</p>
+          <p data-i18n="drijf-p1">Ik ben iemand die niet stilzit. Niet omdat het moet, maar omdat ik het gevoel heb dat er altijd meer te ontdekken is — meer plekken, meer perspectieven, meer manieren om naar de wereld te kijken.</p>
+          <p data-i18n="drijf-p2">Reizen is voor mij geen vakantie, het is hoe ik leer. Elke cultuur die ik meemaak verandert hoe ik denk over mensen, over merken, over communicatie. En die nieuwsgierigheid stopt niet bij grenzen — het geldt net zo goed voor technologie, voor AI, voor alles wat de wereld van marketing aan het veranderen is.</p>
         </div>
         <div class="drijfveer-pillars">
-          <div class="drijfveer-pillar"><div class="drijfveer-pillar-h">Reizen &amp; culturen</div><div class="drijfveer-pillar-d">Japan, straks Vancouver — en daarna? Ik wil de wereld niet alleen bestuderen, maar voelen. Elke plek vormt hoe ik denk.</div></div>
-          <div class="drijfveer-pillar"><div class="drijfveer-pillar-h">Continu leren</div><div class="drijfveer-pillar-d">Stilstaan voelt als achteruitgaan. Een Honours-programma, een MBA op de lijst — ik wil altijd in beweging blijven.</div></div>
-          <div class="drijfveer-pillar"><div class="drijfveer-pillar-h">AI &amp; technologie</div><div class="drijfveer-pillar-d">Gefascineerd door wat technologie kan. Niet als vervanging, maar als versterking van creativiteit en menselijk inzicht.</div></div>
-          <div class="drijfveer-pillar"><div class="drijfveer-pillar-h">Dromen &amp; doen</div><div class="drijfveer-pillar-d">Ik droom groot, maar ik blijf niet bij dromen. Elk plan wordt een stap, elke stap brengt me ergens.</div></div>
+          <div class="drijfveer-pillar"><div class="drijfveer-pillar-h" data-i18n="pillar-h-0">Reizen &amp; culturen</div><div class="drijfveer-pillar-d" data-i18n="pillar-d-0">Japan, straks Vancouver — en daarna? Ik wil de wereld niet alleen bestuderen, maar voelen. Elke plek vormt hoe ik denk.</div></div>
+          <div class="drijfveer-pillar"><div class="drijfveer-pillar-h" data-i18n="pillar-h-1">Continu leren</div><div class="drijfveer-pillar-d" data-i18n="pillar-d-1">Stilstaan voelt als achteruitgaan. Een Honours-programma, een MBA op de lijst — ik wil altijd in beweging blijven.</div></div>
+          <div class="drijfveer-pillar"><div class="drijfveer-pillar-h" data-i18n="pillar-h-2">AI &amp; technologie</div><div class="drijfveer-pillar-d" data-i18n="pillar-d-2">Gefascineerd door wat technologie kan. Niet als vervanging, maar als versterking van creativiteit en menselijk inzicht.</div></div>
+          <div class="drijfveer-pillar"><div class="drijfveer-pillar-h" data-i18n="pillar-h-3">Dromen &amp; doen</div><div class="drijfveer-pillar-d" data-i18n="pillar-d-3">Ik droom groot, maar ik blijf niet bij dromen. Elk plan wordt een stap, elke stap brengt me ergens.</div></div>
         </div>
       </div>
     </div>
 
     <div class="ambitie-lead reveal">
-      <span class="chip orange">Ambitie</span>
-      <h2 class="h-serif">Ergens <em>bovenaan</em> staan.<br>Of zelf iets bouwen.</h2>
-      <p>Ik weet nog niet precies hoe het pad eruitziet — maar ik weet wel waar ik wil eindigen. Aan de top van een organisatie, of aan het hoofd van iets wat ik zelf heb opgebouwd, met een sterk merk en een internationale touch. Japan was een begin. Vancouver is een volgende stap. Maar daar stopt het niet.</p>
-      <p>Ik overweeg ook serieus een MBA — niet omdat het moet, maar omdat ik alles uit mezelf wil halen. Kennis is geen eindbestemming, het is brandstof. En ik ben nog lang niet uitgeleerd.</p>
+      <span class="chip orange" data-i18n="chip-ambitie">Ambitie</span>
+      <h2 class="h-serif" data-i18n="ambitie-h2">Ergens <em>bovenaan</em> staan.<br>Of zelf iets bouwen.</h2>
+      <p data-i18n="ambitie-p1">Ik weet nog niet precies hoe het pad eruitziet — maar ik weet wel waar ik wil eindigen. Aan de top van een organisatie, of aan het hoofd van iets wat ik zelf heb opgebouwd, met een sterk merk en een internationale touch. Japan was een begin. Vancouver is een volgende stap. Maar daar stopt het niet.</p>
+      <p data-i18n="ambitie-p2">Ik overweeg ook serieus een MBA — niet omdat het moet, maar omdat ik alles uit mezelf wil halen. Kennis is geen eindbestemming, het is brandstof. En ik ben nog lang niet uitgeleerd.</p>
     </div>
     <div class="ambitie-grid">
-      <div class="ab reveal"><h3>Leiderschapsrol</h3><p>Bovenaan staan in een organisatie waar ik echt invloed heb op merk, strategie en richting. Eerst in een grote corporate om van de beste mensen te leren — later in een bewegelijkere omgeving met meer vrijheid.</p></div>
-      <div class="ab reveal d1"><h3>Eigen onderneming</h3><p>Misschien bouw ik ooit iets eigens op — een merk, een bureau, iets met internationale uitstraling. Het ondernemersvuur is er altijd geweest.</p></div>
-      <div class="ab reveal d2"><h3>Marketing bureau / agency</h3><p>Ik wil ook ervaring opdoen aan de agency-kant — werken voor meerdere merken tegelijk, in een snel schakelende en creatieve omgeving. Dat scherpt je, en het maakt je veelzijdig.</p></div>
-      <div class="ab reveal d2"><h3>AI &amp; marketing</h3><p>AI is een krachtig hulpmiddel — maar geen vervanging voor een echte marketeer. Ik zoek de middenweg: slimmer werken met technologie, zonder het menselijk inzicht en de creativiteit te verliezen die marketing onderscheidend maken.</p></div>
-      <div class="ab reveal d3"><h3>De wereld ontdekken</h3><p>Japan. Vancouver. Maar daar stopt het niet. Ik wil meer plekken zien, meer culturen begrijpen en meer internationale ervaring opdoen.</p></div>
-      <div class="ab reveal d3"><h3>MBA &amp; levenslang leren</h3><p>Een MBA staat op mijn lijst — niet als verplichting, maar als keuze. Ik ben pas 22 en heb het gevoel nog lang niet uitgeleerd te zijn. Kennis is brandstof.</p></div>
+      <div class="ab reveal"><div class="ab-img"><svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="18" r="7" stroke="#1A56DB" stroke-width="1.5"/><path d="M14 42c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="#1A56DB" stroke-width="1.5" stroke-linecap="round"/><path d="M28 34 L28 26" stroke="#E8650A" stroke-width="1.5" stroke-linecap="round"/><path d="M22 30 L28 26 L34 30" stroke="#E8650A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h3 data-i18n="ab-h-0">Leiderschapsrol</h3><p data-i18n="ab-p-0">Bovenaan staan in een organisatie waar ik echt invloed heb op merk, strategie en richting. Eerst in een grote corporate om van de beste mensen te leren — later in een bewegelijkere omgeving met meer vrijheid.</p></div></div>
+      <div class="ab reveal d1"><div class="ab-img"><svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M28 10 C20 10 14 16 14 23 C14 28 17 32 22 34 L22 38 L34 38 L34 34 C39 32 42 28 42 23 C42 16 36 10 28 10Z" stroke="#1A56DB" stroke-width="1.5" stroke-linejoin="round"/><path d="M22 38 L22 42 L34 42 L34 38" stroke="#9C9890" stroke-width="1.5" stroke-linejoin="round"/><path d="M28 18 L28 28 M24 22 L28 18 L32 22" stroke="#E8650A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h3 data-i18n="ab-h-1">Eigen onderneming</h3><p data-i18n="ab-p-1">Misschien bouw ik ooit iets eigens op — een merk, een bureau, iets met internationale uitstraling. Het ondernemersvuur is er altijd geweest.</p></div></div>
+      <div class="ab reveal d2"><div class="ab-img"><svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="14" width="24" height="18" rx="2" stroke="#1A56DB" stroke-width="1.5"/><path d="M34 20 L46 17 L46 35 L34 32" stroke="#1A56DB" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 32 L34 32" stroke="#1A56DB" stroke-width="1.5"/><circle cx="17" cy="23" r="3" stroke="#E8650A" stroke-width="1.5"/><path d="M14 38 L18 32 M24 38 L20 32" stroke="#9C9890" stroke-width="1.5" stroke-linecap="round"/></svg></div><div><h3 data-i18n="ab-h-2">Marketing bureau / agency</h3><p data-i18n="ab-p-2">Ik wil ook ervaring opdoen aan de agency-kant — werken voor meerdere merken tegelijk, in een snel schakelende en creatieve omgeving. Dat scherpt je, en het maakt je veelzijdig.</p></div></div>
+      <div class="ab reveal d2"><div class="ab-img"><svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="14" y="18" width="28" height="22" rx="3" stroke="#1A56DB" stroke-width="1.5"/><circle cx="28" cy="29" r="5" stroke="#E8650A" stroke-width="1.5"/><path d="M28 24 L28 20 M28 34 L28 38 M33 29 L37 29 M19 29 L23 29" stroke="#E8650A" stroke-width="1.2" stroke-linecap="round"/><path d="M20 14 L24 18 M36 14 L32 18" stroke="#9C9890" stroke-width="1.5" stroke-linecap="round"/><path d="M22 40 L22 44 M34 40 L34 44" stroke="#9C9890" stroke-width="1.5" stroke-linecap="round"/></svg></div><div><h3 data-i18n="ab-h-3">AI &amp; marketing</h3><p data-i18n="ab-p-3">AI is een krachtig hulpmiddel — maar geen vervanging voor een echte marketeer. Ik zoek de middenweg: slimmer werken met technologie, zonder het menselijk inzicht en de creativiteit te verliezen die marketing onderscheidend maken.</p></div></div>
+      <div class="ab reveal d3"><div class="ab-img"><svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="16" stroke="#1A56DB" stroke-width="1.5"/><ellipse cx="28" cy="28" rx="7" ry="16" stroke="#1A56DB" stroke-width="1.5"/><path d="M12 28 L44 28 M14 20 Q28 24 42 20 M14 36 Q28 32 42 36" stroke="#1A56DB" stroke-width="1.2"/><circle cx="36" cy="20" r="3" fill="#E8650A" opacity=".8"/><path d="M36 20 L36 13" stroke="#E8650A" stroke-width="1.2" stroke-linecap="round"/></svg></div><div><h3 data-i18n="ab-h-4">De wereld ontdekken</h3><p data-i18n="ab-p-4">Japan. Vancouver. Maar daar stopt het niet. Ik wil meer plekken zien, meer culturen begrijpen en meer internationale ervaring opdoen.</p></div></div>
+      <div class="ab reveal d3"><div class="ab-img"><svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="12" y="34" width="32" height="4" rx="1" stroke="#9C9890" stroke-width="1.5"/><rect x="14" y="22" width="28" height="12" rx="1" stroke="#1A56DB" stroke-width="1.5"/><rect x="16" y="16" width="24" height="8" rx="1" stroke="#1A56DB" stroke-width="1.5"/><path d="M28 22 L28 16" stroke="#9C9890" stroke-width="1" stroke-dasharray="2 2"/><path d="M20 38 L20 44 M36 38 L36 44" stroke="#9C9890" stroke-width="1.5" stroke-linecap="round"/><path d="M33 19 L35 21 L39 17" stroke="#E8650A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h3 data-i18n="ab-h-5">MBA &amp; levenslang leren</h3><p data-i18n="ab-p-5">Een MBA staat op mijn lijst — niet als verplichting, maar als keuze. Ik ben pas 22 en heb het gevoel nog lang niet uitgeleerd te zijn. Kennis is brandstof.</p></div></div>
     </div>
   </div>
 </div>
@@ -808,21 +817,22 @@ footer p{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;co
   <div class="wrap sec">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;">
       <div class="reveal">
-        <span class="chip">Contact</span>
-        <h2 class="h-serif" style="margin-top:.5rem;">Laten we <em>kennismaken</em></h2>
-        <p class="body-text" style="margin-top:1rem;">Geïnteresseerd in mijn profiel? Ik sta open voor gesprekken over stages, afstudeeropdrachten en eerste stappen in het werkveld.</p>
+        <span class="chip" data-i18n="nav-contact">Contact</span>
+        <h2 class="h-serif" style="margin-top:.5rem;" data-i18n="contact-h2">Laten we <em>kennismaken</em></h2>
+        <p class="body-text" style="margin-top:1rem;" data-i18n="contact-body">Geïnteresseerd in mijn profiel? Ik sta open voor gesprekken over stages, afstudeeropdrachten en eerste stappen in het werkveld.</p>
         <div style="margin-top:2rem;">
-          <div style="display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--rule);font-size:.86rem;"><span style="font-family:DM Mono,monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);min-width:80px;">Email</span><a href="mailto:quinty@email.nl" style="color:var(--ink);text-decoration:none;">quinty@email.nl</a></div>
-          <div style="display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--rule);font-size:.86rem;"><span style="font-family:DM Mono,monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);min-width:80px;">LinkedIn</span><span>Quinty IJssel de Schepper</span></div>
-          <div style="display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--rule);font-size:.86rem;"><span style="font-family:DM Mono,monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);min-width:80px;">Locatie</span><span>Amsterdam, Nederland</span></div>
-          <div style="display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--rule);font-size:.86rem;"><span style="font-family:DM Mono,monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);min-width:80px;">Beschikbaar</span><span>Afstuderen 2026 · Vancouver sep '26</span></div>
+          <div style="display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--rule);font-size:.86rem;"><span style="font-family:DM Mono,monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);min-width:80px;">Email</span><a href="mailto:quintyijsseldeschepper@gmail.com" style="color:var(--ink);text-decoration:none;">quintyijsseldeschepper@gmail.com</a></div>
+          <div style="display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--rule);font-size:.86rem;"><span style="font-family:DM Mono,monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);min-width:80px;">LinkedIn</span><a href="https://www.linkedin.com/in/quinty-ijssel-de-schepper" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:none;">Quinty IJssel de Schepper ↗</a></div>
+          <div style="display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--rule);font-size:.86rem;"><span style="font-family:DM Mono,monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);min-width:80px;" data-i18n="contact-loc-label">Locatie</span><span data-i18n="contact-loc-val">Amsterdam, Nederland</span></div>
+          <div style="display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--rule);font-size:.86rem;"><span style="font-family:DM Mono,monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);min-width:80px;" data-i18n="contact-avail-label">Beschikbaar</span><span data-i18n="contact-avail-val">Afstuderen 2026 · Vancouver sep '26</span></div>
         </div>
       </div>
       <div class="reveal d2">
-        <div style="margin-bottom:1.4rem;"><label style="font-family:DM Mono,monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--light);display:block;margin-bottom:.5rem;">Naam</label><input type="text" placeholder="Uw naam" style="width:100%;padding:.85rem 1rem;border:1px solid var(--rule);background:var(--white);font-family:Plus Jakarta Sans,sans-serif;font-size:.86rem;color:var(--ink);outline:none;"></div>
-        <div style="margin-bottom:1.4rem;"><label style="font-family:DM Mono,monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--light);display:block;margin-bottom:.5rem;">Email</label><input type="email" placeholder="uw@email.nl" style="width:100%;padding:.85rem 1rem;border:1px solid var(--rule);background:var(--white);font-family:Plus Jakarta Sans,sans-serif;font-size:.86rem;color:var(--ink);outline:none;"></div>
-        <div style="margin-bottom:1.4rem;"><label style="font-family:DM Mono,monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--light);display:block;margin-bottom:.5rem;">Bericht</label><textarea placeholder="Vertel meer..." style="width:100%;padding:.85rem 1rem;border:1px solid var(--rule);background:var(--white);font-family:Plus Jakarta Sans,sans-serif;font-size:.86rem;color:var(--ink);outline:none;height:140px;resize:vertical;"></textarea></div>
-        <button class="btn btn-dark" style="width:100%;">Verstuur bericht</button>
+        <div style="margin-bottom:1.4rem;"><label style="font-family:DM Mono,monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--light);display:block;margin-bottom:.5rem;" data-i18n="form-naam">Naam</label><input type="text" id="form-name-input" placeholder="Uw naam" style="width:100%;padding:.85rem 1rem;border:1px solid var(--rule);background:var(--white);font-family:Plus Jakarta Sans,sans-serif;font-size:.86rem;color:var(--ink);outline:none;box-sizing:border-box;"></div>
+        <div style="margin-bottom:1.4rem;"><label style="font-family:DM Mono,monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--light);display:block;margin-bottom:.5rem;">Email</label><input type="email" id="form-email-input" placeholder="uw@email.nl" style="width:100%;padding:.85rem 1rem;border:1px solid var(--rule);background:var(--white);font-family:Plus Jakarta Sans,sans-serif;font-size:.86rem;color:var(--ink);outline:none;box-sizing:border-box;"></div>
+        <div style="margin-bottom:1.4rem;"><label style="font-family:DM Mono,monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--light);display:block;margin-bottom:.5rem;" data-i18n="form-bericht">Bericht</label><textarea id="form-msg-input" placeholder="Vertel meer..." style="width:100%;padding:.85rem 1rem;border:1px solid var(--rule);background:var(--white);font-family:Plus Jakarta Sans,sans-serif;font-size:.86rem;color:var(--ink);outline:none;height:140px;resize:vertical;box-sizing:border-box;"></textarea></div>
+        <button class="btn btn-dark" id="form-send-btn" style="width:100%;" data-i18n="form-send">Verstuur bericht</button>
+        <p id="form-feedback" style="margin-top:.8rem;font-size:.78rem;color:var(--mid);display:none;" data-i18n="form-feedback">Je e-mailprogramma opent met je bericht. Verzenden via je eigen inbox.</p>
       </div>
     </div>
   </div>
@@ -1299,6 +1309,498 @@ function animBars() {
 })();
 
 showPage('home');
+
+// ── LANGUAGE TOGGLE ──────────────────────────────────────────────────────────
+var translations = {
+  nl: {
+    // Nav
+    'nav-home': 'Home',
+    'nav-wie': 'Wie ben ik',
+    'nav-kan': 'Wat kan ik',
+    'nav-wil': 'Wat wil ik',
+    'nav-contact': 'Contact',
+    // Hero
+    'hero-eyebrow': 'Commerciële Economie · Digital Marketing',
+    'hero-intro': 'Hi, ik ben Quinty — 22 jaar, student Commerciële Economie aan de HvA. Strategische marketeer die niet alleen uitvoert, maar actief meedenkt over merkpositionering en contentstrategie — versterkt door AI. Ik geloof dat technologie een krachtig hulpmiddel is, maar een echte marketeer niet kan vervangen.',
+    // Wie ben ik
+    'chip-wie-ben-ik': 'Wie ben ik',
+    'wie-h2': 'Groei als <em>drijfveer</em>,<br>impact als doel',
+    'wie-body1': 'Ik word gedreven door groei en vooruitgang. Niet stilstaan, maar mezelf continu ontwikkelen en beter worden. Ik haal motivatie uit het gevoel dat ik ergens invloed op heb — niet alleen meewerken, maar echt bijdragen aan hoe iets beter, sterker en professioneler kan worden.',
+    'wie-body2': 'Ik zoek omgevingen die mij uitdagen, inspireren en ruimte geven om te groeien. Kwaliteit maakt het verschil.',
+    // Kwaliteiten sticky
+    'chip-kwaliteiten': 'Kwaliteiten',
+    'kwal-dot-0': 'Ambitieus',
+    'kwal-dot-1': 'Strategisch',
+    'kwal-dot-2': 'Verantwoordelijk',
+    'kwal-dot-3': 'Snel leren',
+    'kwal-dot-4': 'Communicatief',
+    'kwal-dot-5': 'AI-minded',
+    'kwal-dot-6': 'Internationaal',
+    // Kwaliteiten cards
+    'kwal-h-0': 'Ambitieus',
+    'kwal-d-0': 'Altijd op zoek naar de volgende stap. Stilstaan voelt als achteruitgaan.',
+    'kwal-ex-0': 'Tijdens mijn studie combineerde ik altijd meerdere rollen tegelijk: stage bij DPG Media én werk bij VBH. Nu, naast mijn afstuderen, ben ik tegelijkertijd Content Manager én Junior Brand Marketeer.',
+    'kwal-h-1': 'Strategisch',
+    'kwal-d-1': 'Het grote plaatje zien én de details bewaken. Van merkpositionering tot concrete uitvoering.',
+    'kwal-ex-1': '"Quinty is een enthousiasteling met oog voor het grotere plaatje en vergeet daarbij niet tot in de details door te vragen." — Dennis Bliek',
+    'kwal-h-2': 'Verantwoordelijk',
+    'kwal-d-2': 'Ownership nemen zonder dat het gevraagd wordt. Problemen oplossen in plaats van doorschuiven.',
+    'kwal-ex-2': 'Als Shift Lead bij Maison de George droeg ik operationele verantwoordelijkheid met directe impact op klantbeleving.',
+    'kwal-h-3': 'Snel leren &amp; schakelen',
+    'kwal-d-3': 'Nieuwe omgevingen en processen eigen maken in korte tijd — en dan doorgroeien.',
+    'kwal-ex-3': '"Ze pakt nieuwe taken razendsnel op en werkt precies en gestructureerd." — Febe Aarts, DPG Media',
+    'kwal-h-4': 'Communicatief sterk',
+    'kwal-d-4': 'Helder communiceren, voor eigen mening opkomen en anderen overtuigen — intern en extern.',
+    'kwal-ex-4': '"Communicatief erg vaardig en kan goed voor zichzelf opkomen." — Dennis Bliek',
+    'kwal-h-5': 'AI-minded marketeer',
+    'kwal-d-5': 'Ik werk graag met AI en zoek de middenweg tussen technologie en menselijk inzicht. AI versterkt mijn werk — maar vervangt een echte marketeer niet.',
+    'kwal-ex-5': 'Van prompt engineering tot AI-tools inzetten voor contentstrategie. Creativiteit en technologie samen.',
+    'kwal-h-6': 'Internationaal georiënteerd',
+    'kwal-d-6': 'Werken en studeren in internationale contexten — van superjachten tot Japan en Vancouver.',
+    'kwal-ex-6': 'Internationale business in Japan (Tokyo). Minor aan KPU Vancouver, september 2026.',
+    // MKB vs Corporate
+    'chip-waar-pas-ik': 'Waar pas ik?',
+    'mkb-h2': 'MKB vs. <em>corporate</em>',
+    'mkb-body': 'Ik heb beide werelden van dichtbij meegemaakt: VBH als gedreven MKB, DPG Media als grote corporate. Samen geven ze mij een helder beeld van waar ik nu naartoe wil.',
+    'mkb-col1-title': 'MKB — VBH',
+    'mkb-col1-sub': 'Bewegelijk &amp; persoonlijk',
+    'cf-pro': 'Pluspunt',
+    'cf-con': 'Keerzijde',
+    'mkb-pro1': 'Meer verantwoordelijkheid per persoon',
+    'mkb-pro2': 'Directe impact zichtbaar',
+    'mkb-pro3': 'Innovatieve, snelle omgeving',
+    'mkb-con1': 'Minder gespecialiseerde kennis',
+    'mkb-con2': 'Minder structuur en begeleiding',
+    'mkb-col2-title': 'Corporate — DPG Media',
+    'mkb-col2-sub': 'Gestructureerd &amp; diepgaand',
+    'corp-pro1': 'Leren van gespecialiseerde experts',
+    'corp-pro2': 'Sterke structuur en processen',
+    'corp-pro3': 'Breed netwerk &amp; schaal',
+    'corp-con1': 'Minder ruimte voor eigen initiatief',
+    'corp-con2': 'Langzamer besluitvormingsproces',
+    'concl-label': 'Waar ik nu naartoe wil',
+    'concl-h': 'Corporate nu, MKB later',
+    'concl-li1': 'Nu groot: sneller gespecialiseerde kennis',
+    'concl-li2': 'Leren van de beste mensen',
+    'concl-li3': 'Later kleiner: meer vrijheid en impact',
+    'concl-li4': 'En misschien: iets eigens opstarten',
+    // Personality tests
+    'pers-title': 'Persoonlijkheidstesten',
+    'pers-sub': 'Twee tests, drie jaar ertussen — en toch dezelfde rode draad. Van 16Personalities (2022) tot DISC-analyse (2025): wie ik ben als professional is consistent.',
+    // MBTI
+    'mbti-desc': 'Organisatoren met een scherp oog voor structuur en efficiëntie. Executives zijn besluitvaardig, nemen verantwoordelijkheid en brengen orde in chaos — precies hoe ik werk.',
+    'mbti-scores-h': 'Wat zeggen deze scores over mij?',
+    'mbti-vs-e': 'vs. Introvert',
+    'mbti-right-e': 'Ik laad op van contact en samenwerking. Bij DPG Media groeide ik door actief te netwerken en initiatieven te nemen — niet af te wachten.',
+    'mbti-vs-s': 'vs. Intuïtief',
+    'mbti-right-s': 'Ik werk vanuit de werkelijkheid, niet vanuit abstracties. Bij VBH vertaalde ik campagnedoelen direct naar uitvoerbare social media strategieën.',
+    'mbti-vs-t': 'vs. Feeling',
+    'mbti-right-t': 'Beslissingen neem ik rationeel en resultaatgericht. Als Shift Lead loste ik uitdagingen op met een helder hoofd. Logica en resultaat leiden mijn keuzes.',
+    'mbti-vs-j': 'vs. Prospecting',
+    'mbti-right-j': 'Structuur en planning zijn mijn kracht. Meerdere veeleisende rollen tegelijk combineren zonder de controle te verliezen — dat zegt genoeg.',
+    'mbti-vs-a': 'vs. Turbulent',
+    'mbti-right-a': 'Zelfverzekerd en stabiel onder druk. Ik kom op voor mijn mening en stel hoge standaarden voor mijzelf én het werk. Lode Broekman: "Zij legt de lat hoog en levert goed werk, zowel kwalitatief als kwantitatief."',
+    // DISC
+    'disc-chart-title': 'Responsstijl',
+    'disc-type-name': 'Dominant · Consciëntieus',
+    'disc-type-sub': 'Resultaatgericht met oog voor kwaliteit',
+    'disc-desc': 'Een combinatie van daadkracht en analytisch denken. Ik pak problemen direct aan, maar onderbouw mijn beslissingen met feiten en structuur. Doelen halen op een hoog niveau — daar draait het om.',
+    'disc-dims-h': 'De vier gedragsstijlen',
+    'disc-d-title': 'Dominant — 68 / 78',
+    'disc-d-desc': 'Resultaatgericht en direct. Ik neem graag de leiding, durf grote problemen te tackelen en ga de confrontatie niet uit de weg. Mijn actieve geest holt al vooruit.',
+    'disc-d-score': 'Responsstijl 68 · Basisstijl 78',
+    'disc-c-title': 'Consciëntieus — 83 / 71',
+    'disc-c-desc': 'Kwaliteitsgericht en analytisch. Ik werk volgens hoge standaarden, beoordeel gegevens kritisch en neem doordachte beslissingen op basis van feiten.',
+    'disc-c-score': 'Responsstijl 83 · Basisstijl 71',
+    'disc-i-title': 'Invloed — 28 / 28',
+    'disc-i-desc': 'Ik overtuig liever met feiten en resultaten dan met enthousiasme. Mijn communicatie is helder en direct — to the point, niet om de mensen heen.',
+    'disc-i-score': 'Responsstijl 28 · Basisstijl 28',
+    'disc-s-title': 'Stabiliteit — 22 / 25',
+    'disc-s-desc': 'Ik prefereer afwisseling en een veranderlijke omgeving boven routine. Op mijn best als er verschillende projecten tegelijkertijd lopen.',
+    'disc-s-score': 'Responsstijl 22 · Basisstijl 25',
+    // Overlap
+    'overlap-label': 'De rode draad — 2022 vs. 2025',
+    'overlap-sub': 'Drie jaar, twee tests, één conclusie. Wat de 16Personalities in 2022 liet zien, bevestigt de DISC-analyse in 2025.',
+    'overlap-h1': 'Resultaatgericht &amp; besluitvaardig',
+    'overlap-d1': "ESTJ's Thinking + Judging komt terug in DISC's hoge D-score. Doelen stellen, beslissingen nemen, doorpakken.",
+    'overlap-h2': 'Structuur &amp; kwaliteit',
+    'overlap-d2': 'Judging (76%) en Consciëntieus (83%) vertellen hetzelfde verhaal: orde, planning en hoge standaarden zijn niet onderhandelbaar.',
+    'overlap-h3': 'Assertief &amp; direct',
+    'overlap-d3': 'De hoogste ESTJ-score (Assertive 81%) en de hoogste DISC-basisstijl (D 78) bevestigen: ik kom op voor mijn mening en ben stabiel onder druk.',
+    'overlap-h4': 'Actie boven afwachten',
+    'overlap-d4': 'Extravert (67%) en een lage S-score (22%) laten zien: ik ben een zelfstarter die energie haalt uit nieuwe uitdagingen, niet uit routine.',
+    // Wat kan ik
+    'chip-wat-kan-ik': 'Wat kan ik',
+    'kan-h2': 'Brand storytelling<br>in <em>luxury context</em>',
+    'kan-body': 'Van superjachten tot luxury residences — ik heb geleerd hoe je premium merken neerzet, verhalen vertelt en doelgroepen bereikt in een wereld waar standaard niet bestaat.',
+    // Skills
+    'sk-back-label': 'In de praktijk',
+    'sk-h-0': 'Sociale media strategie',
+    'sk-back-0': '<strong>VBH &amp; Alchimia</strong> — Instagram- en LinkedIn-strategieën ontwikkeld voor een internationaal superjachtmerk actief in 10+ landen. Content kalenders gebouwd en campagnes opgezet voor zowel het moedermerk als het luxury design-label.',
+    'sk-h-1': 'Contentstrategie &amp; storytelling',
+    'sk-back-1': '<strong>DPG Media</strong> — E-learning content ontwikkeld voor het Certified-platform (extern, voor mediaprofessionals) en Digital Continuous Learning (intern). Van stagiaire doorgegroeid naar Content Manager.',
+    'sk-h-2': 'Brand &amp; positionering',
+    'sk-back-2': '<strong>Alchimia</strong> — Mee gewerkt aan de positionering van Alchimia als luxury design-lijn voor high-end residences en superjachten. Visuele identiteit en tone of voice mee ontwikkeld voor een internationaal premium publiek.',
+    'sk-h-3': 'Campagne-opzet',
+    'sk-back-3': '<strong>VBH &amp; Alchimia</strong> — Campagnes opgezet van concept tot executie. Doelgroepen gedefinieerd, kanalen gekozen en content strategisch ingezet voor zowel het superjachtmerk als het luxury design-label in een internationale markt.',
+    'sk-h-4': 'Luxury &amp; international context',
+    'sk-back-4': '<strong>VBH</strong> — Marketing in de superjachtindustrie en luxury integrated technology &amp; architecture. Internationaal merk actief in 10+ landen. <strong>Japan</strong> — Japanse markt en consumentengedrag onderzocht in Tokyo voor het HvA Honours-programma.',
+    'sk-h-5': 'Projectmanagement',
+    'sk-back-5': 'Twee verantwoordelijkheden bij <strong>DPG Media</strong> (Certified + Digital Continuous Learning) én twee bij <strong>VBH</strong> (VBH + Alchimia) tegelijk gemanaged. Daarvoor 4+ jaar Shift Lead bij Maison de George met operationele verantwoordelijkheid.',
+    // Honours
+    'chip-honours': 'Honours Programma HvA',
+    'honours-h2': 'Extra vakken, <em>extra diepgang</em>',
+    'honours-body': 'Naast mijn bachelor heb ik extra vakken gevolgd binnen het Honours Programma van de HvA — 20 extra ECTS bovenop mijn reguliere studie, voor studenten die meer willen halen dan het minimum.',
+    'honours-back-label': 'Wat ik leerde &amp; deed',
+    'honours-h-0': 'Leadership in Marketing',
+    'honours-d-0': 'Twee verdiepende courses: <strong>Leadership</strong> — leiderschap in teamdynamiek, besluitvorming en het meenemen van stakeholders. <strong>Marketing</strong> — strategische marketingkeuzes onderbouwen vanuit merkstrategie en positionering.',
+    'honours-back-0': 'Leren hoe je als leider een team meeneemt in strategische keuzes. <strong>Merkstrategie en positionering</strong> vertalen naar concrete plannen. Strategisch denken combineren met praktische toepassing — vaardigheden die ik nu dagelijks inzet bij VBH en DPG Media.',
+    'honours-h-1': 'International Business — Japan',
+    'honours-d-1': 'Samengewerkt met Japanse studenten in Tokyo en bedrijfsbezoeken gebracht aan o.a. Yakult. In Choshi advies gegeven aan de burgemeester over het bevorderen van lokaal toerisme.',
+    'honours-back-1': 'In <strong>Tokyo</strong> samengewerkt met lokale studenten en bedrijven bezocht zoals <strong>Yakult</strong>. In <strong>Choshi</strong> de burgemeester geadviseerd over toerismebevordering. Inzichten opgedaan over culturele verschillen in business — een ervaring die mijn internationale blik blijvend heeft gevormd.',
+    // Career
+    'chip-werkervaring': 'Werkervaring',
+    'career-h2': 'Mijn <em>loopbaanpad</em>',
+    'career-body': 'Van de horeca naar marketing — elke stap bracht nieuwe verantwoordelijkheid, nieuwe skills en een duidelijker beeld van wie ik wil zijn als professional.',
+    'career-ch-0': 'Het fundament',
+    'career-ind-0': 'Premium hospitality · Laren',
+    'career-role-0a': 'Medewerker',
+    'career-role-0b': 'Shift Lead',
+    'career-lesson-0': 'Vier jaar waarin ik leerde leidinggeven, snel schakelen en verantwoordelijkheid nemen. Hier ontdekte ik dat ik het beste functioneer als ik de regie heb — over een team, een avond, een probleem.',
+    'career-ch-1': 'Marketing ontdekken',
+    'career-period-1': 'Feb 2025 – heden',
+    'career-ind-1': 'Superjachten &amp; luxury residences · Weesp',
+    'career-role-1a': 'Digital Marketing Trainee',
+    'career-role-1b': 'Junior Brand Marketeer',
+    'career-lesson-1': 'Begonnen als trainee, doorgegroeid naar brand marketeer. Van social media beheer naar campagnes opzetten en merkpositionering voor een internationaal luxemerk. Hier leerde ik marketing niet alleen bedenken, maar ook uitvoeren.',
+    'career-ch-2': 'Van stagiair naar collega',
+    'career-period-2': 'Sep 2025 – heden',
+    'career-ind-2': 'Media &amp; publishing · Amsterdam',
+    'career-role-2a': 'Marketing &amp; Content Stagiaire',
+    'career-role-2b': 'Content Manager',
+    'career-lesson-2': "Stage bij één van Nederland's grootste mediabedrijven — en gebleven als Content Manager. Bewijs dat ik niet alleen leer, maar ook lever. Hier breng ik strategie en uitvoering samen op het snijvlak van content, marketing en product.",
+    // Testimonials
+    'chip-wat-anderen': 'Wat anderen zeggen',
+    'bewijs-h2': 'Bewijs uit <em>de praktijk</em>',
+    'q-text-0': 'Quinty is een gedreven en gemotiveerde studente. Zij legt de lat hoog en levert goed werk, zowel kwalitatief als kwantitatief. Zowel in projectgroepen als in individuele opdrachten komt zij goed tot haar recht. Ik kan haar van harte aanbevelen als marketeer.',
+    'q-role-0': 'Docent Online Marketing &amp; Marketingadviseur · november 2025',
+    'q-text-1': 'Quinty is een enthousiasteling met oog voor het grotere plaatje en vergeet daarbij niet tot in de details door te vragen. Quinty is communicatief erg vaardig en kan op die manier goed voor zichzelf opkomen. Het maakt dat Quinty in mijn ogen grote stappen gaat maken.',
+    'q-role-1': 'Marketing communicatie professional &amp; docent · november 2025',
+    'q-text-2': "Met haar leergierige houding, drive om succesvol te willen zijn en haar behaalde resultaten, laat ze zien waarvoor ze staat en wat ze kan. Ik kan Quinty daarom binnen 'high performance' omgevingen aanbevelen!",
+    'q-role-2': 'Coach, Docent Minor AI driven MarCom @HvA · november 2025',
+    'q-text-3': 'Quinty is een fantastische aanwinst voor DPG Media tijdens haar stage. Vanaf de eerste dag viel ze op door haar zelfstandigheid en initiatief. Ze is creatief, denkt altijd actief mee en pakt nieuwe taken razendsnel op. Kortom: een erg betrouwbare, leergierige en slimme collega die echt meerwaarde toevoegt aan elk team.',
+    'q-role-3': 'Project Manager Digital Sales, DPG Media — directe manager',
+    // Wat wil ik
+    'chip-volgende': 'Volgende bestemming',
+    'van-h2': 'Minor in <em>Vancouver, Canada</em>',
+    'van-p1': 'Van september 2026 volg ik mijn minor aan de Kwantlen Polytechnic University (KPU) in Vancouver, Canada. Een stad die bekendstaat als een van de meest internationale en dynamische hubs van Noord-Amerika — op het kruispunt van Europa, Azië en de Stille Oceaan.',
+    'van-p2': 'Het is niet mijn eerste keer buiten de grenzen. Voor de HvA reisde ik al naar Japan — Tokyo — voor een internationaal business-programma. Vancouver is de volgende stap in een patroon dat ik bewust uitbouw: de wereld niet alleen bestuderen, maar ervaren.',
+    'van-p3': 'Vancouver stopt niet bij de universiteit — het is ook een kans om een nieuw netwerk op te bouwen, nieuwe perspectieven op te doen en te begrijpen hoe marketing werkt in een van de meest diverse steden ter wereld.',
+    'chip-wat-drijft': 'Wat mij drijft',
+    'drijf-h2': 'Niet alleen <em>ambitieus</em>,<br>ook nieuwsgierig',
+    'drijf-p1': 'Ik ben iemand die niet stilzit. Niet omdat het moet, maar omdat ik het gevoel heb dat er altijd meer te ontdekken is — meer plekken, meer perspectieven, meer manieren om naar de wereld te kijken.',
+    'drijf-p2': 'Reizen is voor mij geen vakantie, het is hoe ik leer. Elke cultuur die ik meemaak verandert hoe ik denk over mensen, over merken, over communicatie. En die nieuwsgierigheid stopt niet bij grenzen — het geldt net zo goed voor technologie, voor AI, voor alles wat de wereld van marketing aan het veranderen is.',
+    'pillar-h-0': 'Reizen &amp; culturen',
+    'pillar-d-0': 'Japan, straks Vancouver — en daarna? Ik wil de wereld niet alleen bestuderen, maar voelen. Elke plek vormt hoe ik denk.',
+    'pillar-h-1': 'Continu leren',
+    'pillar-d-1': 'Stilstaan voelt als achteruitgaan. Een Honours-programma, een MBA op de lijst — ik wil altijd in beweging blijven.',
+    'pillar-h-2': 'AI &amp; technologie',
+    'pillar-d-2': 'Gefascineerd door wat technologie kan. Niet als vervanging, maar als versterking van creativiteit en menselijk inzicht.',
+    'pillar-h-3': 'Dromen &amp; doen',
+    'pillar-d-3': 'Ik droom groot, maar ik blijf niet bij dromen. Elk plan wordt een stap, elke stap brengt me ergens.',
+    'chip-ambitie': 'Ambitie',
+    'ambitie-h2': 'Ergens <em>bovenaan</em> staan.<br>Of zelf iets bouwen.',
+    'ambitie-p1': 'Ik weet nog niet precies hoe het pad eruitziet — maar ik weet wel waar ik wil eindigen. Aan de top van een organisatie, of aan het hoofd van iets wat ik zelf heb opgebouwd, met een sterk merk en een internationale touch. Japan was een begin. Vancouver is een volgende stap. Maar daar stopt het niet.',
+    'ambitie-p2': 'Ik overweeg ook serieus een MBA — niet omdat het moet, maar omdat ik alles uit mezelf wil halen. Kennis is geen eindbestemming, het is brandstof. En ik ben nog lang niet uitgeleerd.',
+    'ab-h-0': 'Leiderschapsrol',
+    'ab-p-0': 'Bovenaan staan in een organisatie waar ik echt invloed heb op merk, strategie en richting. Eerst in een grote corporate om van de beste mensen te leren — later in een bewegelijkere omgeving met meer vrijheid.',
+    'ab-h-1': 'Eigen onderneming',
+    'ab-p-1': 'Misschien bouw ik ooit iets eigens op — een merk, een bureau, iets met internationale uitstraling. Het ondernemersvuur is er altijd geweest.',
+    'ab-h-2': 'Marketing bureau / agency',
+    'ab-p-2': 'Ik wil ook ervaring opdoen aan de agency-kant — werken voor meerdere merken tegelijk, in een snel schakelende en creatieve omgeving. Dat scherpt je, en het maakt je veelzijdig.',
+    'ab-h-3': 'AI &amp; marketing',
+    'ab-p-3': 'AI is een krachtig hulpmiddel — maar geen vervanging voor een echte marketeer. Ik zoek de middenweg: slimmer werken met technologie, zonder het menselijk inzicht en de creativiteit te verliezen die marketing onderscheidend maken.',
+    'ab-h-4': 'De wereld ontdekken',
+    'ab-p-4': 'Japan. Vancouver. Maar daar stopt het niet. Ik wil meer plekken zien, meer culturen begrijpen en meer internationale ervaring opdoen.',
+    'ab-h-5': 'MBA &amp; levenslang leren',
+    'ab-p-5': 'Een MBA staat op mijn lijst — niet als verplichting, maar als keuze. Ik ben pas 22 en heb het gevoel nog lang niet uitgeleerd te zijn. Kennis is brandstof.',
+    // Contact
+    'contact-h2': 'Laten we <em>kennismaken</em>',
+    'contact-body': 'Geïnteresseerd in mijn profiel? Ik sta open voor gesprekken over stages, afstudeeropdrachten en eerste stappen in het werkveld.',
+    'contact-loc-label': 'Locatie',
+    'contact-loc-val': 'Amsterdam, Nederland',
+    'contact-avail-label': 'Beschikbaar',
+    'contact-avail-val': "Afstuderen 2026 · Vancouver sep '26",
+    'form-naam': 'Naam',
+    'form-bericht': 'Bericht',
+    'form-send': 'Verstuur bericht',
+    'form-feedback': 'Je e-mailprogramma opent met je bericht. Verzenden via je eigen inbox.'
+  },
+  en: {
+    // Nav
+    'nav-home': 'Home',
+    'nav-wie': 'About me',
+    'nav-kan': 'What I do',
+    'nav-wil': 'My ambitions',
+    'nav-contact': 'Contact',
+    // Hero
+    'hero-eyebrow': 'Business & Economics · Digital Marketing',
+    'hero-intro': "Hi, I'm Quinty — 22 years old, studying Business & Economics at HvA Amsterdam. A strategic marketer who doesn't just execute, but actively contributes to brand positioning and content strategy — enhanced by AI. I believe technology is a powerful tool, but can't replace a real marketer.",
+    // Wie ben ik
+    'chip-wie-ben-ik': 'About me',
+    'wie-h2': 'Growth as <em>drive</em>,<br>impact as goal',
+    'wie-body1': "I'm driven by growth and progress. Not standing still, but continuously developing and improving myself. I find motivation in the feeling that I have influence over something — not just participating, but truly contributing to making things better, stronger and more professional.",
+    'wie-body2': 'I seek environments that challenge, inspire and give me room to grow. Quality makes the difference.',
+    // Kwaliteiten sticky
+    'chip-kwaliteiten': 'Qualities',
+    'kwal-dot-0': 'Ambitious',
+    'kwal-dot-1': 'Strategic',
+    'kwal-dot-2': 'Responsible',
+    'kwal-dot-3': 'Fast learner',
+    'kwal-dot-4': 'Communicative',
+    'kwal-dot-5': 'AI-minded',
+    'kwal-dot-6': 'International',
+    // Kwaliteiten cards
+    'kwal-h-0': 'Ambitious',
+    'kwal-d-0': 'Always looking for the next step. Standing still feels like falling behind.',
+    'kwal-ex-0': 'During my studies I always combined multiple roles simultaneously: internship at DPG Media and work at VBH. Now, alongside my graduation, I am simultaneously Content Manager and Junior Brand Marketeer.',
+    'kwal-h-1': 'Strategic',
+    'kwal-d-1': 'Seeing the big picture while keeping an eye on the details. From brand positioning to concrete execution.',
+    'kwal-ex-1': '"Quinty is an enthusiast with an eye for the bigger picture and never forgets to dig into the details." — Dennis Bliek',
+    'kwal-h-2': 'Responsible',
+    'kwal-d-2': 'Taking ownership without being asked. Solving problems instead of passing them on.',
+    'kwal-ex-2': 'As Shift Lead at Maison de George I carried operational responsibility with direct impact on the guest experience.',
+    'kwal-h-3': 'Fast learner &amp; adaptor',
+    'kwal-d-3': 'Making new environments and processes my own in a short time — and then growing further.',
+    'kwal-ex-3': '"She picks up new tasks incredibly fast and works precisely and in a structured way." — Febe Aarts, DPG Media',
+    'kwal-h-4': 'Strong communicator',
+    'kwal-d-4': 'Communicating clearly, standing up for my own opinion and convincing others — internally and externally.',
+    'kwal-ex-4': '"Very communicatively skilled and able to stand up for herself." — Dennis Bliek',
+    'kwal-h-5': 'AI-minded marketer',
+    'kwal-d-5': "I enjoy working with AI and look for the middle ground between technology and human insight. AI enhances my work — but can't replace a real marketer.",
+    'kwal-ex-5': 'From prompt engineering to deploying AI tools for content strategy. Creativity and technology together.',
+    'kwal-h-6': 'Internationally oriented',
+    'kwal-d-6': 'Working and studying in international contexts — from superyachts to Japan and Vancouver.',
+    'kwal-ex-6': 'International business in Japan (Tokyo). Minor at KPU Vancouver, September 2026.',
+    // MKB vs Corporate
+    'chip-waar-pas-ik': 'Where do I fit?',
+    'mkb-h2': 'MKB vs. <em>corporate</em>',
+    'mkb-body': 'I have experienced both worlds up close: VBH as a driven SME, DPG Media as a large corporate. Together they give me a clear picture of where I want to go now.',
+    'mkb-col1-title': 'SME — VBH',
+    'mkb-col1-sub': 'Agile &amp; personal',
+    'cf-pro': 'Pro',
+    'cf-con': 'Con',
+    'mkb-pro1': 'More responsibility per person',
+    'mkb-pro2': 'Direct impact visible',
+    'mkb-pro3': 'Innovative, fast-paced environment',
+    'mkb-con1': 'Less specialised knowledge',
+    'mkb-con2': 'Less structure and guidance',
+    'mkb-col2-title': 'Corporate — DPG Media',
+    'mkb-col2-sub': 'Structured &amp; in-depth',
+    'corp-pro1': 'Learning from specialised experts',
+    'corp-pro2': 'Strong structure and processes',
+    'corp-pro3': 'Wide network &amp; scale',
+    'corp-con1': 'Less room for own initiative',
+    'corp-con2': 'Slower decision-making process',
+    'concl-label': 'Where I\'m heading',
+    'concl-h': 'Corporate now, SME later',
+    'concl-li1': 'Now large: faster specialised knowledge',
+    'concl-li2': 'Learning from the best people',
+    'concl-li3': 'Later smaller: more freedom and impact',
+    'concl-li4': 'And perhaps: building something of my own',
+    // Personality tests
+    'pers-title': 'Personality tests',
+    'pers-sub': 'Two tests, three years apart — and yet the same common thread. From 16Personalities (2022) to DISC analysis (2025): who I am as a professional is consistent.',
+    // MBTI
+    'mbti-desc': 'Organisers with a sharp eye for structure and efficiency. Executives are decisive, take responsibility and bring order to chaos — exactly how I work.',
+    'mbti-scores-h': 'What do these scores say about me?',
+    'mbti-vs-e': 'vs. Introverted',
+    'mbti-right-e': 'I recharge through contact and collaboration. At DPG Media I grew by actively networking and taking initiative — not waiting.',
+    'mbti-vs-s': 'vs. Intuitive',
+    'mbti-right-s': 'I work from reality, not from abstractions. At VBH I translated campaign goals directly into actionable social media strategies.',
+    'mbti-vs-t': 'vs. Feeling',
+    'mbti-right-t': 'I make decisions rationally and results-driven. As Shift Lead I solved challenges with a clear head. Logic and results guide my choices.',
+    'mbti-vs-j': 'vs. Prospecting',
+    'mbti-right-j': 'Structure and planning are my strength. Combining multiple demanding roles simultaneously without losing control — that says enough.',
+    'mbti-vs-a': 'vs. Turbulent',
+    'mbti-right-a': 'Confident and stable under pressure. I stand up for my opinion and set high standards for myself and my work. Lode Broekman: "She sets the bar high and delivers strong work, both qualitatively and quantitatively."',
+    // DISC
+    'disc-chart-title': 'Response style',
+    'disc-type-name': 'Dominant · Conscientious',
+    'disc-type-sub': 'Results-driven with an eye for quality',
+    'disc-desc': 'A combination of decisiveness and analytical thinking. I tackle problems directly, but back my decisions with facts and structure. Achieving goals at a high level — that is what it is about.',
+    'disc-dims-h': 'The four behavioral styles',
+    'disc-d-title': 'Dominant — 68 / 78',
+    'disc-d-desc': 'Results-driven and direct. I enjoy taking the lead, dare to tackle big problems and do not shy away from confrontation. My active mind is already racing ahead.',
+    'disc-d-score': 'Response style 68 · Base style 78',
+    'disc-c-title': 'Conscientious — 83 / 71',
+    'disc-c-desc': 'Quality-driven and analytical. I work to high standards, critically assess data and make well-considered decisions based on facts.',
+    'disc-c-score': 'Response style 83 · Base style 71',
+    'disc-i-title': 'Influence — 28 / 28',
+    'disc-i-desc': 'I prefer to convince with facts and results rather than enthusiasm. My communication is clear and direct — to the point, not around people.',
+    'disc-i-score': 'Response style 28 · Base style 28',
+    'disc-s-title': 'Steadiness — 22 / 25',
+    'disc-s-desc': 'I prefer variety and a changing environment over routine. At my best when multiple projects are running simultaneously.',
+    'disc-s-score': 'Response style 22 · Base style 25',
+    // Overlap
+    'overlap-label': 'The common thread — 2022 vs. 2025',
+    'overlap-sub': 'Three years, two tests, one conclusion. What 16Personalities showed in 2022, the DISC analysis confirms in 2025.',
+    'overlap-h1': 'Results-driven &amp; decisive',
+    'overlap-d1': "ESTJ's Thinking + Judging reappears in DISC's high D-score. Setting goals, making decisions, following through.",
+    'overlap-h2': 'Structure &amp; quality',
+    'overlap-d2': 'Judging (76%) and Conscientious (83%) tell the same story: order, planning and high standards are non-negotiable.',
+    'overlap-h3': 'Assertive &amp; direct',
+    'overlap-d3': 'The highest ESTJ score (Assertive 81%) and the highest DISC base style (D 78) confirm: I stand up for my opinion and am stable under pressure.',
+    'overlap-h4': 'Action over waiting',
+    'overlap-d4': 'Extravert (67%) and a low S-score (22%) show: I am a self-starter who draws energy from new challenges, not from routine.',
+    // Wat kan ik
+    'chip-wat-kan-ik': 'What I do',
+    'kan-h2': 'Brand storytelling<br>in <em>luxury context</em>',
+    'kan-body': 'From superyachts to luxury residences — I have learned how to position premium brands, tell stories and reach audiences in a world where standard does not exist.',
+    // Skills
+    'sk-back-label': 'In practice',
+    'sk-h-0': 'Social media strategy',
+    'sk-back-0': '<strong>VBH &amp; Alchimia</strong> — Developed Instagram and LinkedIn strategies for an international superyacht brand active in 10+ countries. Built content calendars and set up campaigns for both the parent brand and the luxury design label.',
+    'sk-h-1': 'Content strategy &amp; storytelling',
+    'sk-back-1': '<strong>DPG Media</strong> — Developed e-learning content for the Certified platform (external, for media professionals) and Digital Continuous Learning (internal). Grew from intern to Content Manager.',
+    'sk-h-2': 'Brand &amp; positioning',
+    'sk-back-2': '<strong>Alchimia</strong> — Contributed to positioning Alchimia as a luxury design line for high-end residences and superyachts. Co-developed visual identity and tone of voice for an international premium audience.',
+    'sk-h-3': 'Campaign setup',
+    'sk-back-3': '<strong>VBH &amp; Alchimia</strong> — Set up campaigns from concept to execution. Defined target audiences, selected channels and strategically deployed content for both the superyacht brand and the luxury design label in an international market.',
+    'sk-h-4': 'Luxury &amp; international context',
+    'sk-back-4': '<strong>VBH</strong> — Marketing in the superyacht industry and luxury integrated technology &amp; architecture. International brand active in 10+ countries. <strong>Japan</strong> — Researched the Japanese market and consumer behaviour in Tokyo for the HvA Honours programme.',
+    'sk-h-5': 'Project management',
+    'sk-back-5': 'Managed two responsibilities at <strong>DPG Media</strong> (Certified + Digital Continuous Learning) and two at <strong>VBH</strong> (VBH + Alchimia) simultaneously. Before that, 4+ years as Shift Lead at Maison de George with operational responsibility.',
+    // Honours
+    'chip-honours': 'Honours Programme HvA',
+    'honours-h2': 'Extra courses, <em>extra depth</em>',
+    'honours-body': 'Alongside my bachelor I took extra courses within the Honours Programme at HvA — 20 extra ECTS on top of my regular studies, for students who want to get more than the minimum.',
+    'honours-back-label': 'What I learned &amp; did',
+    'honours-h-0': 'Leadership in Marketing',
+    'honours-d-0': 'Two in-depth courses: <strong>Leadership</strong> — leading in team dynamics, decision-making and bringing stakeholders along. <strong>Marketing</strong> — substantiating strategic marketing choices from brand strategy and positioning.',
+    'honours-back-0': 'Learning how to bring a team along in strategic choices as a leader. Translating <strong>brand strategy and positioning</strong> into concrete plans. Combining strategic thinking with practical application — skills I now apply daily at VBH and DPG Media.',
+    'honours-h-1': 'International Business — Japan',
+    'honours-d-1': 'Collaborated with Japanese students in Tokyo and made company visits including Yakult. In Choshi advised the mayor on promoting local tourism.',
+    'honours-back-1': 'Collaborated with local students and visited companies such as <strong>Yakult</strong> in <strong>Tokyo</strong>. Advised the mayor on tourism promotion in <strong>Choshi</strong>. Gained insights into cultural differences in business — an experience that has permanently shaped my international outlook.',
+    // Career
+    'chip-werkervaring': 'Work experience',
+    'career-h2': 'My <em>career path</em>',
+    'career-body': 'From hospitality to marketing — each step brought new responsibility, new skills and a clearer picture of who I want to be as a professional.',
+    'career-ch-0': 'The foundation',
+    'career-ind-0': 'Premium hospitality · Laren',
+    'career-role-0a': 'Staff member',
+    'career-role-0b': 'Shift Lead',
+    'career-lesson-0': 'Four years in which I learned to lead, adapt quickly and take responsibility. Here I discovered that I function best when I am in charge — of a team, an evening, a problem.',
+    'career-ch-1': 'Discovering marketing',
+    'career-period-1': 'Feb 2025 – present',
+    'career-ind-1': 'Superyachts &amp; luxury residences · Weesp',
+    'career-role-1a': 'Digital Marketing Trainee',
+    'career-role-1b': 'Junior Brand Marketeer',
+    'career-lesson-1': 'Started as a trainee, grew into a brand marketer. From social media management to setting up campaigns and brand positioning for an international luxury brand. Here I learned not just to think about marketing, but also to execute it.',
+    'career-ch-2': 'From intern to colleague',
+    'career-period-2': 'Sep 2025 – present',
+    'career-ind-2': 'Media &amp; publishing · Amsterdam',
+    'career-role-2a': 'Marketing &amp; Content Intern',
+    'career-role-2b': 'Content Manager',
+    'career-lesson-2': "Internship at one of the Netherlands' largest media companies — and stayed on as Content Manager. Proof that I don't just learn, but deliver. Here I bring strategy and execution together at the intersection of content, marketing and product.",
+    // Testimonials
+    'chip-wat-anderen': 'What others say',
+    'bewijs-h2': 'Proof from <em>practice</em>',
+    'q-text-0': 'Quinty is a driven and motivated student. She sets the bar high and delivers strong work, both qualitatively and quantitatively. She excels both in project groups and in individual assignments. I can wholeheartedly recommend her as a marketer.',
+    'q-role-0': 'Lecturer Online Marketing &amp; Marketing Advisor · November 2025',
+    'q-text-1': 'Quinty is an enthusiast with an eye for the bigger picture and never forgets to dig into the details. Quinty is very communicatively skilled and is able to stand up for herself. This is why, in my view, Quinty is going to make great strides.',
+    'q-role-1': 'Marketing communications professional &amp; lecturer · November 2025',
+    'q-text-2': "With her curious attitude, drive to succeed and her achieved results, she shows what she stands for and what she is capable of. I can therefore recommend Quinty for 'high performance' environments!",
+    'q-role-2': 'Coach, Lecturer Minor AI driven MarCom @HvA · November 2025',
+    'q-text-3': 'Quinty is a fantastic asset to DPG Media during her internship. From day one she stood out through her independence and initiative. She is creative, always actively thinks along and picks up new tasks incredibly fast. In short: a very reliable, curious and sharp colleague who truly adds value to any team.',
+    'q-role-3': 'Project Manager Digital Sales, DPG Media — direct manager',
+    // Wat wil ik
+    'chip-volgende': 'Next destination',
+    'van-h2': 'Minor in <em>Vancouver, Canada</em>',
+    'van-p1': 'From September 2026 I will follow my minor at Kwantlen Polytechnic University (KPU) in Vancouver, Canada. A city known as one of the most international and dynamic hubs of North America — at the crossroads of Europe, Asia and the Pacific.',
+    'van-p2': 'It is not my first time abroad. For HvA I already travelled to Japan — Tokyo — for an international business programme. Vancouver is the next step in a pattern I am deliberately building: not just studying the world, but experiencing it.',
+    'van-p3': 'Vancouver does not stop at the university — it is also an opportunity to build a new network, gain new perspectives and understand how marketing works in one of the most diverse cities in the world.',
+    'chip-wat-drijft': 'What drives me',
+    'drijf-h2': 'Not just <em>ambitious</em>,<br>also curious',
+    'drijf-p1': "I am someone who doesn't sit still. Not because I have to, but because I feel there is always more to discover — more places, more perspectives, more ways to look at the world.",
+    'drijf-p2': 'Travelling is not a holiday for me, it is how I learn. Every culture I experience changes how I think about people, about brands, about communication. And that curiosity does not stop at borders — it applies equally to technology, to AI, to everything that is changing the world of marketing.',
+    'pillar-h-0': 'Travel &amp; cultures',
+    'pillar-d-0': 'Japan, then Vancouver — and after that? I want to not just study the world, but feel it. Every place shapes how I think.',
+    'pillar-h-1': 'Continuous learning',
+    'pillar-d-1': 'Standing still feels like falling behind. An Honours programme, an MBA on the list — I always want to keep moving.',
+    'pillar-h-2': 'AI &amp; technology',
+    'pillar-d-2': 'Fascinated by what technology can do. Not as a replacement, but as an enhancement of creativity and human insight.',
+    'pillar-h-3': 'Dream &amp; do',
+    'pillar-d-3': "I dream big, but I don't stay in dreams. Every plan becomes a step, every step takes me somewhere.",
+    'chip-ambitie': 'Ambition',
+    'ambitie-h2': 'Reaching <em>the top</em>.<br>Or building something myself.',
+    'ambitie-p1': "I don't know exactly what the path looks like yet — but I do know where I want to end up. At the top of an organisation, or at the helm of something I have built myself, with a strong brand and an international touch. Japan was a beginning. Vancouver is a next step. But it doesn't stop there.",
+    'ambitie-p2': "I am also seriously considering an MBA — not because I have to, but because I want to get the most out of myself. Knowledge is not a final destination, it is fuel. And I am far from done learning.",
+    'ab-h-0': 'Leadership role',
+    'ab-p-0': 'Reaching the top of an organisation where I truly have influence on brand, strategy and direction. First in a large corporate to learn from the best people — later in a more agile environment with more freedom.',
+    'ab-h-1': 'Own venture',
+    'ab-p-1': 'Perhaps someday I will build something of my own — a brand, an agency, something with international flair. The entrepreneurial fire has always been there.',
+    'ab-h-2': 'Marketing agency',
+    'ab-p-2': 'I also want to gain experience on the agency side — working for multiple brands simultaneously, in a fast-moving and creative environment. That sharpens you, and makes you versatile.',
+    'ab-h-3': 'AI &amp; marketing',
+    'ab-p-3': "AI is a powerful tool — but not a replacement for a real marketer. I look for the middle ground: working smarter with technology, without losing the human insight and creativity that makes marketing distinctive.",
+    'ab-h-4': 'Exploring the world',
+    'ab-p-4': "Japan. Vancouver. But it doesn't stop there. I want to see more places, understand more cultures and gain more international experience.",
+    'ab-h-5': 'MBA &amp; lifelong learning',
+    'ab-p-5': "An MBA is on my list — not as an obligation, but as a choice. I'm only 22 and feel far from done learning. Knowledge is fuel.",
+    // Contact
+    'contact-h2': 'Let\'s <em>connect</em>',
+    'contact-body': 'Interested in my profile? I am open to conversations about internships, graduation assignments and first steps in the field.',
+    'contact-loc-label': 'Location',
+    'contact-loc-val': 'Amsterdam, Netherlands',
+    'contact-avail-label': 'Available',
+    'contact-avail-val': "Graduation 2026 · Vancouver Sep '26",
+    'form-naam': 'Name',
+    'form-bericht': 'Message',
+    'form-send': 'Send message',
+    'form-feedback': 'Your email client will open with your message pre-filled. Send it from your own inbox.'
+  }
+};
+
+var currentLang = localStorage.getItem('lang') || 'nl';
+
+function switchLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key] !== undefined) {
+      el.innerHTML = translations[lang][key];
+    }
+  });
+  var btn = document.getElementById('lang-toggle');
+  if (btn) btn.textContent = lang === 'nl' ? 'EN' : 'NL';
+}
+
+document.getElementById('lang-toggle').addEventListener('click', function() {
+  switchLang(currentLang === 'nl' ? 'en' : 'nl');
+});
+
+// Initialise on load
+switchLang(currentLang);
+
+// Contact form — mailto handler
+document.getElementById('form-send-btn').addEventListener('click', function() {
+  var name = document.getElementById('form-name-input').value.trim();
+  var email = document.getElementById('form-email-input').value.trim();
+  var msg = document.getElementById('form-msg-input').value.trim();
+  var feedback = document.getElementById('form-feedback');
+  if (!name && !msg) { return; }
+  var subject = encodeURIComponent('Bericht van ' + (name || 'bezoeker') + ' via quintyijsseldeschepper.nl');
+  var body = encodeURIComponent(
+    (name ? 'Naam: ' + name + '\n' : '') +
+    (email ? 'Email: ' + email + '\n' : '') +
+    '\n' + msg
+  );
+  window.location.href = 'mailto:quintyijsseldeschepper@gmail.com?subject=' + subject + '&body=' + body;
+  feedback.style.display = 'block';
+});
 </script>
 </body>
 </html>
