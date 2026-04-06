@@ -70,54 +70,134 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 
 /* WIE BEN IK */
 .wie-intro{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-bottom:4rem;align-items:end;}
-.kwal-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:4rem;}
-.kwal-card{padding:2rem;border:1px solid var(--rule);background:var(--white);transition:border-color .25s,transform .25s,box-shadow .25s;}
-.kwal-card:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 8px 28px rgba(26,86,219,.08);}
-.kwal-icon{font-size:1.5rem;margin-bottom:.8rem;display:block;}
-.kwal-h{font-weight:600;font-size:.9rem;margin-bottom:.5rem;}
-.kwal-d{font-size:.82rem;color:var(--mid);line-height:1.75;}
-.kwal-example{margin-top:.8rem;font-size:.78rem;color:var(--gold);font-style:italic;}
-.cf-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem;margin-top:2rem;margin-bottom:4rem;}
-.cf-card{padding:2rem;border:1px solid var(--rule);background:var(--white);transition:transform .25s ease,box-shadow .25s ease;}
-.cf-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(14,17,23,.05);}
-.cf-card.highlight{border-color:var(--blue);background:rgba(26,86,219,.02);}
-.cf-label{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.8rem;display:block;}
-.cf-label.mkb{color:var(--gold);} .cf-label.corp{color:var(--blue);} .cf-label.fit{color:var(--ink);}
-.cf-h{font-weight:600;font-size:.9rem;margin-bottom:.6rem;}
-.cf-list{list-style:none;font-size:.8rem;color:var(--mid);line-height:1.8;}
-.cf-list li{padding:.2rem 0 .2rem 1rem;position:relative;}
-.cf-list li::before{content:"→";position:absolute;left:0;color:var(--blue);font-size:.7rem;}
-.cf-list li.con::before{color:var(--gold);}
-.mbti-wrap{margin-bottom:0;}
-.mbti-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:1.8rem;align-items:start;}
-.mbti-type-badge{display:inline-flex;align-items:center;gap:1rem;margin-bottom:1.2rem;}
-.mbti-type-letter{font-family:"Playfair Display",serif;font-size:2.4rem;font-weight:600;line-height:1;color:var(--blue);}
-.mbti-type-name{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--light);}
-.mbti-bars{display:flex;flex-direction:column;gap:0;}
-.mbti-row{background:transparent;border:none;border-bottom:1px solid var(--rule);padding:.7rem 0;transition:padding-left .25s ease;}
-.mbti-row:hover{padding-left:.5rem;}
-.mbti-row-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.4rem;}
-.mbti-row-left{font-weight:600;font-size:.82rem;}
-.mbti-row-right{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;color:var(--light);}
-.mbti-row-pct{font-family:"Playfair Display",serif;font-style:italic;font-size:.95rem;}
-.mbti-track{height:4px;background:var(--rule);border-radius:2px;overflow:hidden;}
-.mbti-fill{height:100%;border-radius:2px;width:0%;transition:width 1.3s cubic-bezier(.4,0,.2,1);}
+.kwal-scroll{display:grid;grid-template-columns:280px 1fr;gap:4rem;margin-bottom:4rem;position:relative;}
+.kwal-sticky{position:sticky;top:6rem;align-self:start;padding:2rem 0;}
+.kwal-sticky-title{font-family:"Playfair Display",serif;font-size:2.4rem;font-weight:700;color:var(--ink);margin-bottom:2rem;line-height:1.2;}
+.kwal-progress{display:flex;flex-direction:column;gap:.6rem;}
+.kwal-dot{display:flex;align-items:center;gap:.8rem;cursor:pointer;padding:.4rem 0;transition:all .3s ease;}
+.kwal-dot-circle{width:10px;height:10px;border-radius:50%;border:2px solid var(--light);background:transparent;transition:all .3s ease;flex-shrink:0;}
+.kwal-dot-label{font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--light);transition:color .3s ease;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.kwal-dot.active .kwal-dot-circle{background:var(--blue);border-color:var(--blue);transform:scale(1.3);}
+.kwal-dot.active .kwal-dot-label{color:var(--ink);font-weight:600;}
+.kwal-cards{display:flex;flex-direction:column;gap:0;}
+.kwal-card{padding:3rem 2.5rem;min-height:70vh;display:flex;flex-direction:column;justify-content:center;border-left:2px solid var(--rule);position:relative;opacity:.3;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease,border-color .5s ease;}
+.kwal-card.kwal-active{opacity:1;transform:translateY(0);border-left-color:var(--blue);}
+.kwal-card::before{content:'';position:absolute;left:-7px;top:50%;width:12px;height:12px;border-radius:50%;background:var(--rule);transition:background .5s ease;transform:translateY(-50%);}
+.kwal-card.kwal-active::before{background:var(--blue);}
+.kwal-icon{font-size:2rem;margin-bottom:1.2rem;display:block;}
+.kwal-h{font-weight:700;font-size:1.3rem;margin-bottom:.8rem;color:var(--ink);}
+.kwal-d{font-size:1rem;color:var(--mid);line-height:1.9;max-width:480px;}
+.kwal-example{margin-top:1.2rem;font-size:.88rem;color:var(--gold);font-style:italic;line-height:1.8;max-width:480px;padding-left:1rem;border-left:2px solid rgba(232,101,10,.2);}
+.cf-compare{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2rem;margin-bottom:3rem;}
+.cf-col-head{display:flex;align-items:center;gap:.8rem;margin-bottom:1.8rem;padding-bottom:1rem;border-bottom:2px solid var(--rule);}
+.cf-col-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;}
+.cf-col-icon.mkb{background:rgba(232,101,10,.08);color:var(--gold);}
+.cf-col-icon.corp{background:rgba(26,86,219,.08);color:var(--blue);}
+.cf-col-title{font-weight:700;font-size:1.05rem;color:var(--ink);}
+.cf-col-sub{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);}
+.cf-items{display:flex;flex-direction:column;gap:0;}
+.cf-item{padding:1rem 0 1rem 1.4rem;border-left:2px solid var(--rule);position:relative;opacity:0;transform:translateY(16px);transition:opacity .45s ease,transform .45s ease,border-color .35s ease;}
+.cf-item.cf-vis{opacity:1;transform:translateY(0);}
+.cf-item::before{content:'';position:absolute;left:-5px;top:50%;width:8px;height:8px;border-radius:50%;background:var(--rule);transform:translateY(-50%);transition:background .35s ease;}
+.cf-item.pro::before{background:var(--blue);}
+.cf-item.pro{border-left-color:rgba(26,86,219,.25);}
+.cf-item.con::before{background:var(--gold);}
+.cf-item.con{border-left-color:rgba(232,101,10,.25);}
+.cf-item-text{font-size:.88rem;color:var(--mid);line-height:1.7;}
+.cf-item.pro .cf-item-text{color:var(--ink);}
+.cf-item-tag{font-family:"DM Mono",monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.25rem;display:block;}
+.cf-item.pro .cf-item-tag{color:var(--blue);}
+.cf-item.con .cf-item-tag{color:var(--gold);}
+.cf-conclusion{margin-bottom:4rem;padding:2.5rem;border:2px solid var(--blue);background:rgba(26,86,219,.02);position:relative;opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+.cf-conclusion.cf-vis{opacity:1;transform:translateY(0);}
+.cf-conclusion::before{content:'';position:absolute;top:-1px;left:2rem;right:2rem;height:3px;background:linear-gradient(90deg,var(--gold),var(--blue));border-radius:2px;}
+.cf-concl-label{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin-bottom:.6rem;display:block;}
+.cf-concl-h{font-weight:700;font-size:1.2rem;margin-bottom:.8rem;color:var(--ink);}
+.cf-concl-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem;}
+.cf-concl-list li{font-size:.86rem;color:var(--mid);line-height:1.8;padding-left:1.2rem;position:relative;}
+.cf-concl-list li::before{content:"→";position:absolute;left:0;color:var(--blue);font-size:.75rem;}
+.mbti-hero{display:grid;grid-template-columns:260px 1fr;gap:3.5rem;align-items:center;padding:3rem;background:linear-gradient(135deg,rgba(26,86,219,.04),rgba(26,86,219,.01));border:1px solid var(--rule);margin-bottom:2.5rem;}
+.mbti-avatar-wrap{display:flex;justify-content:center;align-items:center;}
+.mbti-avatar{width:240px;height:240px;position:relative;animation:mbtiFloat 4s ease-in-out infinite;}
+.mbti-avatar img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 12px 32px rgba(26,86,219,.22));}
+@keyframes mbtiFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.mbti-hero-text{display:flex;flex-direction:column;gap:.6rem;}
+.mbti-type-letter{font-family:"Playfair Display",serif;font-size:3.2rem;font-weight:700;line-height:1;color:var(--blue);letter-spacing:.04em;}
+.mbti-type-name{font-family:"DM Mono",monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);opacity:.7;margin-top:.2rem;}
+.mbti-type-sub{font-family:"DM Mono",monospace;font-size:.5rem;letter-spacing:.1em;color:var(--light);margin-top:.4rem;}
+.mbti-hero-desc{font-size:.92rem;color:var(--mid);line-height:1.85;margin-top:.6rem;max-width:440px;}
+.mbti-dims{display:flex;flex-direction:column;gap:0;margin-bottom:0;}
+.mbti-dim{padding:2rem 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr;gap:2rem 3rem;align-items:start;opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease;}
+.mbti-dim.mbti-dim-vis{opacity:1;transform:translateY(0);}
+.mbti-dim:last-child{border-bottom:none;}
+.mbti-dim-left{display:flex;flex-direction:column;gap:.5rem;}
+.mbti-dim-label{font-weight:700;font-size:1.1rem;}
+.mbti-dim-vs{font-family:"DM Mono",monospace;font-size:.52rem;letter-spacing:.1em;color:var(--light);text-transform:uppercase;}
+.mbti-dim-bar{height:6px;background:var(--rule);border-radius:3px;overflow:hidden;margin-top:.2rem;}
+.mbti-dim-bar-fill{height:100%;border-radius:3px;width:0%;transition:width 1.4s cubic-bezier(.4,0,.2,1);}
+.mbti-dim-pct{font-family:"Playfair Display",serif;font-style:italic;font-size:1.6rem;font-weight:600;line-height:1;}
+.mbti-dim-right{font-size:.86rem;color:var(--mid);line-height:1.85;}
 .c-e{background:var(--mbti-e);} .c-s{background:var(--mbti-s);} .c-t{background:var(--mbti-t);} .c-j{background:var(--mbti-j);} .c-a{background:var(--mbti-a);}
-.mbti-dim-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem 2.4rem;margin-top:1.4rem;}
-.mbti-dim-card{padding:.7rem 0 .7rem 1rem;border-left:3px solid var(--rule);background:transparent;}
-.mbti-dim-card.e{border-color:var(--mbti-e);} .mbti-dim-card.s{border-color:var(--mbti-s);} .mbti-dim-card.t{border-color:var(--mbti-t);} .mbti-dim-card.j{border-color:var(--mbti-j);} .mbti-dim-card.a{border-color:var(--mbti-a);}
-.mbti-dim-title{font-weight:600;font-size:.82rem;margin-bottom:.3rem;}
-.mbti-dim-text{font-size:.78rem;color:var(--mid);line-height:1.8;}
+
+.pers-section-title{font-family:"Playfair Display",serif;font-size:2rem;font-weight:700;color:var(--ink);margin-bottom:.6rem;}
+.pers-section-sub{font-size:.9rem;color:var(--mid);line-height:1.8;margin-bottom:3rem;max-width:560px;}
+.pers-test-label{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.6rem;}
+.pers-test-label .pers-year{font-family:"DM Mono",monospace;font-size:.52rem;letter-spacing:.1em;color:var(--light);background:var(--bg);padding:.25rem .6rem;border:1px solid var(--rule);}
+
+.disc-hero{display:grid;grid-template-columns:1fr 1fr;gap:3rem;padding:3rem;background:linear-gradient(135deg,rgba(207,73,59,.04),rgba(66,133,183,.04));border:1px solid var(--rule);margin-bottom:2.5rem;}
+.disc-chart{display:flex;align-items:flex-end;justify-content:center;gap:1.2rem;height:200px;padding-bottom:1rem;}
+.disc-bar-wrap{display:flex;flex-direction:column;align-items:center;gap:.5rem;}
+.disc-bar{width:48px;border-radius:4px 4px 0 0;transition:height 1.2s cubic-bezier(.4,0,.2,1);height:0;}
+.disc-bar.d-bar{background:#CF493B;} .disc-bar.i-bar{background:#E8B84B;} .disc-bar.s-bar{background:#7BAF5A;} .disc-bar.c-bar{background:#4285B7;}
+.disc-bar-label{font-family:"DM Mono",monospace;font-size:.7rem;font-weight:700;letter-spacing:.05em;}
+.disc-bar-label.d-l{color:#CF493B;} .disc-bar-label.i-l{color:#E8B84B;} .disc-bar-label.s-l{color:#7BAF5A;} .disc-bar-label.c-l{color:#4285B7;}
+.disc-bar-pct{font-family:"Playfair Display",serif;font-size:.85rem;font-weight:600;color:var(--ink);}
+.disc-chart-title{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--light);text-align:center;margin-bottom:1rem;}
+.disc-hero-text{display:flex;flex-direction:column;justify-content:center;gap:.5rem;}
+.disc-type-letter{font-family:"Playfair Display",serif;font-size:2.8rem;font-weight:700;line-height:1;background:linear-gradient(135deg,#CF493B,#4285B7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.disc-type-name{font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);}
+.disc-type-sub{font-size:.52rem;font-family:"DM Mono",monospace;letter-spacing:.1em;color:var(--light);margin-top:.3rem;}
+.disc-hero-desc{font-size:.9rem;color:var(--mid);line-height:1.85;margin-top:.6rem;}
+
+.disc-dims{display:flex;flex-direction:column;gap:0;margin-bottom:3rem;}
+.disc-dim{padding:2rem 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:60px 1fr;gap:1.5rem;align-items:start;opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease;}
+.disc-dim.disc-dim-vis{opacity:1;transform:translateY(0);}
+.disc-dim:last-child{border-bottom:none;}
+.disc-dim-icon{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Playfair Display",serif;font-size:1.4rem;font-weight:700;color:white;}
+.disc-dim-icon.dd{background:#CF493B;} .disc-dim-icon.di{background:#E8B84B;} .disc-dim-icon.ds{background:#7BAF5A;} .disc-dim-icon.dc{background:#4285B7;}
+.disc-dim-content{display:flex;flex-direction:column;gap:.3rem;}
+.disc-dim-title{font-weight:700;font-size:1.05rem;}
+.disc-dim-title.dd{color:#CF493B;} .disc-dim-title.di{color:#E8B84B;} .disc-dim-title.ds{color:#7BAF5A;} .disc-dim-title.dc{color:#4285B7;}
+.disc-dim-desc{font-size:.86rem;color:var(--mid);line-height:1.85;}
+.disc-dim-score{font-family:"DM Mono",monospace;font-size:.54rem;letter-spacing:.08em;color:var(--light);margin-top:.2rem;}
+
+.pers-overlap{padding:2.5rem;border:2px solid var(--ink);background:var(--white);position:relative;margin-bottom:0;opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
+.pers-overlap.pers-vis{opacity:1;transform:translateY(0);}
+.pers-overlap-label{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin-bottom:.4rem;display:block;}
+.pers-overlap-sub{font-size:.82rem;color:var(--light);margin-bottom:1.6rem;font-style:italic;}
+.pers-overlap-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.pers-overlap-item{padding:1rem 1.2rem;border-left:3px solid var(--blue);background:rgba(26,86,219,.02);}
+.pers-overlap-item-h{font-weight:600;font-size:.88rem;margin-bottom:.3rem;color:var(--ink);}
+.pers-overlap-item-d{font-size:.78rem;color:var(--mid);line-height:1.7;}
+.pers-overlap-item-tags{margin-top:.4rem;display:flex;gap:.4rem;flex-wrap:wrap;}
+.pers-overlap-tag{font-family:"DM Mono",monospace;font-size:.46rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .5rem;border:1px solid var(--rule);color:var(--light);}
 
 /* WAT KAN IK */
 .kan-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:4rem;align-items:end;}
-.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);margin-bottom:5rem;}
-.sk-flip{perspective:800px;background:var(--bg);min-height:210px;}
-.sk-flip-inner{position:relative;width:100%;height:100%;min-height:210px;transition:transform .6s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d;}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:5rem;}
+.sk-flip{perspective:800px;background:var(--bg);min-height:260px;border-radius:6px;overflow:hidden;}
+.sk-flip-inner{position:relative;width:100%;height:100%;min-height:260px;transition:transform .6s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d;}
 .sk-flip:hover .sk-flip-inner{transform:rotateY(180deg);}
-.sk-front,.sk-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:2.2rem;display:flex;flex-direction:column;justify-content:center;}
-.sk-front{background:var(--bg);}
-.sk-back{background:var(--white);transform:rotateY(180deg);border-left:3px solid var(--blue);}
+.sk-front,.sk-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;border-radius:6px;}
+.sk-front{overflow:hidden;justify-content:flex-end;}
+.sk-front-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s ease;filter:saturate(.6) brightness(.92);opacity:.35;}
+.sk-flip:hover .sk-front-img{transform:scale(1.04);opacity:.45;}
+.sk-front-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(248,248,246,.95) 0%,rgba(248,248,246,.4) 50%,rgba(248,248,246,.15) 100%);}
+.sk-front-content{position:relative;z-index:1;padding:2rem;}
+.sk-front-content .sk-num{color:var(--light);font-size:.7rem;}
+.sk-front-content .sk-h{color:var(--ink);font-size:1rem;font-weight:700;margin-top:.3rem;}
+.sk-front-content .sk-tag{color:var(--mid);border-color:var(--rule);margin-top:.6rem;}
+.sk-back{background:var(--white);transform:rotateY(180deg);border-left:3px solid var(--blue);padding:2.2rem;justify-content:center;border-radius:6px;}
 .sk-back-label{font-family:"DM Mono",monospace;font-size:.52rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:.7rem;}
 .sk-back-text{font-size:.8rem;color:var(--mid);line-height:1.8;}
 .sk-back-text strong{color:var(--ink);font-weight:600;}
@@ -138,20 +218,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .honours-ects{font-family:"Playfair Display",serif;font-size:2rem;color:var(--gold);opacity:.5;line-height:1;margin-bottom:.6rem;}
 .honours-h{font-weight:600;font-size:.9rem;margin-bottom:.5rem;}
 .honours-d{font-size:.8rem;color:var(--mid);line-height:1.75;}
-.timeline{position:relative;padding-left:1.8rem;}
-.timeline::before{content:"";position:absolute;left:0;top:.5rem;bottom:.5rem;width:1px;background:var(--rule);}
-.tl-company{margin-bottom:3rem;position:relative;}
-.tl-dot{position:absolute;left:-2.1rem;top:.4rem;width:10px;height:10px;border-radius:50%;background:var(--blue);border:2px solid var(--bg);}
-.tl-company-name{font-weight:600;font-size:.95rem;margin-bottom:.15rem;}
-.tl-company-meta{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;color:var(--light);margin-bottom:1rem;}
-.tl-role{margin-bottom:1.2rem;padding:1.4rem;background:var(--white);border:1px solid var(--rule);transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease;}
-.tl-role:hover{border-color:var(--blue);transform:translateX(6px);box-shadow:0 4px 16px rgba(26,86,219,.06);}
-.tl-role.secondary{background:var(--bg);}
-.tl-role-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.3rem;}
-.tl-role-title{font-weight:600;font-size:.86rem;}
-.tl-role-period{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;color:var(--gold);}
-.tl-role-type{font-family:"DM Mono",monospace;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);margin-bottom:.6rem;}
-.tl-role-desc{font-size:.8rem;color:var(--mid);line-height:1.75;}
+.career-path{position:relative;padding-left:3.5rem;margin-bottom:4rem;}
+.career-line{position:absolute;left:14px;top:0;bottom:0;width:2px;background:var(--rule);z-index:0;}
+.career-line-fill{position:absolute;left:14px;top:0;width:2px;height:0;background:linear-gradient(180deg,var(--gold),var(--blue));transition:height .1s linear;z-index:0;}
+.career-step{position:relative;padding-bottom:4rem;opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease;}
+.career-step:last-child{padding-bottom:0;}
+.career-step.career-vis{opacity:1;transform:translateY(0);}
+.career-dot{position:absolute;left:-3.5rem;top:0;width:30px;height:30px;border-radius:50%;background:var(--white);border:2px solid var(--rule);display:flex;align-items:center;justify-content:center;font-size:.75rem;z-index:2;transition:border-color .4s ease,transform .4s ease;}
+.career-step.career-vis .career-dot{border-color:var(--blue);transform:scale(1.1);}
+.career-period{font-family:"DM Mono",monospace;font-size:.7rem;letter-spacing:.08em;color:var(--ink);margin-bottom:.5rem;font-weight:600;}
+.career-company{font-weight:700;font-size:1.15rem;color:var(--ink);margin-bottom:.2rem;}
+.career-industry{font-family:"DM Mono",monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);margin-bottom:1rem;}
+.career-growth{display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem;flex-wrap:wrap;}
+.career-role{font-family:"DM Mono",monospace;font-size:.62rem;letter-spacing:.06em;padding:.35rem .7rem;border:1px solid var(--rule);color:var(--mid);background:var(--white);}
+.career-role.current{border-color:var(--blue);color:var(--blue);font-weight:600;}
+.career-arrow{color:var(--gold);font-size:.7rem;font-weight:700;}
+.career-lesson{font-size:.9rem;color:var(--mid);line-height:1.85;margin-top:.6rem;padding-left:1rem;border-left:2px solid rgba(26,86,219,.15);}
+.career-chapter{font-family:"DM Mono",monospace;font-size:.48rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem;}
 .q-list{display:flex;flex-direction:column;gap:1.6rem;}
 .q-item{display:grid;grid-template-columns:70px 1fr;gap:2rem;align-items:start;padding:2rem;background:var(--white);border:1px solid var(--rule);transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease;}
 .q-item:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 8px 24px rgba(26,86,219,.08);}
@@ -195,9 +278,21 @@ footer p{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;co
 @media(max-width:800px){
   nav{padding:1rem 1.4rem;} .wrap{padding:0 1.4rem;}
   .hero{grid-template-columns:1fr;gap:2rem;padding:2rem 1.4rem;} .photo-wrap{max-width:280px;}
-  .wie-intro,.kan-intro,.van-inner,.cf-grid,.mbti-header,.mbti-dim-grid,.honours-grid,.ambitie-grid,.kwal-grid,.drijfveer-inner{grid-template-columns:1fr;gap:2rem;}
+  .wie-intro,.kan-intro,.van-inner,.cf-compare,.honours-grid,.ambitie-grid,.drijfveer-inner{grid-template-columns:1fr;gap:2rem;}
+  .mbti-hero{grid-template-columns:1fr;gap:1.5rem;padding:2rem;text-align:center;}
+  .mbti-avatar{width:140px;height:140px;}
+  .mbti-dim{grid-template-columns:1fr;gap:.8rem;}
+  .disc-hero{grid-template-columns:1fr;gap:1.5rem;padding:2rem;}
+  .disc-dim{grid-template-columns:48px 1fr;gap:1rem;}
+  .pers-overlap-grid{grid-template-columns:1fr;}
+  .cf-concl-list{grid-template-columns:1fr;}
+  .kwal-scroll{grid-template-columns:1fr;gap:1rem;}
+  .kwal-sticky{position:relative;top:0;padding:1.5rem 0 0;}
+  .kwal-progress{flex-direction:row;flex-wrap:wrap;gap:.4rem;}
+  .kwal-dot-label{display:none;}
+  .kwal-card{min-height:auto;padding:2rem 1.5rem;}
   .drijfveer{padding:2rem;}
-  .skills-grid{grid-template-columns:1fr 1fr;} .sk-flip{min-height:180px;} .sk-flip-inner{min-height:180px;} .q-item{grid-template-columns:50px 1fr;gap:1rem;}
+  .skills-grid{grid-template-columns:1fr 1fr;gap:.8rem;} .sk-flip{min-height:220px;} .sk-flip-inner{min-height:220px;} .q-item{grid-template-columns:50px 1fr;gap:1rem;}
   footer{flex-direction:column;gap:.5rem;text-align:center;}
 }
 </style>
@@ -265,119 +360,261 @@ footer p{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;co
         <p class="body-text">Ik zoek omgevingen die mij uitdagen, inspireren en ruimte geven om te groeien. Kwaliteit maakt het verschil.</p>
       </div>
     </div>
-    <span class="chip orange reveal" style="margin-bottom:1.8rem;">Kwaliteiten</span>
-    <div class="kwal-grid">
-      <div class="kwal-card reveal">
-        <span class="kwal-icon">🚀</span>
-        <div class="kwal-h">Ambitieus</div>
-        <div class="kwal-d">Altijd op zoek naar de volgende stap. Stilstaan voelt als achteruitgaan.</div>
-        <div class="kwal-example">Tijdens mijn studie combineerde ik altijd meerdere rollen tegelijk: stage bij DPG Media én werk bij VBH. Nu, naast mijn afstuderen, ben ik tegelijkertijd Content Manager én Junior Brand Marketeer.</div>
+    <div class="kwal-scroll">
+      <div class="kwal-sticky reveal">
+        <div class="kwal-sticky-title">Kwaliteiten</div>
+        <div class="kwal-progress">
+          <div class="kwal-dot active" data-kwal="0"><span class="kwal-dot-circle"></span><span class="kwal-dot-label">Ambitieus</span></div>
+          <div class="kwal-dot" data-kwal="1"><span class="kwal-dot-circle"></span><span class="kwal-dot-label">Strategisch</span></div>
+          <div class="kwal-dot" data-kwal="2"><span class="kwal-dot-circle"></span><span class="kwal-dot-label">Verantwoordelijk</span></div>
+          <div class="kwal-dot" data-kwal="3"><span class="kwal-dot-circle"></span><span class="kwal-dot-label">Snel leren</span></div>
+          <div class="kwal-dot" data-kwal="4"><span class="kwal-dot-circle"></span><span class="kwal-dot-label">Communicatief</span></div>
+          <div class="kwal-dot" data-kwal="5"><span class="kwal-dot-circle"></span><span class="kwal-dot-label">AI-minded</span></div>
+          <div class="kwal-dot" data-kwal="6"><span class="kwal-dot-circle"></span><span class="kwal-dot-label">Internationaal</span></div>
+        </div>
       </div>
-      <div class="kwal-card reveal d1">
-        <span class="kwal-icon">♟️</span>
-        <div class="kwal-h">Strategisch</div>
-        <div class="kwal-d">Het grote plaatje zien én de details bewaken. Van merkpositionering tot concrete uitvoering.</div>
-        <div class="kwal-example">"Quinty is een enthousiasteling met oog voor het grotere plaatje en vergeet daarbij niet tot in de details door te vragen." — Dennis Bliek</div>
-      </div>
-      <div class="kwal-card reveal d1">
-        <span class="kwal-icon">🎯</span>
-        <div class="kwal-h">Verantwoordelijk</div>
-        <div class="kwal-d">Ownership nemen zonder dat het gevraagd wordt. Problemen oplossen in plaats van doorschuiven.</div>
-        <div class="kwal-example">Als Shift Lead bij Maison de George droeg ik operationele verantwoordelijkheid met directe impact op klantbeleving.</div>
-      </div>
-      <div class="kwal-card reveal d2">
-        <span class="kwal-icon">⚡</span>
-        <div class="kwal-h">Snel leren &amp; schakelen</div>
-        <div class="kwal-d">Nieuwe omgevingen en processen eigen maken in korte tijd — en dan doorgroeien.</div>
-        <div class="kwal-example">"Ze pakt nieuwe taken razendsnel op en werkt precies en gestructureerd." — Febe Aarts, DPG Media</div>
-      </div>
-      <div class="kwal-card reveal d2">
-        <span class="kwal-icon">💬</span>
-        <div class="kwal-h">Communicatief sterk</div>
-        <div class="kwal-d">Helder communiceren, voor eigen mening opkomen en anderen overtuigen — intern en extern.</div>
-        <div class="kwal-example">"Communicatief erg vaardig en kan goed voor zichzelf opkomen." — Dennis Bliek</div>
-      </div>
-      <div class="kwal-card reveal d2">
-        <span class="kwal-icon">🤖</span>
-        <div class="kwal-h">AI-minded marketeer</div>
-        <div class="kwal-d">Ik werk graag met AI en zoek de middenweg tussen technologie en menselijk inzicht. AI versterkt mijn werk — maar vervangt een echte marketeer niet.</div>
-        <div class="kwal-example">Van prompt engineering tot AI-tools inzetten voor contentstrategie. Creativiteit en technologie samen.</div>
-      </div>
-      <div class="kwal-card reveal d3">
-        <span class="kwal-icon">🌍</span>
-        <div class="kwal-h">Internationaal georiënteerd</div>
-        <div class="kwal-d">Werken en studeren in internationale contexten — van superjachten tot Japan en Vancouver.</div>
-        <div class="kwal-example">Internationale business in Japan (Tokyo). Minor aan KPU Vancouver, september 2026.</div>
+      <div class="kwal-cards">
+        <div class="kwal-card kwal-active">
+          <span class="kwal-icon">🚀</span>
+          <div class="kwal-h">Ambitieus</div>
+          <div class="kwal-d">Altijd op zoek naar de volgende stap. Stilstaan voelt als achteruitgaan.</div>
+          <div class="kwal-example">Tijdens mijn studie combineerde ik altijd meerdere rollen tegelijk: stage bij DPG Media én werk bij VBH. Nu, naast mijn afstuderen, ben ik tegelijkertijd Content Manager én Junior Brand Marketeer.</div>
+        </div>
+        <div class="kwal-card">
+          <span class="kwal-icon">♟️</span>
+          <div class="kwal-h">Strategisch</div>
+          <div class="kwal-d">Het grote plaatje zien én de details bewaken. Van merkpositionering tot concrete uitvoering.</div>
+          <div class="kwal-example">"Quinty is een enthousiasteling met oog voor het grotere plaatje en vergeet daarbij niet tot in de details door te vragen." — Dennis Bliek</div>
+        </div>
+        <div class="kwal-card">
+          <span class="kwal-icon">🎯</span>
+          <div class="kwal-h">Verantwoordelijk</div>
+          <div class="kwal-d">Ownership nemen zonder dat het gevraagd wordt. Problemen oplossen in plaats van doorschuiven.</div>
+          <div class="kwal-example">Als Shift Lead bij Maison de George droeg ik operationele verantwoordelijkheid met directe impact op klantbeleving.</div>
+        </div>
+        <div class="kwal-card">
+          <span class="kwal-icon">⚡</span>
+          <div class="kwal-h">Snel leren &amp; schakelen</div>
+          <div class="kwal-d">Nieuwe omgevingen en processen eigen maken in korte tijd — en dan doorgroeien.</div>
+          <div class="kwal-example">"Ze pakt nieuwe taken razendsnel op en werkt precies en gestructureerd." — Febe Aarts, DPG Media</div>
+        </div>
+        <div class="kwal-card">
+          <span class="kwal-icon">💬</span>
+          <div class="kwal-h">Communicatief sterk</div>
+          <div class="kwal-d">Helder communiceren, voor eigen mening opkomen en anderen overtuigen — intern en extern.</div>
+          <div class="kwal-example">"Communicatief erg vaardig en kan goed voor zichzelf opkomen." — Dennis Bliek</div>
+        </div>
+        <div class="kwal-card">
+          <span class="kwal-icon">🤖</span>
+          <div class="kwal-h">AI-minded marketeer</div>
+          <div class="kwal-d">Ik werk graag met AI en zoek de middenweg tussen technologie en menselijk inzicht. AI versterkt mijn werk — maar vervangt een echte marketeer niet.</div>
+          <div class="kwal-example">Van prompt engineering tot AI-tools inzetten voor contentstrategie. Creativiteit en technologie samen.</div>
+        </div>
+        <div class="kwal-card">
+          <span class="kwal-icon">🌍</span>
+          <div class="kwal-h">Internationaal georiënteerd</div>
+          <div class="kwal-d">Werken en studeren in internationale contexten — van superjachten tot Japan en Vancouver.</div>
+          <div class="kwal-example">Internationale business in Japan (Tokyo). Minor aan KPU Vancouver, september 2026.</div>
+        </div>
       </div>
     </div>
     <div class="reveal" style="margin-bottom:4rem;">
       <span class="chip" style="margin-bottom:1.8rem;">Waar pas ik?</span>
       <h2 class="h-serif" style="margin-bottom:.8rem;">MKB vs. <em>corporate</em></h2>
       <p class="body-text">Ik heb beide werelden van dichtbij meegemaakt: VBH als gedreven MKB, DPG Media als grote corporate. Samen geven ze mij een helder beeld van waar ik nu naartoe wil.</p>
-      <div class="cf-grid">
-        <div class="cf-card">
-          <span class="cf-label mkb">MKB — VBH</span>
-          <div class="cf-h">Bewegelijk &amp; persoonlijk</div>
-          <ul class="cf-list">
-            <li>Meer verantwoordelijkheid per persoon</li>
-            <li>Directe impact zichtbaar</li>
-            <li>Innovatieve, snelle omgeving</li>
-            <li class="con">Minder gespecialiseerde kennis</li>
-            <li class="con">Minder structuur en begeleiding</li>
-          </ul>
+      <div class="cf-compare">
+        <div class="cf-col">
+          <div class="cf-col-head">
+            <div class="cf-col-icon mkb">◆</div>
+            <div><div class="cf-col-title">MKB — VBH</div><div class="cf-col-sub">Bewegelijk &amp; persoonlijk</div></div>
+          </div>
+          <div class="cf-items">
+            <div class="cf-item pro"><span class="cf-item-tag">Pluspunt</span><div class="cf-item-text">Meer verantwoordelijkheid per persoon</div></div>
+            <div class="cf-item pro"><span class="cf-item-tag">Pluspunt</span><div class="cf-item-text">Directe impact zichtbaar</div></div>
+            <div class="cf-item pro"><span class="cf-item-tag">Pluspunt</span><div class="cf-item-text">Innovatieve, snelle omgeving</div></div>
+            <div class="cf-item con"><span class="cf-item-tag">Keerzijde</span><div class="cf-item-text">Minder gespecialiseerde kennis</div></div>
+            <div class="cf-item con"><span class="cf-item-tag">Keerzijde</span><div class="cf-item-text">Minder structuur en begeleiding</div></div>
+          </div>
         </div>
-        <div class="cf-card">
-          <span class="cf-label corp">Corporate — DPG Media</span>
-          <div class="cf-h">Gestructureerd &amp; diepgaand</div>
-          <ul class="cf-list">
-            <li>Leren van gespecialiseerde experts</li>
-            <li>Sterke structuur en processen</li>
-            <li>Breed netwerk &amp; schaal</li>
-            <li class="con">Minder ruimte voor eigen initiatief</li>
-            <li class="con">Langzamer besluitvormingsproces</li>
-          </ul>
+        <div class="cf-col">
+          <div class="cf-col-head">
+            <div class="cf-col-icon corp">■</div>
+            <div><div class="cf-col-title">Corporate — DPG Media</div><div class="cf-col-sub">Gestructureerd &amp; diepgaand</div></div>
+          </div>
+          <div class="cf-items">
+            <div class="cf-item pro"><span class="cf-item-tag">Pluspunt</span><div class="cf-item-text">Leren van gespecialiseerde experts</div></div>
+            <div class="cf-item pro"><span class="cf-item-tag">Pluspunt</span><div class="cf-item-text">Sterke structuur en processen</div></div>
+            <div class="cf-item pro"><span class="cf-item-tag">Pluspunt</span><div class="cf-item-text">Breed netwerk &amp; schaal</div></div>
+            <div class="cf-item con"><span class="cf-item-tag">Keerzijde</span><div class="cf-item-text">Minder ruimte voor eigen initiatief</div></div>
+            <div class="cf-item con"><span class="cf-item-tag">Keerzijde</span><div class="cf-item-text">Langzamer besluitvormingsproces</div></div>
+          </div>
         </div>
-        <div class="cf-card highlight">
-          <span class="cf-label fit">Waar ik nu naartoe wil</span>
-          <div class="cf-h">Corporate nu, MKB later</div>
-          <ul class="cf-list">
-            <li>Nu groot: sneller gespecialiseerde kennis</li>
-            <li>Leren van de beste mensen</li>
-            <li>Later kleiner: meer vrijheid en impact</li>
-            <li>En misschien: iets eigens opstarten</li>
-          </ul>
+      </div>
+      <div class="cf-conclusion">
+        <span class="cf-concl-label">Waar ik nu naartoe wil</span>
+        <div class="cf-concl-h">Corporate nu, MKB later</div>
+        <ul class="cf-concl-list">
+          <li>Nu groot: sneller gespecialiseerde kennis</li>
+          <li>Leren van de beste mensen</li>
+          <li>Later kleiner: meer vrijheid en impact</li>
+          <li>En misschien: iets eigens opstarten</li>
+        </ul>
+      </div>
+    </div>
+    <div class="reveal" style="margin-bottom:2rem;">
+      <div class="pers-section-title">Persoonlijkheidstesten</div>
+      <p class="pers-section-sub">Twee tests, drie jaar ertussen — en toch dezelfde rode draad. Van 16Personalities (2022) tot DISC-analyse (2025): wie ik ben als professional is consistent.</p>
+    </div>
+    <div class="pers-test-label reveal"><span class="chip orange" style="margin-bottom:0;">16Personalities — ESTJ-A</span><span class="pers-year">2022</span></div>
+    <div class="mbti-hero reveal d1">
+      <div class="mbti-avatar-wrap">
+        <div class="mbti-avatar">
+          <img src="https://static.neris-assets.com/images/personality-types/avatars/s1/estj-executive.svg" alt="ESTJ-A The Executive avatar">
+        </div>
+      </div>
+      <div class="mbti-hero-text">
+        <div class="mbti-type-letter">ESTJ-A</div>
+        <div class="mbti-type-name">The Executive</div>
+        <div class="mbti-type-sub">Extravert · Observant · Thinking · Judging · Assertive</div>
+        <p class="mbti-hero-desc">Organisatoren met een scherp oog voor structuur en efficiëntie. Executives zijn besluitvaardig, nemen verantwoordelijkheid en brengen orde in chaos — precies hoe ik werk.</p>
+      </div>
+    </div>
+    <h3 class="reveal d1" style="font-family:Playfair Display,serif;font-style:italic;font-size:1.1rem;margin-bottom:1.6rem;">Wat zeggen deze scores over mij?</h3>
+    <div class="mbti-dims">
+      <div class="mbti-dim">
+        <div class="mbti-dim-left">
+          <div class="mbti-dim-label" style="color:var(--mbti-e);">Extravert</div>
+          <div class="mbti-dim-vs">vs. Introvert</div>
+          <div class="mbti-dim-bar"><div class="mbti-dim-bar-fill c-e" data-w="67"></div></div>
+        </div>
+        <div>
+          <div class="mbti-dim-pct" style="color:var(--mbti-e);">67%</div>
+          <div class="mbti-dim-right">Ik laad op van contact en samenwerking. Bij DPG Media groeide ik door actief te netwerken en initiatieven te nemen — niet af te wachten.</div>
+        </div>
+      </div>
+      <div class="mbti-dim">
+        <div class="mbti-dim-left">
+          <div class="mbti-dim-label" style="color:var(--mbti-s);">Observant</div>
+          <div class="mbti-dim-vs">vs. Intuïtief</div>
+          <div class="mbti-dim-bar"><div class="mbti-dim-bar-fill c-s" data-w="62"></div></div>
+        </div>
+        <div>
+          <div class="mbti-dim-pct" style="color:var(--mbti-s);">62%</div>
+          <div class="mbti-dim-right">Ik werk vanuit de werkelijkheid, niet vanuit abstracties. Bij VBH vertaalde ik campagnedoelen direct naar uitvoerbare social media strategieën.</div>
+        </div>
+      </div>
+      <div class="mbti-dim">
+        <div class="mbti-dim-left">
+          <div class="mbti-dim-label" style="color:var(--mbti-t);">Thinking</div>
+          <div class="mbti-dim-vs">vs. Feeling</div>
+          <div class="mbti-dim-bar"><div class="mbti-dim-bar-fill c-t" data-w="72"></div></div>
+        </div>
+        <div>
+          <div class="mbti-dim-pct" style="color:var(--mbti-t);">72%</div>
+          <div class="mbti-dim-right">Beslissingen neem ik rationeel en resultaatgericht. Als Shift Lead loste ik uitdagingen op met een helder hoofd. Logica en resultaat leiden mijn keuzes.</div>
+        </div>
+      </div>
+      <div class="mbti-dim">
+        <div class="mbti-dim-left">
+          <div class="mbti-dim-label" style="color:var(--mbti-j);">Judging</div>
+          <div class="mbti-dim-vs">vs. Prospecting</div>
+          <div class="mbti-dim-bar"><div class="mbti-dim-bar-fill c-j" data-w="76"></div></div>
+        </div>
+        <div>
+          <div class="mbti-dim-pct" style="color:var(--mbti-j);">76%</div>
+          <div class="mbti-dim-right">Structuur en planning zijn mijn kracht. Meerdere veeleisende rollen tegelijk combineren zonder de controle te verliezen — dat zegt genoeg.</div>
+        </div>
+      </div>
+      <div class="mbti-dim">
+        <div class="mbti-dim-left">
+          <div class="mbti-dim-label" style="color:var(--mbti-a);">Assertive</div>
+          <div class="mbti-dim-vs">vs. Turbulent</div>
+          <div class="mbti-dim-bar"><div class="mbti-dim-bar-fill c-a" data-w="81"></div></div>
+        </div>
+        <div>
+          <div class="mbti-dim-pct" style="color:var(--mbti-a);">81%</div>
+          <div class="mbti-dim-right">Zelfverzekerd en stabiel onder druk. Ik kom op voor mijn mening en stel hoge standaarden voor mijzelf én het werk. Lode Broekman: "Zij legt de lat hoog en levert goed werk, zowel kwalitatief als kwantitatief."</div>
         </div>
       </div>
     </div>
-    <span class="chip reveal" style="margin-bottom:1.8rem;">Persoonlijkheidsprofiel — 16Personalities</span>
-    <div class="mbti-wrap reveal d1">
-      <div class="mbti-header">
-        <div>
-          <div class="mbti-type-badge">
-            <div class="mbti-type-letter">ENTJ</div>
-            <div>
-              <div class="mbti-type-name">The Commander</div>
-              <div style="font-family:DM Mono,monospace;font-size:.54rem;letter-spacing:.1em;color:var(--light);margin-top:.2rem;">Extravert · Observant · Thinking · Judging · Assertive</div>
-            </div>
-          </div>
-          <p class="body-text" style="font-size:.84rem;">Mijn profiel verklaart precies waarom ik doe wat ik doe. De vijf dimensies vormen samen een coherent beeld van wie ik ben als professional.</p>
-        </div>
-        <div class="mbti-bars">
-          <div class="mbti-row"><div class="mbti-row-top"><span class="mbti-row-left" style="color:var(--mbti-e);">Extravert</span><span class="mbti-row-pct" style="color:var(--mbti-e);">67%</span></div><div class="mbti-row-right">vs. Introvert</div><div class="mbti-track"><div class="mbti-fill c-e" data-w="67"></div></div></div>
-          <div class="mbti-row"><div class="mbti-row-top"><span class="mbti-row-left" style="color:var(--mbti-s);">Observant</span><span class="mbti-row-pct" style="color:var(--mbti-s);">62%</span></div><div class="mbti-row-right">vs. Intuïtief</div><div class="mbti-track"><div class="mbti-fill c-s" data-w="62"></div></div></div>
-          <div class="mbti-row"><div class="mbti-row-top"><span class="mbti-row-left" style="color:var(--mbti-t);">Thinking</span><span class="mbti-row-pct" style="color:var(--mbti-t);">72%</span></div><div class="mbti-row-right">vs. Feeling</div><div class="mbti-track"><div class="mbti-fill c-t" data-w="72"></div></div></div>
-          <div class="mbti-row"><div class="mbti-row-top"><span class="mbti-row-left" style="color:var(--mbti-j);">Judging</span><span class="mbti-row-pct" style="color:var(--mbti-j);">76%</span></div><div class="mbti-row-right">vs. Prospecting</div><div class="mbti-track"><div class="mbti-fill c-j" data-w="76"></div></div></div>
-          <div class="mbti-row"><div class="mbti-row-top"><span class="mbti-row-left" style="color:var(--mbti-a);">Assertive</span><span class="mbti-row-pct" style="color:var(--mbti-a);">81%</span></div><div class="mbti-row-right">vs. Turbulent</div><div class="mbti-track"><div class="mbti-fill c-a" data-w="81"></div></div></div>
+
+    <div class="pers-test-label reveal" style="margin-top:3rem;"><span class="chip" style="margin-bottom:0;">DISC-analyse — DC-profiel</span><span class="pers-year">2025</span></div>
+    <div class="disc-hero reveal d1">
+      <div>
+        <div class="disc-chart-title">Responsstijl</div>
+        <div class="disc-chart">
+          <div class="disc-bar-wrap"><div class="disc-bar d-bar" data-h="68"></div><div class="disc-bar-pct">68</div><div class="disc-bar-label d-l">D</div></div>
+          <div class="disc-bar-wrap"><div class="disc-bar i-bar" data-h="28"></div><div class="disc-bar-pct">28</div><div class="disc-bar-label i-l">I</div></div>
+          <div class="disc-bar-wrap"><div class="disc-bar s-bar" data-h="22"></div><div class="disc-bar-pct">22</div><div class="disc-bar-label s-l">S</div></div>
+          <div class="disc-bar-wrap"><div class="disc-bar c-bar" data-h="83"></div><div class="disc-bar-pct">83</div><div class="disc-bar-label c-l">C</div></div>
         </div>
       </div>
-      <div style="border-top:1px solid var(--rule);padding-top:1.4rem;margin-top:1.2rem;">
-        <h3 style="font-family:Playfair Display,serif;font-style:italic;font-size:1.05rem;margin-bottom:1rem;">Wat zeggen deze scores over mij?</h3>
-        <div class="mbti-dim-grid">
-          <div class="mbti-dim-card e"><div class="mbti-dim-title" style="color:var(--mbti-e);">67% Extravert</div><div class="mbti-dim-text">Ik laad op van contact en samenwerking. Bij DPG Media groeide ik door actief te netwerken en initiatieven te nemen — niet af te wachten.</div></div>
-          <div class="mbti-dim-card s"><div class="mbti-dim-title" style="color:var(--mbti-s);">62% Observant</div><div class="mbti-dim-text">Ik werk vanuit de werkelijkheid, niet vanuit abstracties. Bij VBH vertaalde ik campagnedoelen direct naar uitvoerbare social media strategieën.</div></div>
-          <div class="mbti-dim-card t"><div class="mbti-dim-title" style="color:var(--mbti-t);">72% Thinking</div><div class="mbti-dim-text">Beslissingen neem ik rationeel en resultaatgericht. Als Shift Lead loste ik uitdagingen op met een helder hoofd. Logica en resultaat leiden mijn keuzes.</div></div>
-          <div class="mbti-dim-card j"><div class="mbti-dim-title" style="color:var(--mbti-j);">76% Judging</div><div class="mbti-dim-text">Structuur en planning zijn mijn kracht. Meerdere veeleisende rollen tegelijk combineren zonder de controle te verliezen — dat zegt genoeg.</div></div>
-          <div class="mbti-dim-card a" style="grid-column:1/-1;"><div class="mbti-dim-title" style="color:var(--mbti-a);">81% Assertive</div><div class="mbti-dim-text">Zelfverzekerd en stabiel onder druk. Ik kom op voor mijn mening en stel hoge standaarden voor mijzelf én het werk. Lode Broekman: "Zij legt de lat hoog en levert goed werk, zowel kwalitatief als kwantitatief."</div></div>
+      <div class="disc-hero-text">
+        <div class="disc-type-letter">DC</div>
+        <div class="disc-type-name">Dominant · Consciëntieus</div>
+        <div class="disc-type-sub">Resultaatgericht met oog voor kwaliteit</div>
+        <p class="disc-hero-desc">Een combinatie van daadkracht en analytisch denken. Ik pak problemen direct aan, maar onderbouw mijn beslissingen met feiten en structuur. Doelen halen op een hoog niveau — daar draait het om.</p>
+      </div>
+    </div>
+    <h3 class="reveal d1" style="font-family:Playfair Display,serif;font-style:italic;font-size:1.1rem;margin-bottom:1.6rem;">De vier gedragsstijlen</h3>
+    <div class="disc-dims">
+      <div class="disc-dim">
+        <div class="disc-dim-icon dd">D</div>
+        <div class="disc-dim-content">
+          <div class="disc-dim-title dd">Dominant — 68 / 78</div>
+          <div class="disc-dim-desc">Resultaatgericht en direct. Ik neem graag de leiding, durf grote problemen te tackelen en ga de confrontatie niet uit de weg. Mijn actieve geest holt al vooruit.</div>
+          <div class="disc-dim-score">Responsstijl 68 · Basisstijl 78</div>
+        </div>
+      </div>
+      <div class="disc-dim">
+        <div class="disc-dim-icon dc">C</div>
+        <div class="disc-dim-content">
+          <div class="disc-dim-title dc">Consciëntieus — 83 / 71</div>
+          <div class="disc-dim-desc">Kwaliteitsgericht en analytisch. Ik werk volgens hoge standaarden, beoordeel gegevens kritisch en neem doordachte beslissingen op basis van feiten.</div>
+          <div class="disc-dim-score">Responsstijl 83 · Basisstijl 71</div>
+        </div>
+      </div>
+      <div class="disc-dim">
+        <div class="disc-dim-icon di">I</div>
+        <div class="disc-dim-content">
+          <div class="disc-dim-title di">Invloed — 28 / 28</div>
+          <div class="disc-dim-desc">Ik overtuig liever met feiten en resultaten dan met enthousiasme. Mijn communicatie is helder en direct — to the point, niet om de mensen heen.</div>
+          <div class="disc-dim-score">Responsstijl 28 · Basisstijl 28</div>
+        </div>
+      </div>
+      <div class="disc-dim">
+        <div class="disc-dim-icon ds">S</div>
+        <div class="disc-dim-content">
+          <div class="disc-dim-title ds">Stabiliteit — 22 / 25</div>
+          <div class="disc-dim-desc">Ik prefereer afwisseling en een veranderlijke omgeving boven routine. Op mijn best als er verschillende projecten tegelijkertijd lopen.</div>
+          <div class="disc-dim-score">Responsstijl 22 · Basisstijl 25</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pers-overlap">
+      <span class="pers-overlap-label">De rode draad — 2022 vs. 2025</span>
+      <p class="pers-overlap-sub">Drie jaar, twee tests, één conclusie. Wat de 16Personalities in 2022 liet zien, bevestigt de DISC-analyse in 2025.</p>
+      <div class="pers-overlap-grid">
+        <div class="pers-overlap-item">
+          <div class="pers-overlap-item-h">Resultaatgericht &amp; besluitvaardig</div>
+          <div class="pers-overlap-item-d">ESTJ's Thinking + Judging komt terug in DISC's hoge D-score. Doelen stellen, beslissingen nemen, doorpakken.</div>
+          <div class="pers-overlap-item-tags"><span class="pers-overlap-tag">Thinking 72%</span><span class="pers-overlap-tag">D-score 78</span></div>
+        </div>
+        <div class="pers-overlap-item">
+          <div class="pers-overlap-item-h">Structuur &amp; kwaliteit</div>
+          <div class="pers-overlap-item-d">Judging (76%) en Consciëntieus (83%) vertellen hetzelfde verhaal: orde, planning en hoge standaarden zijn niet onderhandelbaar.</div>
+          <div class="pers-overlap-item-tags"><span class="pers-overlap-tag">Judging 76%</span><span class="pers-overlap-tag">C-score 83</span></div>
+        </div>
+        <div class="pers-overlap-item">
+          <div class="pers-overlap-item-h">Assertief &amp; direct</div>
+          <div class="pers-overlap-item-d">De hoogste ESTJ-score (Assertive 81%) en de hoogste DISC-basisstijl (D 78) bevestigen: ik kom op voor mijn mening en ben stabiel onder druk.</div>
+          <div class="pers-overlap-item-tags"><span class="pers-overlap-tag">Assertive 81%</span><span class="pers-overlap-tag">D-score 78</span></div>
+        </div>
+        <div class="pers-overlap-item">
+          <div class="pers-overlap-item-h">Actie boven afwachten</div>
+          <div class="pers-overlap-item-d">Extravert (67%) en een lage S-score (22%) laten zien: ik ben een zelfstarter die energie haalt uit nieuwe uitdagingen, niet uit routine.</div>
+          <div class="pers-overlap-item-tags"><span class="pers-overlap-tag">Extravert 67%</span><span class="pers-overlap-tag">S-score 22</span></div>
         </div>
       </div>
     </div>
@@ -397,37 +634,37 @@ footer p{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;co
     <div class="skills-grid">
       <div class="sk-flip reveal">
         <div class="sk-flip-inner">
-          <div class="sk-front"><div class="sk-num">I</div><div class="sk-h">Sociale media strategie</div><div class="sk-d">Campagnes opzetten, content kalenders bouwen en Instagram &amp; LinkedIn-strategieën ontwikkelen voor premium merken als VBH en Alchimia.</div><span class="sk-tag">VBH · Alchimia</span></div>
+          <div class="sk-front"><div class="sk-front-img" style="background-image:url('https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&q=80')"></div><div class="sk-front-overlay"></div><div class="sk-front-content"><div class="sk-num">I</div><div class="sk-h">Sociale media strategie</div><span class="sk-tag">VBH · Alchimia</span></div></div>
           <div class="sk-back"><div class="sk-back-label">In de praktijk</div><div class="sk-back-text"><strong>VBH &amp; Alchimia</strong> — Instagram- en LinkedIn-strategieën ontwikkeld voor een internationaal superjachtmerk actief in 10+ landen. Content kalenders gebouwd en campagnes opgezet voor zowel het moedermerk als het luxury design-label.</div></div>
         </div>
       </div>
       <div class="sk-flip reveal d1">
         <div class="sk-flip-inner">
-          <div class="sk-front"><div class="sk-num">II</div><div class="sk-h">Contentstrategie &amp; storytelling</div><div class="sk-d">Merkverhalen vertalen naar consistente content — van editoriaal conceptdenken tot publicaties voor superjacht- en luxury residence-merken.</div><span class="sk-tag">DPG Media · VBH</span></div>
+          <div class="sk-front"><div class="sk-front-img" style="background-image:url('https://images.unsplash.com/photo-1517842645767-c639042777db?w=600&q=80')"></div><div class="sk-front-overlay"></div><div class="sk-front-content"><div class="sk-num">II</div><div class="sk-h">Contentstrategie &amp; storytelling</div><span class="sk-tag">DPG Media · VBH</span></div></div>
           <div class="sk-back"><div class="sk-back-label">In de praktijk</div><div class="sk-back-text"><strong>DPG Media</strong> — E-learning content ontwikkeld voor het Certified-platform (extern, voor mediaprofessionals) en Digital Continuous Learning (intern). Van stagiaire doorgegroeid naar Content Manager.</div></div>
         </div>
       </div>
       <div class="sk-flip reveal d2">
         <div class="sk-flip-inner">
-          <div class="sk-front"><div class="sk-num">III</div><div class="sk-h">Brand &amp; positionering</div><div class="sk-d">Meedenken over hoe een premium merk zich onderscheidt — van visuele identiteit tot tone of voice en doelgroepstrategie.</div><span class="sk-tag">Alchimia · VBH</span></div>
+          <div class="sk-front"><div class="sk-front-img" style="background-image:url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80')"></div><div class="sk-front-overlay"></div><div class="sk-front-content"><div class="sk-num">III</div><div class="sk-h">Brand &amp; positionering</div><span class="sk-tag">Alchimia · VBH</span></div></div>
           <div class="sk-back"><div class="sk-back-label">In de praktijk</div><div class="sk-back-text"><strong>Alchimia</strong> — Mee gewerkt aan de positionering van Alchimia als luxury design-lijn voor high-end residences en superjachten. Visuele identiteit en tone of voice mee ontwikkeld voor een internationaal premium publiek.</div></div>
         </div>
       </div>
       <div class="sk-flip reveal d1">
         <div class="sk-flip-inner">
-          <div class="sk-front"><div class="sk-num">IV</div><div class="sk-h">Campagne-opzet</div><div class="sk-d">Van concept naar executie. Doelgroepen definiëren, kanalen kiezen en content inzetten op het juiste moment voor het juiste publiek.</div><span class="sk-tag">Instagram · LinkedIn</span></div>
+          <div class="sk-front"><div class="sk-front-img" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80')"></div><div class="sk-front-overlay"></div><div class="sk-front-content"><div class="sk-num">IV</div><div class="sk-h">Campagne-opzet</div><span class="sk-tag">Instagram · LinkedIn</span></div></div>
           <div class="sk-back"><div class="sk-back-label">In de praktijk</div><div class="sk-back-text"><strong>VBH &amp; Alchimia</strong> — Campagnes opgezet van concept tot executie. Doelgroepen gedefinieerd, kanalen gekozen en content strategisch ingezet voor zowel het superjachtmerk als het luxury design-label in een internationale markt.</div></div>
         </div>
       </div>
       <div class="sk-flip reveal d2">
         <div class="sk-flip-inner">
-          <div class="sk-front"><div class="sk-num">V</div><div class="sk-h">Luxury &amp; international context</div><div class="sk-d">Ervaring in de superjachtindustrie, luxury integrated technology &amp; architecture en internationale premium merken. Culturele verschillen vanuit Japan.</div><span class="sk-tag">VBH · Alchimia · Japan</span></div>
+          <div class="sk-front"><div class="sk-front-img" style="background-image:url('https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=600&q=80')"></div><div class="sk-front-overlay"></div><div class="sk-front-content"><div class="sk-num">V</div><div class="sk-h">Luxury &amp; international context</div><span class="sk-tag">VBH · Alchimia · Japan</span></div></div>
           <div class="sk-back"><div class="sk-back-label">In de praktijk</div><div class="sk-back-text"><strong>VBH</strong> — Marketing in de superjachtindustrie en luxury integrated technology &amp; architecture. Internationaal merk actief in 10+ landen. <strong>Japan</strong> — Japanse markt en consumentengedrag onderzocht in Tokyo voor het HvA Honours-programma.</div></div>
         </div>
       </div>
       <div class="sk-flip reveal d3">
         <div class="sk-flip-inner">
-          <div class="sk-front"><div class="sk-num">VI</div><div class="sk-h">Projectmanagement</div><div class="sk-d">Meerdere rollen en projecten tegelijk managen — gestructureerd, precies en op deadline. Bewezen in de praktijk.</div><span class="sk-tag">DPG Media · VBH · UMH</span></div>
+          <div class="sk-front"><div class="sk-front-img" style="background-image:url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&q=80')"></div><div class="sk-front-overlay"></div><div class="sk-front-content"><div class="sk-num">VI</div><div class="sk-h">Projectmanagement</div><span class="sk-tag">DPG Media · VBH · UMH</span></div></div>
           <div class="sk-back"><div class="sk-back-label">In de praktijk</div><div class="sk-back-text">Twee verantwoordelijkheden bij <strong>DPG Media</strong> (Certified + Digital Continuous Learning) én twee bij <strong>VBH</strong> (VBH + Alchimia) tegelijk gemanaged. Daarvoor 4+ jaar Shift Lead bij Maison de George met operationele verantwoordelijkheid.</div></div>
         </div>
       </div>
@@ -451,27 +688,53 @@ footer p{font-family:"DM Mono",monospace;font-size:.56rem;letter-spacing:.1em;co
         </div>
       </div>
     </div>
-    <span class="chip orange reveal" style="margin-bottom:2rem;">Werkervaring</span>
-    <div class="timeline reveal d1">
-      <div class="tl-company">
-        <div class="tl-dot"></div>
-        <div class="tl-company-name">DPG Media Nederland</div>
-        <div class="tl-company-meta">Amsterdam · On-site</div>
-        <div class="tl-role"><div class="tl-role-head"><span class="tl-role-title">Content Manager</span><span class="tl-role-period">Feb 2026 – heden</span></div><div class="tl-role-type">Part-time</div><div class="tl-role-desc">Verantwoordelijk voor de contentprocessen en -strategie binnen DPG Media. Ik beheer de contentagenda, coördineer publicaties en zorg voor consistente merkuitstraling. Nauw samenwerken met redactie, marketing en product om content te optimaliseren voor bereik en engagement.</div></div>
-        <div class="tl-role secondary"><div class="tl-role-head"><span class="tl-role-title">Marketing &amp; Content Stagiaire</span><span class="tl-role-period">Sep 2025 – Feb 2026</span></div><div class="tl-role-type">Stage · 6 maanden</div><div class="tl-role-desc">Content strategie, social media en campagnes voor één van Nederland's grootste mediabedrijven. Focus op doelgroepgericht publiceren en contentkwaliteit.</div></div>
+    <span class="chip orange reveal" style="margin-bottom:1rem;">Werkervaring</span>
+    <h2 class="h-serif reveal" style="margin-bottom:.6rem;">Mijn <em>loopbaanpad</em></h2>
+    <p class="body-text reveal" style="margin-bottom:2.5rem;max-width:520px;">Van de horeca naar marketing — elke stap bracht nieuwe verantwoordelijkheid, nieuwe skills en een duidelijker beeld van wie ik wil zijn als professional.</p>
+    <div class="career-path">
+      <div class="career-line"></div>
+      <div class="career-line-fill"></div>
+
+      <div class="career-step">
+        <div class="career-dot">🍽</div>
+        <div class="career-chapter">Het fundament</div>
+        <div class="career-period">Jun 2021 – Sep 2025</div>
+        <div class="career-company">Maison de George — UMH Group</div>
+        <div class="career-industry">Premium hospitality · Laren</div>
+        <div class="career-growth">
+          <span class="career-role">Medewerker</span>
+          <span class="career-arrow">→</span>
+          <span class="career-role current">Shift Lead</span>
+        </div>
+        <p class="career-lesson">Vier jaar waarin ik leerde leidinggeven, snel schakelen en verantwoordelijkheid nemen. Hier ontdekte ik dat ik het beste functioneer als ik de regie heb — over een team, een avond, een probleem.</p>
       </div>
-      <div class="tl-company">
-        <div class="tl-dot"></div>
-        <div class="tl-company-name">Van Berge Henegouwen (VBH)</div>
-        <div class="tl-company-meta">Weesp · Hybrid — Superjachten &amp; Luxury Residences</div>
-        <div class="tl-role"><div class="tl-role-head"><span class="tl-role-title">Junior Brand Marketeer</span><span class="tl-role-period">Dec 2025 – heden</span></div><div class="tl-role-type">Part-time · 4 maanden</div><div class="tl-role-desc">Brand marketing voor VBH en Alchimia — het luxury design-label voor high-end residences en superjachten. Sociale media strategieën voor Instagram en LinkedIn, campagnes opzetten en content kalenders bouwen voor een internationaal premium merk actief in 5+ landen.</div></div>
-        <div class="tl-role secondary"><div class="tl-role-head"><span class="tl-role-title">Digital Marketing Trainee</span><span class="tl-role-period">Feb 2025 – Dec 2025</span></div><div class="tl-role-type">Part-time · 11 maanden</div><div class="tl-role-desc">Digitale marketing en social media voor VBH en Alchimia. Gewerkt aan de positionering van Alchimia als luxury design-lijn, en aan de internationale social media aanwezigheid van VBH.</div></div>
+
+      <div class="career-step">
+        <div class="career-dot">⚓</div>
+        <div class="career-chapter">Marketing ontdekken</div>
+        <div class="career-period">Feb 2025 – heden</div>
+        <div class="career-company">Van Berge Henegouwen (VBH)</div>
+        <div class="career-industry">Superjachten &amp; luxury residences · Weesp</div>
+        <div class="career-growth">
+          <span class="career-role">Digital Marketing Trainee</span>
+          <span class="career-arrow">→</span>
+          <span class="career-role current">Junior Brand Marketeer</span>
+        </div>
+        <p class="career-lesson">Begonnen als trainee, doorgegroeid naar brand marketeer. Van social media beheer naar campagnes opzetten en merkpositionering voor een internationaal luxemerk. Hier leerde ik marketing niet alleen bedenken, maar ook uitvoeren.</p>
       </div>
-      <div class="tl-company">
-        <div class="tl-dot"></div>
-        <div class="tl-company-name">UMH Group | Maison de George</div>
-        <div class="tl-company-meta">Laren · On-site · Premium hospitality</div>
-        <div class="tl-role"><div class="tl-role-head"><span class="tl-role-title">Shift Lead</span><span class="tl-role-period">Jun 2021 – Sep 2025</span></div><div class="tl-role-type">Part-time · 4 jaar 4 maanden</div><div class="tl-role-desc">Operationele verantwoordelijkheid als leidinggevende in een premium hospitality-omgeving. Team aangestuurd, problemen opgelost en direct invloed gehad op klantbeleving en teamperformance.</div></div>
+
+      <div class="career-step">
+        <div class="career-dot">📡</div>
+        <div class="career-chapter">Van stagiair naar collega</div>
+        <div class="career-period">Sep 2025 – heden</div>
+        <div class="career-company">DPG Media Nederland</div>
+        <div class="career-industry">Media &amp; publishing · Amsterdam</div>
+        <div class="career-growth">
+          <span class="career-role">Marketing &amp; Content Stagiaire</span>
+          <span class="career-arrow">→</span>
+          <span class="career-role current">Content Manager</span>
+        </div>
+        <p class="career-lesson">Stage bij één van Nederland's grootste mediabedrijven — en gebleven als Content Manager. Bewijs dat ik niet alleen leer, maar ook lever. Hier breng ik strategie en uitvoering samen op het snijvlak van content, marketing en product.</p>
       </div>
     </div>
     <div style="margin-top:5rem;">
@@ -586,7 +849,7 @@ document.addEventListener('mousemove', function(e) {
     if (accent) accent.style.transform = 'translate(' + (mx * -4) + 'px,' + (my * -3) + 'px)';
   }
 });
-document.querySelectorAll('a, button, .kwal-card, .q-item, .sk-flip, .ab, .honours-flip, .cf-card, .tl-role, .mbti-row, .mbti-dim-card').forEach(function(el) {
+document.querySelectorAll('a, button, .kwal-dot, .q-item, .sk-flip, .ab, .honours-flip, .cf-item, .career-step, .mbti-dim').forEach(function(el) {
   el.addEventListener('mouseenter', function() { cur.classList.add('big'); });
   el.addEventListener('mouseleave', function() { cur.classList.remove('big'); });
 });
@@ -627,10 +890,188 @@ function fireReveals(container) {
 }
 
 function animBars() {
-  document.querySelectorAll('.mbti-fill').forEach(function(bar) {
+  document.querySelectorAll('.mbti-dim-bar-fill').forEach(function(bar) {
     bar.style.width = bar.getAttribute('data-w') + '%';
   });
 }
+
+// MBTI dimension scroll-reveal + bar animation
+(function() {
+  var dims = document.querySelectorAll('.mbti-dim');
+  if (!dims.length) return;
+  var delay = 0;
+  var mbtiObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var idx = Array.prototype.indexOf.call(dims, entry.target);
+        setTimeout(function() {
+          entry.target.classList.add('mbti-dim-vis');
+          var bar = entry.target.querySelector('.mbti-dim-bar-fill');
+          if (bar) bar.style.width = bar.getAttribute('data-w') + '%';
+        }, idx * 150);
+        mbtiObs.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.2});
+  dims.forEach(function(d) { mbtiObs.observe(d); });
+})();
+
+// Kwaliteiten scroll storytelling
+(function() {
+  var cards = document.querySelectorAll('.kwal-card');
+  var dots = document.querySelectorAll('.kwal-dot');
+  if (!cards.length) return;
+
+  var kwalObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('kwal-active');
+        var idx = Array.prototype.indexOf.call(cards, entry.target);
+        dots.forEach(function(d) { d.classList.remove('active'); });
+        if (dots[idx]) dots[idx].classList.add('active');
+      } else {
+        entry.target.classList.remove('kwal-active');
+      }
+    });
+  }, {threshold: 0.4, rootMargin: '-10% 0px -40% 0px'});
+
+  cards.forEach(function(c) { kwalObs.observe(c); });
+
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      var idx = parseInt(dot.getAttribute('data-kwal'));
+      if (cards[idx]) cards[idx].scrollIntoView({behavior: 'smooth', block: 'center'});
+    });
+  });
+})();
+
+// MKB vs Corporate scroll-reveal stagger
+(function() {
+  var items = document.querySelectorAll('.cf-item');
+  var conclusion = document.querySelector('.cf-conclusion');
+  if (!items.length) return;
+
+  var cfObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        // Find all siblings in same column and stagger them
+        var col = entry.target.closest('.cf-items');
+        if (col) {
+          var siblings = col.querySelectorAll('.cf-item');
+          var delay = 0;
+          siblings.forEach(function(sib) {
+            if (!sib.classList.contains('cf-vis')) {
+              setTimeout(function() { sib.classList.add('cf-vis'); }, delay);
+              delay += 120;
+            }
+          });
+        }
+        cfObs.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.15});
+
+  // Only observe the first item of each column to trigger the stagger
+  document.querySelectorAll('.cf-items').forEach(function(col) {
+    var first = col.querySelector('.cf-item');
+    if (first) cfObs.observe(first);
+  });
+
+  if (conclusion) {
+    var conclObs = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        conclusion.classList.add('cf-vis');
+        conclObs.unobserve(conclusion);
+      }
+    }, {threshold: 0.2});
+    conclObs.observe(conclusion);
+  }
+})();
+
+// Career path scroll storytelling
+(function() {
+  var steps = document.querySelectorAll('.career-step');
+  var lineFill = document.querySelector('.career-line-fill');
+  var path = document.querySelector('.career-path');
+  if (!steps.length || !lineFill || !path) return;
+
+  var stepObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var idx = Array.prototype.indexOf.call(steps, entry.target);
+        setTimeout(function() {
+          entry.target.classList.add('career-vis');
+        }, 100);
+        stepObs.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.25});
+  steps.forEach(function(s) { stepObs.observe(s); });
+
+  // Animate line fill on scroll
+  function updateLine() {
+    var rect = path.getBoundingClientRect();
+    var pathTop = rect.top;
+    var pathH = rect.height;
+    var viewH = window.innerHeight;
+    var scrolled = Math.max(0, viewH - pathTop);
+    var pct = Math.min(1, scrolled / pathH);
+    lineFill.style.height = (pct * pathH) + 'px';
+  }
+  window.addEventListener('scroll', updateLine, {passive: true});
+  updateLine();
+})();
+
+// DISC bar chart + dimension scroll-reveal
+(function() {
+  var bars = document.querySelectorAll('.disc-bar');
+  var dims = document.querySelectorAll('.disc-dim');
+  var overlap = document.querySelector('.pers-overlap');
+  if (!bars.length) return;
+
+  // Animate bars on scroll
+  var barObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var chart = entry.target.closest('.disc-hero');
+        if (chart) {
+          chart.querySelectorAll('.disc-bar').forEach(function(bar) {
+            var h = parseInt(bar.getAttribute('data-h'));
+            bar.style.height = (h / 100 * 160) + 'px';
+          });
+        }
+        barObs.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.3});
+  var firstBar = document.querySelector('.disc-bar');
+  if (firstBar) barObs.observe(firstBar);
+
+  // Dimension cards stagger
+  var dimObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var idx = Array.prototype.indexOf.call(dims, entry.target);
+        setTimeout(function() {
+          entry.target.classList.add('disc-dim-vis');
+        }, idx * 150);
+        dimObs.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.2});
+  dims.forEach(function(d) { dimObs.observe(d); });
+
+  // Overlap section
+  if (overlap) {
+    var oObs = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        overlap.classList.add('pers-vis');
+        oObs.unobserve(overlap);
+      }
+    }, {threshold: 0.15});
+    oObs.observe(overlap);
+  }
+})();
 
 // Interactive 3D Globe with real map texture
 (function() {
